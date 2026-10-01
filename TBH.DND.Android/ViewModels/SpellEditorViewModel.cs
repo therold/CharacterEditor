@@ -10,7 +10,23 @@ namespace TBH.DND.Android.ViewModels
     {
         readonly SpellDatabase db;
 
+        public Array Schools { get; } = Enum.GetValues(typeof(Spell.SpellSchool));
+
         public Spell Current { get; set; } = new Spell();
+
+        private Spell.SpellSchool selectedSchool;
+        public Spell.SpellSchool SelectedSchool
+        {
+            get => selectedSchool;
+            set
+            {
+                if (selectedSchool == value) return;
+                selectedSchool = value;
+                // keep Current.School (string) in sync for persistence
+                Current.School = selectedSchool.ToString();
+                OnPropertyChanged(nameof(SelectedSchool));
+            }
+        }
 
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
@@ -30,13 +46,21 @@ namespace TBH.DND.Android.ViewModels
                 if (s != null)
                 {
                     Current = s;
+                    // try parse existing string into enum, default to first value on failure
+                    if (!Enum.TryParse<Spell.SpellSchool>(Current.School, out var parsed))
+                        parsed = (Spell.SpellSchool)Schools.GetValue(0);
+                    selectedSchool = parsed;
                     OnPropertyChanged(nameof(Current));
+                    OnPropertyChanged(nameof(SelectedSchool));
                 }
             }
             else
             {
                 Current = new Spell();
+                selectedSchool = (Spell.SpellSchool)Schools.GetValue(0);
+                Current.School = selectedSchool.ToString();
                 OnPropertyChanged(nameof(Current));
+                OnPropertyChanged(nameof(SelectedSchool));
             }
         }
 

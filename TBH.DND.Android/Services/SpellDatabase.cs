@@ -42,6 +42,11 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
+            cmd.CommandText = @"INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active) VALUES
+                                ('Fireball', 3, 'Wizard', 'Evocation', '1 action', '150 feet', 'V,S,M', 'Instantaneous', 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.', 1),
+                                ('Cure Wounds', 1, 'Cleric', 'Evocation', '1 action', 'Touch', 'V,S', 'Instantaneous', 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier.', 1),
+                                ('Mage Hand', 0, 'Wizard', 'Conjuration', '1 action', '30 feet', 'V,S', '1 minute', 'A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action.', 1);";
+            cmd.ExecuteNonQuery();
         }
 
         public async Task<List<Spell>> GetActiveSpellsAsync()

@@ -16,8 +16,9 @@
             <Label Text="Class" />
             <Entry Text="{Binding Current.Class}" />
 
+            <!-- Replace the existing School label + Entry with this -->
             <Label Text="School" />
-            <Entry Text="{Binding Current.School}" />
+            <Picker ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" Title="Select school" />
 
             <Label Text="Casting Time" />
             <Entry Text="{Binding Current.CastingTime}" />
