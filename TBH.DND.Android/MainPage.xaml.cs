@@ -77,7 +77,7 @@ namespace TBH.DND.Android
 
         private async void OnHeaderMenuClicked(object? sender, EventArgs e)
         {
-            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spell List", "Expand All", "Collapse All");
+            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spells", "Expand All", "Collapse All");
             if (action == "Add Spell")
             {
                 await Shell.Current.GoToAsync("SpellEditorPage");
