@@ -77,7 +77,7 @@ namespace TBH.DND.Android
 
         private async void OnHeaderMenuClicked(object? sender, EventArgs e)
         {
-            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spell List");
+            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spell List", "Expand All", "Collapse All");
             if (action == "Add Spell")
             {
                 await Shell.Current.GoToAsync("SpellEditorPage");
@@ -85,6 +85,26 @@ namespace TBH.DND.Android
             else if (action == "Edit Spell List")
             {
                 await Shell.Current.GoToAsync("AllSpellsPage");
+            }
+            else if (action == "Expand All")
+            {
+                if (vm != null)
+                {
+                    foreach (var spell in vm.Spells)
+                    {
+                        spell.IsExpanded = true;
+                    }
+                }
+            }
+            else if (action == "Collapse All")
+            {
+                if (vm != null)
+                {
+                    foreach (var spell in vm.Spells)
+                    {
+                        spell.IsExpanded = false;
+                    }
+                }
             }
         }
     }
