@@ -8,24 +8,20 @@ using TBH.DND.Android.Models;
 
 namespace TBH.DND.Android.Services
 {
-    public class SpellDatabase
+    public class SpellDatabase : Database
     {
-        readonly string dbPath;
-
-        public SpellDatabase()
+        public SpellDatabase() : base()
         {
-            var folder = FileSystem.AppDataDirectory;
-            dbPath = Path.Combine(folder, "spells.db");
             Initialize();
         }
 
         void Initialize()
         {
-            if (File.Exists(dbPath))
+            if (File.Exists(DbPath))
             {
-                File.Delete(dbPath);
+                File.Delete(DbPath);
             }
-            using var conn = new SqliteConnection($"Data Source={dbPath}");
+            using var conn = new SqliteConnection($"Data Source={DbPath}");
             conn.Open();
             using var cmd = conn.CreateCommand();
             cmd.CommandText = @"CREATE TABLE IF NOT EXISTS Spells (
@@ -54,7 +50,7 @@ namespace TBH.DND.Android.Services
             var list = new List<Spell>();
             await Task.Run(() =>
             {
-                using var conn = new SqliteConnection($"Data Source={dbPath}");
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Active = 1 ORDER BY Level ASC, Name ASC";
@@ -85,7 +81,7 @@ namespace TBH.DND.Android.Services
             var list = new List<Spell>();
             await Task.Run(() =>
             {
-                using var conn = new SqliteConnection($"Data Source={dbPath}");
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells ORDER BY Level ASC, Name ASC";
@@ -115,7 +111,7 @@ namespace TBH.DND.Android.Services
         {
             return await Task.Run(() =>
             {
-                using var conn = new SqliteConnection($"Data Source={dbPath}");
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Id = $id";
@@ -146,7 +142,7 @@ namespace TBH.DND.Android.Services
         {
             await Task.Run(() =>
             {
-                using var conn = new SqliteConnection($"Data Source={dbPath}");
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 if (s.Id == 0)
@@ -176,7 +172,7 @@ namespace TBH.DND.Android.Services
         {
             await Task.Run(() =>
             {
-                using var conn = new SqliteConnection($"Data Source={dbPath}");
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = "DELETE FROM Spells WHERE Id = $id";
