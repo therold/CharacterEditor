@@ -11,8 +11,9 @@
             <Entry Text="{Binding Current.Name}" />
 
             <Label Text="Level" />
-            <Entry Keyboard="Numeric" Text="{Binding Current.Level}" />
-
+            <!--<Entry Keyboard="Numeric" Text="{Binding Current.Level}" />-->
+            <Picker ItemsSource="{Binding Levels}" SelectedItem="{Binding SelectedLevel}" Title="Select level" />
+            
             <Label Text="Class" />
             <Entry Text="{Binding Current.Class}" />
 
