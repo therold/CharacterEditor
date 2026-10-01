@@ -19,13 +19,11 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" />
                             <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Class}" FontAttributes="Italic" />
-                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" />
+                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" />
                         </Grid>
                     </Border>
                 </DataTemplate>
