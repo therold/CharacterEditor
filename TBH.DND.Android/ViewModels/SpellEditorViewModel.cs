@@ -41,6 +41,103 @@ namespace TBH.DND.Android.ViewModels
             }
         }
 
+        public bool ClassBard
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Bard) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Bard;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Bard;
+                OnPropertyChanged(nameof(ClassBard));
+            }
+        }
+        public bool ClassCleric
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Cleric) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Cleric;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Cleric;
+                OnPropertyChanged(nameof(ClassCleric));
+            }
+        }
+        public bool ClassDruid
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Druid) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Druid;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Druid;
+                OnPropertyChanged(nameof(ClassDruid));
+            }
+        }
+        public bool ClassPaladin
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Paladin) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Paladin;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Paladin;
+                OnPropertyChanged(nameof(ClassPaladin));
+            }
+        }
+        public bool ClassRanger
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Ranger) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Ranger;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Ranger;
+                OnPropertyChanged(nameof(ClassRanger));
+            }
+        }
+        public bool ClassSorcerer
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Sorcerer) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Sorcerer;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Sorcerer;
+                OnPropertyChanged(nameof(ClassSorcerer));
+            }
+        }
+        public bool ClassWarlock
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Warlock) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Warlock;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Warlock;
+                OnPropertyChanged(nameof(ClassWarlock));
+            }
+        }
+        public bool ClassWizard
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Wizard) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Wizard;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Wizard;
+                OnPropertyChanged(nameof(ClassWizard));
+            }
+        }
+
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
 
@@ -67,6 +164,14 @@ namespace TBH.DND.Android.ViewModels
                     OnPropertyChanged(nameof(Current));
                     OnPropertyChanged(nameof(SelectedSchool));
                     OnPropertyChanged(nameof(SelectedLevel));
+                    OnPropertyChanged(nameof(ClassBard));
+                    OnPropertyChanged(nameof(ClassCleric));
+                    OnPropertyChanged(nameof(ClassDruid));
+                    OnPropertyChanged(nameof(ClassPaladin));
+                    OnPropertyChanged(nameof(ClassRanger));
+                    OnPropertyChanged(nameof(ClassSorcerer));
+                    OnPropertyChanged(nameof(ClassWarlock));
+                    OnPropertyChanged(nameof(ClassWizard));
                 }
             }
             else

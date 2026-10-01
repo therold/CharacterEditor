@@ -23,8 +23,8 @@ namespace TBH.DND.Android.Models
 
         public string LevelDisplay => Level == 0 ? "Cantrip" : $"{Level}";
 
-        private string @class = string.Empty;
-        public string Class
+        private int @class;
+        public int Class
         {
             get => @class;
             set => SetProperty(ref @class, value);
@@ -89,6 +89,32 @@ namespace TBH.DND.Android.Models
             Illusion,
             Necromancy,
             Transmutation
+        }
+
+        public enum SpellLevel
+        {
+            Cantrip = 0,
+            First = 1,
+            Second = 2,
+            Third = 3,
+            Fourth = 4,
+            Fifth = 5,
+            Sixth = 6,
+            Seventh = 7,
+            Eighth = 8,
+            Ninth = 9
+        }
+
+        public enum SpellClass
+        {
+            Bard = 1,
+            Cleric = 2,
+            Druid = 4,
+            Paladin = 8,
+            Ranger = 16,
+            Sorcerer = 32,
+            Warlock = 64,
+            Wizard = 128
         }
 
         // UI property, not persisted

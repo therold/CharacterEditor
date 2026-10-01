@@ -32,7 +32,7 @@ namespace TBH.DND.Android.Services
                                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     Name TEXT,
                                     Level INTEGER,
-                                    Class TEXT,
+                                    Class INTEGER,
                                     School TEXT,
                                     CastingTime TEXT,
                                     Range TEXT,
@@ -43,9 +43,9 @@ namespace TBH.DND.Android.Services
                                 );";
             cmd.ExecuteNonQuery();
             cmd.CommandText = @"INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active) VALUES
-                                ('Fireball', 3, 'Wizard', 'Evocation', '1 action', '150 feet', 'V,S,M', 'Instantaneous', 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.', 1),
-                                ('Cure Wounds', 1, 'Cleric', 'Evocation', '1 action', 'Touch', 'V,S', 'Instantaneous', 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier.', 1),
-                                ('Mage Hand', 0, 'Wizard', 'Conjuration', '1 action', '30 feet', 'V,S', '1 minute', 'A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action.', 1);";
+                                ('Fireball', 3, 128, 'Evocation', '1 action', '150 feet', 'V,S,M', 'Instantaneous', 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.', 1),
+                                ('Cure Wounds', 1, 2, 'Evocation', '1 action', 'Touch', 'V,S', 'Instantaneous', 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier.', 1),
+                                ('Mage Hand', 0, 128, 'Conjuration', '1 action', '30 feet', 'V,S', '1 minute', 'A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action.', 1);";
             cmd.ExecuteNonQuery();
         }
 
@@ -66,7 +66,7 @@ namespace TBH.DND.Android.Services
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
-                        Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                        Class = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
                         School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                         CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
@@ -97,7 +97,7 @@ namespace TBH.DND.Android.Services
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
-                        Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                        Class = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
                         School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                         CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
@@ -128,7 +128,7 @@ namespace TBH.DND.Android.Services
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
-                        Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                        Class = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
                         School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                         CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
@@ -160,7 +160,7 @@ namespace TBH.DND.Android.Services
                 }
                 cmd.Parameters.AddWithValue("$name", s.Name ?? string.Empty);
                 cmd.Parameters.AddWithValue("$level", s.Level);
-                cmd.Parameters.AddWithValue("$class", s.Class ?? string.Empty);
+                cmd.Parameters.AddWithValue("$class", s.Class);
                 cmd.Parameters.AddWithValue("$school", s.School ?? string.Empty);
                 cmd.Parameters.AddWithValue("$castingTime", s.CastingTime ?? string.Empty);
                 cmd.Parameters.AddWithValue("$range", s.Range ?? string.Empty);
