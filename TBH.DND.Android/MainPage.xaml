@@ -36,7 +36,51 @@
                                     <Label Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
-                                <Label Text="{Binding Description}" IsVisible="{Binding IsExpanded}" />
+                                <!--
+                                <VerticalStackLayout IsVisible="{Binding IsExpanded}">
+                                    <HorizontalStackLayout>
+                                        <Label Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
+                                        <Label Padding="0,0,20,0" Text="{Binding School}" FontAttributes="Italic" FontSize="12" />
+                                        <Label Padding="0,0,3,0" Text="Time" FontAttributes="Bold" FontSize="12" />
+                                        <Label Padding="0,0,20,0" Text="{Binding CastingTime}" FontAttributes="Italic" FontSize="12" />
+                                        <Label Padding="0,0,3,0" Text="Range" FontAttributes="Bold" FontSize="12" />
+                                        <Label Padding="0,0,20,0" Text="{Binding Range}" FontAttributes="Italic" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Padding="0,0,3,0" Text="Duration" FontAttributes="Bold" FontSize="12" />
+                                        <Label Padding="0,0,20,0" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
+                                        <Label Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
+                                        <Label Padding="0,0,20,0" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                -->
+                                <Grid IsVisible="{Binding IsExpanded}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Padding="0,0,10,0" Text="{Binding Description}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding School}" FontAttributes="Italic" FontSize="12" />
+                                    <Label Grid.Row="1" Grid.Column="1" Padding="0,0,3,0" Text="Time" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding CastingTime}" FontAttributes="Italic" FontSize="12" />
+
+
+                                    <Label Grid.Row="2" Grid.Column="1" Padding="0,0,3,0" Text="Range" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding Range}" FontAttributes="Italic" FontSize="12" />
+                                    <Label Grid.Row="3" Grid.Column="1" Padding="0,0,3,0" Text="Duration" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="3" Grid.Column="2" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
+                                    <Label Grid.Row="4" Grid.Column="1" Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="4" Grid.Column="2" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
+                                </Grid>
                             </VerticalStackLayout>
                         </Border>
                     </SwipeView>
