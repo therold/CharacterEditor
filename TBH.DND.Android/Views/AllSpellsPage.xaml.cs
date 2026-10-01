@@ -19,8 +19,6 @@ namespace TBH.DND.Android.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (vm != null)
-                await vm.LoadAsync();
         }
 
         private async void OnActiveToggled(object? sender, ToggledEventArgs e)
