@@ -21,6 +21,10 @@ namespace TBH.DND.Android.Services
 
         void Initialize()
         {
+            if (File.Exists(dbPath))
+            {
+                File.Delete(dbPath);
+            }
             using var conn = new SqliteConnection($"Data Source={dbPath}");
             conn.Open();
             using var cmd = conn.CreateCommand();
@@ -29,6 +33,11 @@ namespace TBH.DND.Android.Services
                                     Name TEXT,
                                     Level INTEGER,
                                     Class TEXT,
+                                    School TEXT,
+                                    CastingTime TEXT,
+                                    Range TEXT,
+                                    Components TEXT,
+                                    Duration TEXT,
                                     Description TEXT,
                                     Active INTEGER
                                 );";
@@ -43,7 +52,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={dbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, Description, Active FROM Spells WHERE Active = 1 ORDER BY Level ASC, Name ASC";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Active = 1 ORDER BY Level ASC, Name ASC";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -53,8 +62,13 @@ namespace TBH.DND.Android.Services
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
                         Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
-                        Description = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                        Active = !reader.IsDBNull(5) && reader.GetInt32(5) == 1
+                        School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                        CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                        Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                        Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                        Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
                     });
                 }
             });
@@ -69,7 +83,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={dbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, Description, Active FROM Spells ORDER BY Level ASC, Name ASC";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells ORDER BY Level ASC, Name ASC";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -79,8 +93,13 @@ namespace TBH.DND.Android.Services
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
                         Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
-                        Description = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                        Active = !reader.IsDBNull(5) && reader.GetInt32(5) == 1
+                        School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                        CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                        Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                        Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                        Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
                     });
                 }
             });
@@ -94,7 +113,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={dbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, Description, Active FROM Spells WHERE Id = $id";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Id = $id";
                 cmd.Parameters.AddWithValue("$id", id);
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -105,8 +124,13 @@ namespace TBH.DND.Android.Services
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                         Level = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
                         Class = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
-                        Description = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                        Active = !reader.IsDBNull(5) && reader.GetInt32(5) == 1
+                        School = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                        CastingTime = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                        Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                        Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                        Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
                     };
                 }
                 return null;
@@ -122,16 +146,21 @@ namespace TBH.DND.Android.Services
                 using var cmd = conn.CreateCommand();
                 if (s.Id == 0)
                 {
-                    cmd.CommandText = "INSERT INTO Spells (Name, Level, Class, Description, Active) VALUES ($name, $level, $class, $desc, $active);";
+                    cmd.CommandText = "INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active) VALUES ($name, $level, $class, $school, $castingTime, $range, $components, $duration, $desc, $active);";
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE Spells SET Name=$name, Level=$level, Class=$class, Description=$desc, Active=$active WHERE Id=$id;";
+                    cmd.CommandText = "UPDATE Spells SET Name=$name, Level=$level, Class=$class, School=$school, CastingTime=$castingTime, Range=$range, Components=$components, Duration=$duration, Description=$desc, Active=$active WHERE Id=$id;";
                     cmd.Parameters.AddWithValue("$id", s.Id);
                 }
                 cmd.Parameters.AddWithValue("$name", s.Name ?? string.Empty);
                 cmd.Parameters.AddWithValue("$level", s.Level);
                 cmd.Parameters.AddWithValue("$class", s.Class ?? string.Empty);
+                cmd.Parameters.AddWithValue("$school", s.School ?? string.Empty);
+                cmd.Parameters.AddWithValue("$castingTime", s.CastingTime ?? string.Empty);
+                cmd.Parameters.AddWithValue("$range", s.Range ?? string.Empty);
+                cmd.Parameters.AddWithValue("$components", s.Components ?? string.Empty);
+                cmd.Parameters.AddWithValue("$duration", s.Duration ?? string.Empty);
                 cmd.Parameters.AddWithValue("$desc", s.Description ?? string.Empty);
                 cmd.Parameters.AddWithValue("$active", s.Active ? 1 : 0);
                 cmd.ExecuteNonQuery();

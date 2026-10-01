@@ -33,10 +33,9 @@
                             </Border.GestureRecognizers>
                             <VerticalStackLayout>
                                 <HorizontalStackLayout>
-                                    <Label Text="{Binding Level}" FontAttributes="Bold" WidthRequest="36" />
+                                    <Label Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
-                                <Label Text="{Binding Class}" FontAttributes="Italic" />
                                 <Label Text="{Binding Description}" IsVisible="{Binding IsExpanded}" />
                             </VerticalStackLayout>
                         </Border>

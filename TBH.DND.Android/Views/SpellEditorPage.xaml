@@ -16,6 +16,21 @@
             <Label Text="Class" />
             <Entry Text="{Binding Current.Class}" />
 
+            <Label Text="School" />
+            <Entry Text="{Binding Current.School}" />
+
+            <Label Text="Casting Time" />
+            <Entry Text="{Binding Current.CastingTime}" />
+
+            <Label Text="Range" />
+            <Entry Text="{Binding Current.Range}" />
+
+            <Label Text="Components" />
+            <Entry Text="{Binding Current.Components}" />
+
+            <Label Text="Duration" />
+            <Entry Text="{Binding Current.Duration}" />
+
             <Label Text="Description" />
             <Editor HeightRequest="150" Text="{Binding Current.Description}" />
 

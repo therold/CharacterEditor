@@ -21,11 +21,48 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref level, value);
         }
 
+        public string LevelDisplay => Level == 0 ? "Cantrip" : $"{Level}";
+
         private string @class = string.Empty;
         public string Class
         {
             get => @class;
             set => SetProperty(ref @class, value);
+        }
+
+        private string school = string.Empty;
+        public string School
+        {
+            get => school;
+            set => SetProperty(ref school, value);
+        }
+
+        private string castingTime = string.Empty;
+        public string CastingTime
+        {
+            get => castingTime;
+            set => SetProperty(ref castingTime, value);
+        }
+
+        private string range = string.Empty;
+        public string Range
+        {
+            get => range;
+            set => SetProperty(ref range, value);
+        }
+
+        private string components = string.Empty;
+        public string Components
+        {
+            get => components;
+            set => SetProperty(ref components, value);
+        }
+
+        private string duration = string.Empty;
+        public string Duration
+        {
+            get => duration;
+            set => SetProperty(ref duration, value);
         }
 
         private string description = string.Empty;
@@ -40,6 +77,18 @@ namespace TBH.DND.Android.Models
         {
             get => active;
             set => SetProperty(ref active, value);
+        }
+
+        public enum SpellSchool
+        {
+            Abjuration,
+            Conjuration,
+            Divination,
+            Enchantment,
+            Evocation,
+            Illusion,
+            Necromancy,
+            Transmutation
         }
 
         // UI property, not persisted
