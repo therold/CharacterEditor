@@ -8,8 +8,7 @@ namespace TBH.DND.Android
         {
             InitializeComponent();
             Routing.RegisterRoute("SpellEditorPage", typeof(SpellEditorPage));
-            // Register route for AllSpellsPage so Shell navigation can navigate to it by route name.
-            Routing.RegisterRoute("AllSpellsPage", typeof(TBH.DND.Android.Views.AllSpellsPage));
+            Routing.RegisterRoute("AllSpellsPage", typeof(AllSpellsPage));
         }
 
         private async void OnAddSpellFlyoutClicked(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
 using TBH.DND.Android.ViewModels;
 using TBH.DND.Android.Models;
+using TBH.DND.Android.Services;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,14 +11,14 @@ namespace TBH.DND.Android
 {
     public partial class MainPage : ContentPage
     {
-        SpellListViewModel vm;
-        TBH.DND.Android.Services.SpellDatabase db;
+        private SpellListViewModel vm;
+        private SpellDatabase db;
 
         public MainPage()
         {
             InitializeComponent();
             vm = App.Services?.GetService(typeof(SpellListViewModel)) as SpellListViewModel;
-            db = App.Services?.GetService(typeof(TBH.DND.Android.Services.SpellDatabase)) as TBH.DND.Android.Services.SpellDatabase;
+            db = App.Services?.GetService(typeof(SpellDatabase)) as SpellDatabase;
             BindingContext = vm;
         }
 
@@ -27,16 +28,6 @@ namespace TBH.DND.Android
             if (vm != null)
                 await vm.LoadAsync();
         }
-
-        //// Handler for the hamburger menu button. Presents a simple action sheet with menu choices.
-        //private async void OnMenuClicked(object sender, EventArgs e)
-        //{
-        //    var action = await DisplayActionSheet("Menu", "Cancel", null, "Add Spell");
-        //    if (action == "Add Spell")
-        //    {
-        //        await Shell.Current.GoToAsync("SpellEditorPage");
-        //    }
-        //}
 
         private async void OnAddSpellClicked(object sender, EventArgs e)
         {
@@ -55,19 +46,6 @@ namespace TBH.DND.Android
                 s.IsExpanded = !s.IsExpanded;
             }
         }
-        // Pressed/Released handlers removed; using SwipeView Edit action instead for per-item edit.
-
-        //private async void OnEditMenuClicked(object sender, EventArgs e)
-        //{
-        //    if (sender is MenuFlyoutItem mfi)
-        //    {
-        //        if (mfi.CommandParameter is Spell s)
-        //        {
-        //            // navigate and pass the integer Id as query parameter expected by SpellEditorPage
-        //            await Shell.Current.GoToAsync($"SpellEditorPage?id={s.Id}");
-        //        }
-        //    }
-        //}
 
         private async void OnEditSwipeItemInvoked(object sender, EventArgs e)
         {
