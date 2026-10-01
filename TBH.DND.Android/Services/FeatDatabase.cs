@@ -1,0 +1,142 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
+using Microsoft.Maui.Storage;
+using TBH.DND.Android.Models;
+
+namespace TBH.DND.Android.Services
+{
+    public class FeatDatabase : Database
+    {
+        public FeatDatabase() : base()
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
+            using var conn = new SqliteConnection($"Data Source={DbPath}");
+            conn.Open();
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS Feats (
+                                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Name TEXT,
+                                    Description TEXT,
+                                    Active INTEGER
+                                );";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = @"INSERT INTO Feats (Name, Description, Active) VALUES
+                                ('Alert', 'You gain a +5 bonus to initiative, you can’t be surprised while you are conscious, and other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.', 1),
+                                ('Athlete', 'You have a +1 bonus to Strength or Dexterity (your choice), and you can climb faster and jump farther.', 1),
+                                ('Actor', 'You gain a +1 bonus to Charisma, and you have advantage on Deception and Performance checks when trying to pass yourself off as a different person.', 1);";
+            cmd.ExecuteNonQuery();
+        }
+
+        public async Task<List<Feat>> GetActiveFeatsAsync()
+        {
+            var list = new List<Feat>();
+            await Task.Run(() =>
+            {
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT Id, Name, Description FROM Feats WHERE Active = 1";
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new Feat
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                    });
+                }
+            });
+            return list;
+        }
+
+        public async Task<List<Feat>> GetAllFeatsAsync()
+        {
+            var list = new List<Feat>();
+            await Task.Run(() =>
+            {
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT Id, Name, Description FROM Feats";
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new Feat
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                    });
+                }
+            });
+            return list;
+        }
+
+        public async Task<Feat?> GetFeatAsync(int id)
+        {
+            return await Task.Run(() =>
+            {
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT Id, Name, Description FROM Feats WHERE Id = $id";
+                cmd.Parameters.AddWithValue("$id", id);
+                using var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new Feat
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                    };
+                }
+                return null;
+            });
+        }
+
+        public async Task SaveFeatAsync(Feat f)
+        {
+            await Task.Run(() =>
+            {
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                if (f.Id == 0)
+                {
+                    cmd.CommandText = "INSERT INTO Feats (Name, Description, Active) VALUES ($name, $desc, $active);";
+                }
+                else
+                {
+                    cmd.CommandText = "UPDATE Feats SET Name=$name, Description=$desc, Active=$active WHERE Id=$id;";
+                    cmd.Parameters.AddWithValue("$id", f.Id);
+                }
+                cmd.Parameters.AddWithValue("$name", f.Name ?? string.Empty);
+                cmd.Parameters.AddWithValue("$desc", f.Description ?? string.Empty);
+                cmd.Parameters.AddWithValue("$active", 1);
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public async Task DeleteFeatAsync(int id)
+        {
+            await Task.Run(() =>
+            {
+                using var conn = new SqliteConnection($"Data Source={DbPath}");
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM Feats WHERE Id = $id";
+                cmd.Parameters.AddWithValue("$id", id);
+                cmd.ExecuteNonQuery();
+            });
+        }
+    }
+}

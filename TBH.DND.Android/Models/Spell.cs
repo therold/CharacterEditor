@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace TBH.DND.Android.Models
 {
-    public class Spell : INotifyPropertyChanged
+    public class Spell : BaseModel
     {
         public int Id { get; set; }
 
@@ -115,25 +115,6 @@ namespace TBH.DND.Android.Models
             Sorcerer = 32,
             Warlock = 64,
             Wizard = 128
-        }
-
-        // UI property, not persisted
-        private bool isExpanded;
-        public bool IsExpanded
-        {
-            get => isExpanded;
-            set => SetProperty(ref isExpanded, value);
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "")
-        {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
-                return false;
-            backingStore = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            return true;
         }
     }
 }

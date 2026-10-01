@@ -10,16 +10,19 @@ namespace TBH.DND.Android.ViewModels
     public class SpellListViewModel : BindableObject
     {
         readonly SpellDatabase db;
+        readonly FeatDatabase featDb;
 
         public ObservableCollection<Spell> Spells { get; } = new ObservableCollection<Spell>();
+        public ObservableCollection<Feat> Feats { get; } = new ObservableCollection<Feat>();
 
         public ICommand RefreshCommand { get; }
         public ICommand ToggleExpandCommand { get; }
         public ICommand OpenEditorCommand { get; }
 
-        public SpellListViewModel(SpellDatabase database)
+        public SpellListViewModel(SpellDatabase database, FeatDatabase featDatabase)
         {
             db = database;
+            featDb = featDatabase;
             RefreshCommand = new Command(async () => await LoadAsync());
             ToggleExpandCommand = new Command<Spell>((s) => { if (s != null) s.IsExpanded = !s.IsExpanded; });
             OpenEditorCommand = new Command(async () => await Shell.Current.GoToAsync("SpellEditorPage"));
@@ -33,6 +36,10 @@ namespace TBH.DND.Android.ViewModels
             var items = await db.GetActiveSpellsAsync();
             foreach (var s in items)
                 Spells.Add(s);
+            Feats.Clear();
+            var feats = await featDb.GetActiveFeatsAsync();
+            foreach (var f in feats)
+                Feats.Add(f);
         }
     }
 }
