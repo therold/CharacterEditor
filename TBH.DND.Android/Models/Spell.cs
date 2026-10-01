@@ -7,7 +7,7 @@ namespace TBH.DND.Android.Models
     {
         public int Id { get; set; }
 
-        private string name;
+        private string name = string.Empty;
         public string Name
         {
             get => name;
@@ -21,14 +21,14 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref level, value);
         }
 
-        private string @class;
+        private string @class = string.Empty;
         public string Class
         {
             get => @class;
             set => SetProperty(ref @class, value);
         }
 
-        private string description;
+        private string description = string.Empty;
         public string Description
         {
             get => description;
@@ -50,7 +50,7 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref isExpanded, value);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "")
         {

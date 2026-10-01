@@ -7,9 +7,9 @@ namespace TBH.DND.Android.Views
     [QueryProperty(nameof(SpellId), "id")]
     public partial class SpellEditorPage : ContentPage
     {
-        SpellEditorViewModel vm;
+        private SpellEditorViewModel? vm;
 
-        string spellId;
+        private string spellId = string.Empty;
         public string SpellId
         {
             get => spellId;
@@ -18,11 +18,11 @@ namespace TBH.DND.Android.Views
                 spellId = value;
                 if (int.TryParse(spellId, out var id))
                 {
-                    _ = vm.LoadAsync(id);
+                    vm?.LoadAsync(id);
                 }
                 else
                 {
-                    _ = vm.LoadAsync(null);
+                    vm?.LoadAsync(null);
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace TBH.DND.Android.Views
 {
     public partial class AllSpellsPage : ContentPage
     {
-        AllSpellsViewModel vm;
+        private AllSpellsViewModel? vm;
 
         public AllSpellsPage()
         {
@@ -23,7 +23,7 @@ namespace TBH.DND.Android.Views
                 await vm.LoadAsync();
         }
 
-        private async void OnActiveToggled(object sender, ToggledEventArgs e)
+        private async void OnActiveToggled(object? sender, ToggledEventArgs e)
         {
             if (sender is Switch sw && sw.BindingContext is Spell spell)
             {

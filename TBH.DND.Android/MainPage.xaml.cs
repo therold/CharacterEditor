@@ -11,8 +11,8 @@ namespace TBH.DND.Android
 {
     public partial class MainPage : ContentPage
     {
-        private SpellListViewModel vm;
-        private SpellDatabase db;
+        private SpellListViewModel? vm;
+        private SpellDatabase? db;
 
         public MainPage()
         {
@@ -29,17 +29,17 @@ namespace TBH.DND.Android
                 await vm.LoadAsync();
         }
 
-        private async void OnAddSpellClicked(object sender, EventArgs e)
+        private async void OnAddSpellClicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("SpellEditorPage");
         }
 
-        private async void OnEditSpellListClicked(object sender, EventArgs e)
+        private async void OnEditSpellListClicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("AllSpellsPage");
         }
 
-         private void OnItemTapped(object sender, EventArgs e)
+         private void OnItemTapped(object? sender, EventArgs e)
         {
             if (sender is VisualElement ve && ve.BindingContext is Spell s)
             {
@@ -47,7 +47,7 @@ namespace TBH.DND.Android
             }
         }
 
-        private async void OnEditSwipeItemInvoked(object sender, EventArgs e)
+        private async void OnEditSwipeItemInvoked(object? sender, EventArgs e)
         {
             if (sender is SwipeItem si)
             {
@@ -58,11 +58,11 @@ namespace TBH.DND.Android
             }
         }
 
-        private async void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+        private async void OnDeleteSwipeItemInvoked(object? sender, EventArgs e)
         {
             if (sender is SwipeItem si && si.CommandParameter is Spell s)
             {
-                var ok = await DisplayAlert("Delete", $"Delete '{s.Name}'?", "Delete", "Cancel");
+                var ok = await DisplayAlertAsync("Delete", $"Delete '{s.Name}'?", "Delete", "Cancel");
                 if (!ok)
                     return;
 
@@ -75,9 +75,9 @@ namespace TBH.DND.Android
             }
         }
 
-        private async void OnHeaderMenuClicked(object sender, EventArgs e)
+        private async void OnHeaderMenuClicked(object? sender, EventArgs e)
         {
-            var action = await DisplayActionSheet("Menu", "Cancel", null, "Add Spell", "Edit Spell List");
+            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spell List");
             if (action == "Add Spell")
             {
                 await Shell.Current.GoToAsync("SpellEditorPage");

@@ -20,7 +20,7 @@
                                     <Switch IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
                                 </HorizontalStackLayout>
                             </HorizontalStackLayout>
-                            <Label Text="{Binding Class}" FontAttributes="Italic" FontSize="Small" />
+                            <Label Text="{Binding Class}" FontAttributes="Italic" />
                             <Label Text="{Binding Description}" />
                         </VerticalStackLayout>
                     </Border>
