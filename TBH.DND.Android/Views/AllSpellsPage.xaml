@@ -9,13 +9,13 @@
         <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="8" Margin="4">
+                    <Border Padding="8" Margin="4">
                         <VerticalStackLayout>
                             <HorizontalStackLayout>
                                 <Label Text="{Binding Level}" FontAttributes="Bold" WidthRequest="36" />
                                 <Label Text="{Binding Name}" FontAttributes="Bold" />
 
-                                <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="8">
+                                <HorizontalStackLayout Spacing="8">
                                     <Label Text="Active" VerticalOptions="Center" />
                                     <Switch IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
                                 </HorizontalStackLayout>
@@ -23,7 +23,7 @@
                             <Label Text="{Binding Class}" FontAttributes="Italic" FontSize="Small" />
                             <Label Text="{Binding Description}" />
                         </VerticalStackLayout>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
