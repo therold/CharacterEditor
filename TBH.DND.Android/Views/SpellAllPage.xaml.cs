@@ -5,14 +5,14 @@ using TBH.DND.Android.Models;
 
 namespace TBH.DND.Android.Views
 {
-    public partial class AllSpellsPage : ContentPage
+    public partial class SpellAllPage : ContentPage
     {
-        private AllSpellsViewModel? vm;
+        private SpellAllViewModel? vm;
 
-        public AllSpellsPage()
+        public SpellAllPage()
         {
             InitializeComponent();
-            vm = App.Services?.GetService(typeof(AllSpellsViewModel)) as AllSpellsViewModel;
+            vm = App.Services?.GetService(typeof(SpellAllViewModel)) as SpellAllViewModel;
             BindingContext = vm;
         }
 

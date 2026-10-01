@@ -7,7 +7,7 @@ using Microsoft.Maui.Controls;
 
 namespace TBH.DND.Android.ViewModels
 {
-    public class SpellListViewModel : BindableObject
+    public class MainPageViewModel : BindableObject
     {
         readonly SpellDatabase db;
         readonly FeatDatabase featDb;
@@ -19,7 +19,7 @@ namespace TBH.DND.Android.ViewModels
         public ICommand ToggleExpandCommand { get; }
         public ICommand OpenEditorCommand { get; }
 
-        public SpellListViewModel(SpellDatabase database, FeatDatabase featDatabase)
+        public MainPageViewModel(SpellDatabase database, FeatDatabase featDatabase)
         {
             db = database;
             featDb = featDatabase;

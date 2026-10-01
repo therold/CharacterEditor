@@ -7,8 +7,8 @@ namespace TBH.DND.Android
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute("SpellAllPage", typeof(SpellAllPage));
             Routing.RegisterRoute("SpellEditorPage", typeof(SpellEditorPage));
-            Routing.RegisterRoute("AllSpellsPage", typeof(AllSpellsPage));
         }
     }
 }

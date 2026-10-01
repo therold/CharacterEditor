@@ -11,14 +11,14 @@ namespace TBH.DND.Android
 {
     public partial class MainPage : ContentPage
     {
-        private SpellListViewModel? vm;
+        private MainPageViewModel? vm;
         private SpellDatabase? db;
         private FeatDatabase? featDb;
 
         public MainPage()
         {
             InitializeComponent();
-            vm = App.Services?.GetService(typeof(SpellListViewModel)) as SpellListViewModel;
+            vm = App.Services?.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
             db = App.Services?.GetService(typeof(SpellDatabase)) as SpellDatabase;
             featDb = App.Services?.GetService(typeof(FeatDatabase)) as FeatDatabase;
             BindingContext = vm;
@@ -98,7 +98,7 @@ namespace TBH.DND.Android
             }
             else if (action == "Edit Spells")
             {
-                await Shell.Current.GoToAsync("AllSpellsPage");
+                await Shell.Current.GoToAsync("SpellAllPage");
             }
             else if (action == "Expand All")
             {
@@ -131,7 +131,7 @@ namespace TBH.DND.Android
             }
             else if (action == "Edit Feats")
             {
-                await Shell.Current.GoToAsync("AllSpellsPage");
+                await Shell.Current.GoToAsync("SpellAllPage");
             }
             else if (action == "Expand All")
             {

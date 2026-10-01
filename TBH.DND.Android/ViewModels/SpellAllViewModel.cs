@@ -7,7 +7,7 @@ using TBH.DND.Android.Services;
 
 namespace TBH.DND.Android.ViewModels
 {
-    public class AllSpellsViewModel : BindableObject
+    public class SpellAllViewModel : BindableObject
     {
         readonly SpellDatabase db;
 
@@ -27,7 +27,7 @@ namespace TBH.DND.Android.ViewModels
         }
         public ObservableCollection<Spell> Spells { get; } = new ObservableCollection<Spell>();
 
-        public AllSpellsViewModel(SpellDatabase database)
+        public SpellAllViewModel(SpellDatabase database)
         {
             db = database;
             this.SelectedClass = "All";
