@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TBH.DND.Android.Views.FeatAllPage"
+    Title="Edit Feats">
+
+    <VerticalStackLayout Padding="12" Spacing="8">
+        <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="8" Margin="4">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" />
+                            <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
+                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

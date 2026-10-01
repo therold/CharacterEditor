@@ -42,7 +42,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Description FROM Feats WHERE Active = 1";
+                cmd.CommandText = "SELECT Id, Name, Description, Active FROM Feats WHERE Active = 1";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -50,7 +50,8 @@ namespace TBH.DND.Android.Services
                     {
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
-                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                        Active = !reader.IsDBNull(3) && reader.GetInt32(3) == 1
                     });
                 }
             });
@@ -65,7 +66,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Description FROM Feats";
+                cmd.CommandText = "SELECT Id, Name, Description, Active FROM Feats";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -73,7 +74,8 @@ namespace TBH.DND.Android.Services
                     {
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
-                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                        Active = !reader.IsDBNull(3) && reader.GetInt32(3) == 1
                     });
                 }
             });
@@ -87,7 +89,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Description FROM Feats WHERE Id = $id";
+                cmd.CommandText = "SELECT Id, Name, Description, Active FROM Feats WHERE Id = $id";
                 cmd.Parameters.AddWithValue("$id", id);
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -96,7 +98,8 @@ namespace TBH.DND.Android.Services
                     {
                         Id = reader.GetInt32(0),
                         Name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
-                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+                        Description = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                        Active = !reader.IsDBNull(3) && reader.GetInt32(3) == 1
                     };
                 }
                 return null;
@@ -121,7 +124,7 @@ namespace TBH.DND.Android.Services
                 }
                 cmd.Parameters.AddWithValue("$name", f.Name ?? string.Empty);
                 cmd.Parameters.AddWithValue("$desc", f.Description ?? string.Empty);
-                cmd.Parameters.AddWithValue("$active", 1);
+                cmd.Parameters.AddWithValue("$active", f.Active ? 1 : 0);
                 cmd.ExecuteNonQuery();
             });
         }

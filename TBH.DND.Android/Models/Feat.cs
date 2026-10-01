@@ -23,5 +23,12 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref description, value);
         }
 
+        private bool active;
+        public bool Active
+        {
+            get => active;
+            set => SetProperty(ref active, value);
+        }
+
     }
 }

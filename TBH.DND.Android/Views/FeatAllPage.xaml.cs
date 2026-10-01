@@ -1,0 +1,35 @@
+using TBH.DND.Android.Models;
+using TBH.DND.Android.ViewModels;
+
+namespace TBH.DND.Android.Views;
+
+public partial class FeatAllPage : ContentPage
+{
+    private FeatAllViewModel? vm;
+
+    public FeatAllPage()
+    {
+        InitializeComponent();
+        vm = App.Services?.GetService(typeof(FeatAllViewModel)) as FeatAllViewModel;
+        BindingContext = vm;
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        if (vm != null)
+            await vm.LoadAsync();
+    }
+
+    private async void OnActiveToggled(object? sender, ToggledEventArgs e)
+    {
+        if (sender is Switch sw && sw.BindingContext is Feat feat)
+        {
+            // Persist the change
+            if (vm != null)
+            {
+                await vm.SaveFeatAsync(feat);
+            }
+        }
+    }
+}

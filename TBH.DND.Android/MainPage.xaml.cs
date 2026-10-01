@@ -131,7 +131,7 @@ namespace TBH.DND.Android
             }
             else if (action == "Edit Feats")
             {
-                await Shell.Current.GoToAsync("SpellAllPage");
+                await Shell.Current.GoToAsync("FeatAllPage");
             }
             else if (action == "Expand All")
             {
