@@ -10,15 +10,5 @@ namespace TBH.DND.Android
             Routing.RegisterRoute("SpellEditorPage", typeof(SpellEditorPage));
             Routing.RegisterRoute("AllSpellsPage", typeof(AllSpellsPage));
         }
-
-        private async void OnAddSpellFlyoutClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("SpellEditorPage");
-        }
-
-        private async void OnEditActiveSpellsFlyoutClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("AllSpellsPage");
-        }
     }
 }

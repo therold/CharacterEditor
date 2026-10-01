@@ -6,12 +6,6 @@
     x:Class="TBH.DND.Android.MainPage"
     x:Name="Page"
     Title="Character">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem StyleId="Item1" Order="Secondary" Text="Add Spell" Clicked="OnAddSpellClicked" />
-        <ToolbarItem StyleId="Item1" Order="Secondary" Text="Edit Spell List" Clicked="OnEditSpellListClicked" />
-    </ContentPage.ToolbarItems>
-
     <VerticalStackLayout Padding="12" Spacing="8">
         <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
             <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
@@ -36,24 +30,6 @@
                                     <Label Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
-                                <!--
-                                <VerticalStackLayout IsVisible="{Binding IsExpanded}">
-                                    <HorizontalStackLayout>
-                                        <Label Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
-                                        <Label Padding="0,0,20,0" Text="{Binding School}" FontAttributes="Italic" FontSize="12" />
-                                        <Label Padding="0,0,3,0" Text="Time" FontAttributes="Bold" FontSize="12" />
-                                        <Label Padding="0,0,20,0" Text="{Binding CastingTime}" FontAttributes="Italic" FontSize="12" />
-                                        <Label Padding="0,0,3,0" Text="Range" FontAttributes="Bold" FontSize="12" />
-                                        <Label Padding="0,0,20,0" Text="{Binding Range}" FontAttributes="Italic" FontSize="12" />
-                                    </HorizontalStackLayout>
-                                    <HorizontalStackLayout>
-                                        <Label Padding="0,0,3,0" Text="Duration" FontAttributes="Bold" FontSize="12" />
-                                        <Label Padding="0,0,20,0" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
-                                        <Label Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
-                                        <Label Padding="0,0,20,0" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
-                                    </HorizontalStackLayout>
-                                </VerticalStackLayout>
-                                -->
                                 <Grid IsVisible="{Binding IsExpanded}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
