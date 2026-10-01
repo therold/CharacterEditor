@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TBH.DND.Android.Views.AllSpellsPage"
+    Title="All Spells">
+
+    <VerticalStackLayout Padding="12" Spacing="8">
+        <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="8" Margin="4">
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Level}" FontAttributes="Bold" WidthRequest="36" />
+                                <Label Text="{Binding Name}" FontAttributes="Bold" />
+
+                                <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="8">
+                                    <Label Text="Active" VerticalOptions="Center" />
+                                    <Switch IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Class}" FontAttributes="Italic" FontSize="Small" />
+                            <Label Text="{Binding Description}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+
+</ContentPage>

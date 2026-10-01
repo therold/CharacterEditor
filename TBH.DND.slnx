@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="TBH.DND.Android/TBH.DND.Android.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

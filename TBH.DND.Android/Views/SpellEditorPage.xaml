@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TBH.DND.Android.Views.SpellEditorPage"
+    Title="Spell Editor">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Name" />
+            <Entry Text="{Binding Current.Name}" />
+
+            <Label Text="Level" />
+            <Entry Keyboard="Numeric" Text="{Binding Current.Level}" />
+
+            <Label Text="Class" />
+            <Entry Text="{Binding Current.Class}" />
+
+            <Label Text="Description" />
+            <Editor HeightRequest="150" Text="{Binding Current.Description}" />
+
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="Active" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding Current.Active}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
