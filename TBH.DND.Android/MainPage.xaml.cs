@@ -57,8 +57,7 @@ namespace TBH.DND.Android
                 }
                 else if (si.CommandParameter is Feat f)
                 {
-                    // TODO
-                    //await Shell.Current.GoToAsync($"SpellEditorPage?id={s.Id}");
+                    await Shell.Current.GoToAsync($"FeatEditorPage?id={f.Id}");
                 }
             }
         }
