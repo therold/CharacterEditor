@@ -43,7 +43,6 @@
 
             </HorizontalStackLayout>
 
-            <!-- Replace the existing School label + Entry with this -->
             <Label Text="School" />
             <Picker ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" Title="Select school" />
 
@@ -58,6 +57,9 @@
 
             <Label Text="Duration" />
             <Entry Text="{Binding Current.Duration}" />
+
+            <Label Text="Source" />
+            <Picker ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
 
             <Label Text="Description" />
             <Editor HeightRequest="150" Text="{Binding Current.Description}" />

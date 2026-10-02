@@ -11,6 +11,7 @@ namespace TBH.DND.Android.ViewModels
         readonly SpellDatabase db;
 
         public Array Schools { get; } = Enum.GetValues(typeof(Spell.SpellSchool));
+        public Array Sources { get; } = Enum.GetValues(typeof(Spell.SpellSource));
         public Array Levels { get; } = new string[] { "Cantrip", "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9" };
         public Spell Current { get; set; } = new Spell();
 
@@ -38,6 +39,20 @@ namespace TBH.DND.Android.ViewModels
                 // keep Current.School (string) in sync for persistence
                 Current.School = selectedSchool.ToString();
                 OnPropertyChanged(nameof(SelectedSchool));
+            }
+        }
+
+        private Spell.SpellSource selectedSource;
+        public Spell.SpellSource SelectedSource
+        {
+            get => selectedSource;
+            set
+            {
+                if (selectedSource == value) return;
+                selectedSource = value;
+                // keep Current.Source (string) in sync for persistence
+                Current.Source = selectedSource.ToString();
+                OnPropertyChanged(nameof(SelectedSource));
             }
         }
 
@@ -161,9 +176,14 @@ namespace TBH.DND.Android.ViewModels
                     if (!Enum.TryParse<Spell.SpellSchool>(Current.School, out var parsed))
                         parsed = (Spell.SpellSchool)Schools.GetValue(0);
                     selectedSchool = parsed;
+                    // try parse existing string into enum, default to first value on failure
+                    if (!Enum.TryParse<Spell.SpellSource>(Current.Source, out var parsedSource))
+                        parsedSource = (Spell.SpellSource)Sources.GetValue(0);
+                    selectedSource = parsedSource;
                     OnPropertyChanged(nameof(Current));
                     OnPropertyChanged(nameof(SelectedSchool));
                     OnPropertyChanged(nameof(SelectedLevel));
+                    OnPropertyChanged(nameof(SelectedSource));
                     OnPropertyChanged(nameof(ClassBard));
                     OnPropertyChanged(nameof(ClassCleric));
                     OnPropertyChanged(nameof(ClassDruid));
@@ -178,11 +198,14 @@ namespace TBH.DND.Android.ViewModels
             {
                 Current = new Spell();
                 selectedLevel = Levels.GetValue(0)?.ToString();
+                selectedSource = (Spell.SpellSource)Sources.GetValue(0);
                 selectedSchool = (Spell.SpellSchool)Schools.GetValue(0);
                 Current.School = selectedSchool.ToString();
+                Current.Source = selectedSource.ToString();
                 OnPropertyChanged(nameof(Current));
                 OnPropertyChanged(nameof(SelectedSchool));
                 OnPropertyChanged(nameof(SelectedLevel));
+                OnPropertyChanged(nameof(SelectedSource));
             }
         }
 

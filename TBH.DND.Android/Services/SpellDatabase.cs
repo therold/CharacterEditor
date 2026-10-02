@@ -34,14 +34,15 @@ namespace TBH.DND.Android.Services
                                     Range TEXT,
                                     Components TEXT,
                                     Duration TEXT,
+                                    Source TEXT,
                                     Description TEXT,
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = @"INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active) VALUES
-                                ('Fireball', 3, 128, 'Evocation', '1 action', '150 feet', 'V,S,M', 'Instantaneous', 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.', 1),
-                                ('Cure Wounds', 1, 2, 'Evocation', '1 action', 'Touch', 'V,S', 'Instantaneous', 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier.', 1),
-                                ('Mage Hand', 0, 128, 'Conjuration', '1 action', '30 feet', 'V,S', '1 minute', 'A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action.', 1);";
+            cmd.CommandText = @"INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Source, Description, Active) VALUES
+                                ('Fireball', 3, 128, 'Evocation', '1 action', '150 feet', 'V,S,M', 'Instantaneous', 'PHB', 'A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.', 1),
+                                ('Cure Wounds', 1, 2, 'Evocation', '1 action', 'Touch', 'V,S', 'Instantaneous', 'PHB', 'A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier.', 1),
+                                ('Mage Hand', 0, 128, 'Conjuration', '1 action', '30 feet', 'V,S', '1 minute', 'PHB', 'A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action.', 1);";
             cmd.ExecuteNonQuery();
         }
 
@@ -53,7 +54,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Active = 1 ORDER BY Level ASC, Name ASC";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Source, Description, Active FROM Spells WHERE Active = 1 ORDER BY Level ASC, Name ASC";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -68,8 +69,9 @@ namespace TBH.DND.Android.Services
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
                         Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                         Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
-                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
-                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
+                        Source = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Description = reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
+                        Active = !reader.IsDBNull(11) && reader.GetInt32(11) == 1
                     });
                 }
             });
@@ -84,7 +86,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells ORDER BY Level ASC, Name ASC";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Source, Description, Active FROM Spells ORDER BY Level ASC, Name ASC";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -99,8 +101,9 @@ namespace TBH.DND.Android.Services
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
                         Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                         Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
-                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
-                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
+                        Source = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Description = reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
+                        Active = !reader.IsDBNull(11) && reader.GetInt32(11) == 1
                     });
                 }
             });
@@ -114,7 +117,7 @@ namespace TBH.DND.Android.Services
                 using var conn = new SqliteConnection($"Data Source={DbPath}");
                 conn.Open();
                 using var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active FROM Spells WHERE Id = $id";
+                cmd.CommandText = "SELECT Id, Name, Level, Class, School, CastingTime, Range, Components, Duration, Source, Description, Active FROM Spells WHERE Id = $id";
                 cmd.Parameters.AddWithValue("$id", id);
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -130,8 +133,9 @@ namespace TBH.DND.Android.Services
                         Range = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
                         Components = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                         Duration = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
-                        Description = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
-                        Active = !reader.IsDBNull(10) && reader.GetInt32(10) == 1
+                        Source = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                        Description = reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
+                        Active = !reader.IsDBNull(11) && reader.GetInt32(11) == 1
                     };
                 }
                 return null;
@@ -147,11 +151,11 @@ namespace TBH.DND.Android.Services
                 using var cmd = conn.CreateCommand();
                 if (s.Id == 0)
                 {
-                    cmd.CommandText = "INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Description, Active) VALUES ($name, $level, $class, $school, $castingTime, $range, $components, $duration, $desc, $active);";
+                    cmd.CommandText = "INSERT INTO Spells (Name, Level, Class, School, CastingTime, Range, Components, Duration, Source, Description, Active) VALUES ($name, $level, $class, $school, $castingTime, $range, $components, $duration, $source, $desc, $active);";
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE Spells SET Name=$name, Level=$level, Class=$class, School=$school, CastingTime=$castingTime, Range=$range, Components=$components, Duration=$duration, Description=$desc, Active=$active WHERE Id=$id;";
+                    cmd.CommandText = "UPDATE Spells SET Name=$name, Level=$level, Class=$class, School=$school, CastingTime=$castingTime, Range=$range, Components=$components, Duration=$duration, Source=$source, Description=$desc, Active=$active WHERE Id=$id;";
                     cmd.Parameters.AddWithValue("$id", s.Id);
                 }
                 cmd.Parameters.AddWithValue("$name", s.Name ?? string.Empty);
@@ -162,6 +166,7 @@ namespace TBH.DND.Android.Services
                 cmd.Parameters.AddWithValue("$range", s.Range ?? string.Empty);
                 cmd.Parameters.AddWithValue("$components", s.Components ?? string.Empty);
                 cmd.Parameters.AddWithValue("$duration", s.Duration ?? string.Empty);
+                cmd.Parameters.AddWithValue("$source", s.Source ?? string.Empty);
                 cmd.Parameters.AddWithValue("$desc", s.Description ?? string.Empty);
                 cmd.Parameters.AddWithValue("$active", s.Active ? 1 : 0);
                 cmd.ExecuteNonQuery();

@@ -42,6 +42,7 @@
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Padding="0,0,10,0" Text="{Binding Description}" />
                                     <Label Grid.Row="0" Grid.Column="1" Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
@@ -56,6 +57,8 @@
                                     <Label Grid.Row="3" Grid.Column="2" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
                                     <Label Grid.Row="4" Grid.Column="1" Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
                                     <Label Grid.Row="4" Grid.Column="2" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
+                                    <Label Grid.Row="5" Grid.Column="1" Padding="0,0,3,0" Text="Source" FontAttributes="Bold" FontSize="12" />
+                                    <Label Grid.Row="5" Grid.Column="2" Text="{Binding Source}" FontAttributes="Italic" FontSize="12" />
                                 </Grid>
                             </VerticalStackLayout>
                         </Border>

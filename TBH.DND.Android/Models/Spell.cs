@@ -72,6 +72,13 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref description, value);
         }
 
+        private string source = string.Empty;
+        public string Source
+        {
+            get => source;
+            set => SetProperty(ref source, value);
+        }
+
         private bool active;
         public bool Active
         {
@@ -115,6 +122,21 @@ namespace TBH.DND.Android.Models
             Sorcerer = 32,
             Warlock = 64,
             Wizard = 128
+        }
+
+        public enum SpellSource
+        {
+            PHB,
+            XGE,
+            TCE,
+            //SCAG,
+            //Eberron,
+            //AcquisitionsIncorporated,
+            //RimeOfTheFrostmaiden,
+            //MythicOdysseysOfTheros,
+            //Strixhaven,
+            //ExplorerSGuideToWildemount,
+            //VanRichtensGuideToRavenloft
         }
     }
 }
