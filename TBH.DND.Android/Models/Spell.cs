@@ -72,6 +72,11 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref description, value);
         }
 
+        public HtmlWebViewSource DescriptionHtml => new HtmlWebViewSource
+        {
+            Html = $"<html><body style=\"color:#FFFFFF;font-size:16px;\">{Description}</body></html>"
+        };
+
         private string source = string.Empty;
         public string Source
         {
@@ -114,14 +119,16 @@ namespace TBH.DND.Android.Models
 
         public enum SpellClass
         {
-            Bard = 1,
-            Cleric = 2,
-            Druid = 4,
-            Paladin = 8,
-            Ranger = 16,
-            Sorcerer = 32,
-            Warlock = 64,
-            Wizard = 128
+            Artificer = 1,
+            Bard = 2,
+            Cleric = 4,
+            Druid = 8,
+            Monk = 16,
+            Paladin = 32,
+            Ranger = 64,
+            Sorcerer = 128,
+            Warlock = 256,
+            Wizard = 512,
         }
 
         public enum SpellSource

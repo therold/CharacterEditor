@@ -6,95 +6,107 @@
     x:Class="TBH.DND.Android.MainPage"
     x:Name="Page"
     Title="Character">
-    <VerticalStackLayout Padding="12" Spacing="8">
-        <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
-            <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-            <Button Text="..." Clicked="OnHeaderMenuClicked" WidthRequest="44" HeightRequest="36" />
-        </FlexLayout>
-        <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" x:Name="SpellsView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems Mode="Reveal">
-                                <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
-                                <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Border Padding="8" Margin="4">
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                            </Border.GestureRecognizers>
-                            <VerticalStackLayout>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
-                                    <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                </HorizontalStackLayout>
-                                <Grid IsVisible="{Binding IsExpanded}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Padding="0,0,10,0" Text="{Binding Description}" />
-                                    <Label Grid.Row="0" Grid.Column="1" Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding School}" FontAttributes="Italic" FontSize="12" />
-                                    <Label Grid.Row="1" Grid.Column="1" Padding="0,0,3,0" Text="Time" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding CastingTime}" FontAttributes="Italic" FontSize="12" />
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="8">
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+                <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
+                <Button Text="..." Clicked="OnHeaderMenuClicked" WidthRequest="44" HeightRequest="36" />
+            </FlexLayout>
+            <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" x:Name="SpellsView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Border Padding="8" Margin="4">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    </HorizontalStackLayout>
+                                    <Grid Margin="8" IsVisible="{Binding IsExpanded}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="160" />
+                                        </Grid.ColumnDefinitions>
+                                        <WebView x:Name="webView" Grid.Column="0" Source="{Binding DescriptionHtml}" VerticalOptions="Start" HeightRequest="10" Margin="0,0,10,0">
+                                            <WebView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
+                                            </WebView.GestureRecognizers>
+                                        </WebView>
+                                        <Grid Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" Padding="0,0,3,0" Text="School" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding School}" FontAttributes="Italic" FontSize="12" />
+                                            <Label Grid.Row="1" Grid.Column="0" Padding="0,0,3,0" Text="Time" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding CastingTime}" FontAttributes="Italic" FontSize="12" />
 
 
-                                    <Label Grid.Row="2" Grid.Column="1" Padding="0,0,3,0" Text="Range" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding Range}" FontAttributes="Italic" FontSize="12" />
-                                    <Label Grid.Row="3" Grid.Column="1" Padding="0,0,3,0" Text="Duration" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="3" Grid.Column="2" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
-                                    <Label Grid.Row="4" Grid.Column="1" Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="4" Grid.Column="2" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
-                                    <Label Grid.Row="5" Grid.Column="1" Padding="0,0,3,0" Text="Source" FontAttributes="Bold" FontSize="12" />
-                                    <Label Grid.Row="5" Grid.Column="2" Text="{Binding Source}" FontAttributes="Italic" FontSize="12" />
-                                </Grid>
-                            </VerticalStackLayout>
-                        </Border>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                            <Label Grid.Row="2" Grid.Column="0" Padding="0,0,3,0" Text="Range" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Range}" FontAttributes="Italic" FontSize="12" />
+                                            <Label Grid.Row="3" Grid.Column="0" Padding="0,0,3,0" Text="Duration" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Duration}" FontAttributes="Italic" FontSize="12" />
+                                            <Label Grid.Row="4" Grid.Column="0" Padding="0,0,3,0" Text="Components" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding Components}" FontAttributes="Italic" FontSize="12" />
+                                            <Label Grid.Row="5" Grid.Column="0" Padding="0,0,3,0" Text="Source" FontAttributes="Bold" FontSize="12" />
+                                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding Source}" FontAttributes="Italic" FontSize="12" />
+                                        </Grid>
+                                    </Grid>
+                                
+                                </VerticalStackLayout>
+                            </Border>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+            <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
         
-        <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
-            <Label Text="Feats" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-            <Button Text="..." Clicked="OnFeatHeaderMenuClicked" WidthRequest="44" HeightRequest="36" />
-        </FlexLayout>
-        <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None" x:Name="FeatsView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems Mode="Reveal">
-                                <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
-                                <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Border Padding="8" Margin="4">
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                            </Border.GestureRecognizers>
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                <Label Text="{Binding Description}"  IsVisible="{Binding IsExpanded}"/>
-                            </VerticalStackLayout>
-                        </Border>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+                <Label Text="Feats" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
+                <Button Text="..." Clicked="OnFeatHeaderMenuClicked" WidthRequest="44" HeightRequest="36" />
+            </FlexLayout>
+            <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None" x:Name="FeatsView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Border Padding="8" Margin="4">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Description}"  IsVisible="{Binding IsExpanded}"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

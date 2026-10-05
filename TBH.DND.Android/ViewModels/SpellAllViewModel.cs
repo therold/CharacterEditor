@@ -1,4 +1,3 @@
-using Java.Util.Logging;
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;

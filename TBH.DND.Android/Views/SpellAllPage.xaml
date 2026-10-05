@@ -5,8 +5,12 @@
     x:Class="TBH.DND.Android.Views.SpellAllPage"
     Title="Edit Spells">
 
-    <VerticalStackLayout Padding="12" Spacing="8">
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -14,7 +18,7 @@
             <Label Grid.Column="0" Padding="0,0,5,0" Text="Class" FontAttributes="Bold" VerticalOptions="Center" />
             <Picker Grid.Column="1" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" Title="Select class" VerticalOptions="Center" />
         </Grid>
-        <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None">
+        <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="8" Margin="4">
@@ -31,12 +35,10 @@
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" />
                             <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" />
                         </Grid>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
-
+    </Grid>
 </ContentPage>

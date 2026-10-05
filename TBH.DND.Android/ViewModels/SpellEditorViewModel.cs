@@ -56,6 +56,18 @@ namespace TBH.DND.Android.ViewModels
             }
         }
 
+        public bool ClassArtificer
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Artificer) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Artificer;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Artificer;
+                OnPropertyChanged(nameof(ClassArtificer));
+            }
+        }
         public bool ClassBard
         {
             get => (Current.Class & (int)Spell.SpellClass.Bard) != 0;
@@ -90,6 +102,19 @@ namespace TBH.DND.Android.ViewModels
                 else
                     Current.Class &= ~(int)Spell.SpellClass.Druid;
                 OnPropertyChanged(nameof(ClassDruid));
+            }
+        }
+
+        public bool ClassMonk
+        {
+            get => (Current.Class & (int)Spell.SpellClass.Monk) != 0;
+            set
+            {
+                if (value)
+                    Current.Class |= (int)Spell.SpellClass.Monk;
+                else
+                    Current.Class &= ~(int)Spell.SpellClass.Monk;
+                OnPropertyChanged(nameof(ClassMonk));
             }
         }
         public bool ClassPaladin
@@ -184,12 +209,14 @@ namespace TBH.DND.Android.ViewModels
                     OnPropertyChanged(nameof(SelectedSchool));
                     OnPropertyChanged(nameof(SelectedLevel));
                     OnPropertyChanged(nameof(SelectedSource));
+                    OnPropertyChanged(nameof(ClassArtificer));
                     OnPropertyChanged(nameof(ClassBard));
                     OnPropertyChanged(nameof(ClassCleric));
                     OnPropertyChanged(nameof(ClassDruid));
                     OnPropertyChanged(nameof(ClassPaladin));
                     OnPropertyChanged(nameof(ClassRanger));
                     OnPropertyChanged(nameof(ClassSorcerer));
+                    OnPropertyChanged(nameof(ClassMonk));
                     OnPropertyChanged(nameof(ClassWarlock));
                     OnPropertyChanged(nameof(ClassWizard));
                 }

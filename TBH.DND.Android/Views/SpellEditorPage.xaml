@@ -17,30 +17,39 @@
             <Label Text="Class" />
             <!--<Entry Text="{Binding Current.Class}" />-->
             <HorizontalStackLayout>
+                <CheckBox IsChecked="{Binding ClassArtificer}"/>
+                <Label Text="Artificer" VerticalOptions="Center" />
+
                 <CheckBox IsChecked="{Binding ClassBard}"/>
                 <Label Text="Bard" VerticalOptions="Center" />
-                
+
                 <CheckBox IsChecked="{Binding ClassCleric}"/>
                 <Label Text="Cleric" VerticalOptions="Center" />
 
                 <CheckBox IsChecked="{Binding ClassDruid}"/>
                 <Label Text="Druid" VerticalOptions="Center" />
-                
+
+                <CheckBox IsChecked="{Binding ClassMonk}"/>
+                <Label Text="Monk" VerticalOptions="Center" />
+
                 <CheckBox IsChecked="{Binding ClassPaladin}"/>
                 <Label Text="Paladin" VerticalOptions="Center" />
-                
+
                 <CheckBox IsChecked="{Binding ClassRanger}"/>
                 <Label Text="Ranger" VerticalOptions="Center" />
-                
+
                 <CheckBox IsChecked="{Binding ClassSorcerer}"/>
                 <Label Text="Sorcerer" VerticalOptions="Center" />
 
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
                 <CheckBox IsChecked="{Binding ClassWarlock}"/>
                 <Label Text="Warlock" VerticalOptions="Center" />
 
                 <CheckBox IsChecked="{Binding ClassWizard}"/>
                 <Label Text="Wizard" VerticalOptions="Center" />
-
+                
             </HorizontalStackLayout>
 
             <Label Text="School" />
