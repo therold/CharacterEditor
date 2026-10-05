@@ -100,7 +100,11 @@
                                 </Border.GestureRecognizers>
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                    <Label Text="{Binding Description}"  IsVisible="{Binding IsExpanded}"/>
+                                    <WebView x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
+                                        <WebView.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
+                                        </WebView.GestureRecognizers>
+                                    </WebView>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>

@@ -51,6 +51,14 @@ namespace TBH.DND.Android
                 else if (ve.BindingContext is Feat f)
                 {
                     f.IsExpanded = !f.IsExpanded;
+                    if (f.IsExpanded)
+                    {
+                        var webView = ve.FindByName<WebView>("webView");
+                        if (webView != null)
+                        {
+                            await webViewVisible(webView);
+                        }
+                    }
                 }
             }
         }
@@ -115,11 +123,11 @@ namespace TBH.DND.Android
                     {
                         spell.IsExpanded = true;
                     }
+                    var spellsView = this.FindByName<CollectionView>("SpellsView");
+                    var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
+                    foreach (var view in webViews)
+                        await webViewVisible(view);
                 }
-                var spellsView = this.FindByName<CollectionView>("SpellsView");
-                var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
-                foreach (var view in webViews)
-                    await webViewVisible(view);
             }
             else if (action == "Collapse All")
             {
@@ -152,6 +160,10 @@ namespace TBH.DND.Android
                     {
                         feat.IsExpanded = true;
                     }
+                    var featsView = this.FindByName<CollectionView>("FeatsView");
+                    var webViews = featsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Feat).ToList();
+                    foreach (var view in webViews)
+                        await webViewVisible(view);
                 }
             }
             else if (action == "Collapse All")
