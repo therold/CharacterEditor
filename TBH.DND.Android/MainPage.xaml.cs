@@ -15,6 +15,7 @@ namespace TBH.DND.Android
         private SpellDatabase? db;
         private AbilityDatabase? abilityDb;
         private FeatDatabase? featDb;
+        private TraitDatabase? traitDb;
 
         public MainPage()
         {
@@ -23,6 +24,7 @@ namespace TBH.DND.Android
             db = App.Services?.GetService(typeof(SpellDatabase)) as SpellDatabase;
             abilityDb = App.Services?.GetService(typeof(AbilityDatabase)) as AbilityDatabase;
             featDb = App.Services?.GetService(typeof(FeatDatabase)) as FeatDatabase;
+            traitDb = App.Services?.GetService(typeof(TraitDatabase)) as TraitDatabase;
             BindingContext = vm;
         }
 
@@ -74,6 +76,18 @@ namespace TBH.DND.Android
                         }
                     }
                 }
+                else if (ve.BindingContext is Trait t)
+                {
+                    t.IsExpanded = !t.IsExpanded;
+                    if (t.IsExpanded)
+                    {
+                        var webView = ve.FindByName<WebView>("webView");
+                        if (webView != null)
+                        {
+                            await webViewVisible(webView);
+                        }
+                    }
+                }
             }
         }
 
@@ -92,6 +106,10 @@ namespace TBH.DND.Android
                 else if (si.CommandParameter is Feat f)
                 {
                     await Shell.Current.GoToAsync($"FeatEditorPage?id={f.Id}");
+                }
+                else if (si.CommandParameter is Trait t)
+                {
+                    await Shell.Current.GoToAsync($"TraitEditorPage?id={t.Id}");
                 }
             }
         }
@@ -121,6 +139,13 @@ namespace TBH.DND.Android
                     if (!ok)
                         return;
                     await featDb.DeleteFeatAsync(f.Id);
+                }
+                else if (si.CommandParameter is Trait t && traitDb != null)
+                {
+                    var ok = await DisplayAlertAsync("Delete", $"Delete '{t.Name}'?", "Delete", "Cancel");
+                    if (!ok)
+                        return;
+                    await traitDb.DeleteTraitAsync(t.Id);
                 }
 
                 if (vm != null)
@@ -210,6 +235,35 @@ namespace TBH.DND.Android
                 }
                 var featsView = this.FindByName<CollectionView>("FeatsView");
                 var webViews = featsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Feat).ToList();
+                foreach (var view in webViews)
+                    await webViewVisible(view);
+            }
+        }
+
+        private async void OnTraitsAllMenuClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("TraitAllPage");
+        }
+        private async void OnTraitsCollapseMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                foreach (var trait in vm.Traits)
+                {
+                    trait.IsExpanded = false;
+                }
+            }
+        }
+        private async void OnTraitsExpandMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                foreach (var trait in vm.Traits)
+                {
+                    trait.IsExpanded = true;
+                }
+                var traitsView = this.FindByName<CollectionView>("TraitsView");
+                var webViews = traitsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Trait).ToList();
                 foreach (var view in webViews)
                     await webViewVisible(view);
             }

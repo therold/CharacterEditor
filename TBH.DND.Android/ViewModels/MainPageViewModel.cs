@@ -12,20 +12,23 @@ namespace TBH.DND.Android.ViewModels
         readonly SpellDatabase db;
         readonly FeatDatabase featDb;
         readonly AbilityDatabase abilityDb;
+        readonly TraitDatabase traitDb;
 
         public ObservableCollection<Spell> Spells { get; } = new ObservableCollection<Spell>();
         public ObservableCollection<Feat> Feats { get; } = new ObservableCollection<Feat>();
         public ObservableCollection<Ability> Abilities { get; } = new ObservableCollection<Ability>();
+        public ObservableCollection<Trait> Traits { get; } = new ObservableCollection<Trait>();
 
         public ICommand RefreshCommand { get; }
         public ICommand ToggleExpandCommand { get; }
         public ICommand OpenEditorCommand { get; }
 
-        public MainPageViewModel(SpellDatabase database, FeatDatabase featDatabase, AbilityDatabase abilityDatabase)
+        public MainPageViewModel(SpellDatabase database, FeatDatabase featDatabase, AbilityDatabase abilityDatabase, TraitDatabase traitDatabase)
         {
             db = database;
             featDb = featDatabase;
             abilityDb = abilityDatabase;
+            traitDb = traitDatabase;
             RefreshCommand = new Command(async () => await LoadAsync());
             ToggleExpandCommand = new Command<Spell>((s) => { if (s != null) s.IsExpanded = !s.IsExpanded; });
             OpenEditorCommand = new Command(async () => await Shell.Current.GoToAsync("SpellEditorPage"));
@@ -47,6 +50,10 @@ namespace TBH.DND.Android.ViewModels
             var abilities = await abilityDb.GetActiveAbilitiesAsync();
             foreach (var a in abilities)
                 Abilities.Add(a);
+            Traits.Clear();
+            var traits = await traitDb.GetActiveTraitsAsync();
+            foreach (var t in traits)
+                Traits.Add(t);
         }
     }
 }

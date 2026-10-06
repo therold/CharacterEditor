@@ -26,18 +26,23 @@ namespace TBH.DND.Android
             // Register app services and viewmodels
             builder.Services.AddSingleton<SpellDatabase>();
             builder.Services.AddSingleton<FeatDatabase>();
+            builder.Services.AddSingleton<TraitDatabase>();
             builder.Services.AddSingleton<AbilityDatabase>();
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddSingleton<SpellAllViewModel>();
             builder.Services.AddSingleton<FeatAllViewModel>();
+            builder.Services.AddSingleton<TraitAllViewModel>();
             builder.Services.AddSingleton<AbilityAllViewModel>();
             builder.Services.AddTransient<SpellEditorViewModel>();
             builder.Services.AddTransient<FeatEditorViewModel>();
             builder.Services.AddTransient<AbilityEditorViewModel>();
+            builder.Services.AddTransient<TraitEditorViewModel>();
 
             // Pages can resolve viewmodels from DI when needed
             builder.Services.AddTransient<FeatAllPage>();
             builder.Services.AddTransient<FeatEditorPage>();
+            builder.Services.AddTransient<TraitAllPage>();
+            builder.Services.AddTransient<TraitEditorPage>();
             builder.Services.AddTransient<AbilityAllPage>();
             builder.Services.AddTransient<AbilityEditorPage>();
             builder.Services.AddTransient<SpellEditorPage>();
