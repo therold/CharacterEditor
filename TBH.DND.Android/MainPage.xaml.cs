@@ -13,6 +13,7 @@ namespace TBH.DND.Android
     {
         private MainPageViewModel? vm;
         private SpellDatabase? db;
+        private AbilityDatabase? abilityDb;
         private FeatDatabase? featDb;
 
         public MainPage()
@@ -20,6 +21,7 @@ namespace TBH.DND.Android
             InitializeComponent();
             vm = App.Services?.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
             db = App.Services?.GetService(typeof(SpellDatabase)) as SpellDatabase;
+            abilityDb = App.Services?.GetService(typeof(AbilityDatabase)) as AbilityDatabase;
             featDb = App.Services?.GetService(typeof(FeatDatabase)) as FeatDatabase;
             BindingContext = vm;
         }
@@ -40,6 +42,18 @@ namespace TBH.DND.Android
                 {
                     s.IsExpanded = !s.IsExpanded;
                     if (s.IsExpanded)
+                    {
+                        var webView = ve.FindByName<WebView>("webView");
+                        if (webView != null)
+                        {
+                            await webViewVisible(webView);
+                        }
+                    }
+                }
+                else if (ve.BindingContext is Ability a)
+                {
+                    a.IsExpanded = !a.IsExpanded;
+                    if (a.IsExpanded)
                     {
                         var webView = ve.FindByName<WebView>("webView");
                         if (webView != null)
@@ -71,6 +85,10 @@ namespace TBH.DND.Android
                 {
                     await Shell.Current.GoToAsync($"SpellEditorPage?id={s.Id}");
                 }
+                else if (si.CommandParameter is Ability a)
+                {
+                    await Shell.Current.GoToAsync($"AbilityEditorPage?id={a.Id}");
+                }
                 else if (si.CommandParameter is Feat f)
                 {
                     await Shell.Current.GoToAsync($"FeatEditorPage?id={f.Id}");
@@ -89,6 +107,13 @@ namespace TBH.DND.Android
                     if (!ok)
                         return;
                     await db.DeleteSpellAsync(s.Id);
+                }
+                else if (si.CommandParameter is Ability a && abilityDb != null)
+                {
+                    var ok = await DisplayAlertAsync("Delete", $"Delete '{a.Name}'?", "Delete", "Cancel");
+                    if (!ok)
+                        return;
+                    await abilityDb.DeleteAbilityAsync(a.Id);
                 }
                 else if (si.CommandParameter is Feat f && featDb != null)
                 {
@@ -127,6 +152,35 @@ namespace TBH.DND.Android
                 }
                 var spellsView = this.FindByName<CollectionView>("SpellsView");
                 var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
+                foreach (var view in webViews)
+                    await webViewVisible(view);
+            }
+        }
+
+        private async void OnAbilitiesAllMenuClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("AbilityAllPage");
+        }
+        private async void OnAbilitiesCollapseMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                foreach (var ability in vm.Abilities)
+                {
+                    ability.IsExpanded = false;
+                }
+            }
+        }
+        private async void OnAbilitiesExpandMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                foreach (var ability in vm.Abilities)
+                {
+                    ability.IsExpanded = true;
+                }
+                var abilitiesView = this.FindByName<CollectionView>("AbilitiesView");
+                var webViews = abilitiesView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Ability).ToList();
                 foreach (var view in webViews)
                     await webViewVisible(view);
             }

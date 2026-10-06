@@ -9,6 +9,8 @@ namespace TBH.DND.Android
             InitializeComponent();
             Routing.RegisterRoute("FeatAllPage", typeof(FeatAllPage));
             Routing.RegisterRoute("FeatEditorPage", typeof(FeatEditorPage));
+            Routing.RegisterRoute("AbilityAllPage", typeof(AbilityAllPage));
+            Routing.RegisterRoute("AbilityEditorPage", typeof(AbilityEditorPage));
             Routing.RegisterRoute("SpellAllPage", typeof(SpellAllPage));
             Routing.RegisterRoute("SpellEditorPage", typeof(SpellEditorPage));
         }
