@@ -1526,7 +1526,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.AddWithValue("@Level", 4);
                     cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Ranger | Spell.SpellClass.Sorcerer);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
-                    cmd.Parameters.AddWithValue("@CastingTime", "CastiActionngTime");
+                    cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
                     cmd.Parameters.AddWithValue("@Components", "V, S");
                     cmd.Parameters.AddWithValue("@Duration", "Concentration, 1 minute");
