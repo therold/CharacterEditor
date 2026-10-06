@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TBH.DND.Android.Models;
 
-namespace TBH.DND.Android.Services.DB
+namespace TBH.DND.Android.Services.DB.Spells
 {
     public static class PHB
     {

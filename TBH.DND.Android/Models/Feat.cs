@@ -27,6 +27,13 @@ namespace TBH.DND.Android.Models
             Html = $"<html><body style=\"color:#FFFFFF;font-size:16px;\">{Description}</body></html>"
         };
 
+        private string source = string.Empty;
+        public string Source
+        {
+            get => source;
+            set => SetProperty(ref source, value);
+        }
+
         private bool active;
         public bool Active
         {
