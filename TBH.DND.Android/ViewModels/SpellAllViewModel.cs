@@ -65,6 +65,30 @@ namespace TBH.DND.Android.ViewModels
                 OnPropertyChanged(nameof(SelectedSource));
             }
         }
+        private string searchText;
+        public string SearchText
+        {
+            get => searchText;
+            set
+            {
+                if (searchText == value) return;
+                searchText = value;
+                var pred = new Func<Spell, bool>(s =>
+                {
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return s.Name.Contains(value);
+                    }
+                });
+                _filterPredicates["Search"] = pred;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SearchText));
+            }
+        }
         public ObservableCollection<Spell> Spells { get; } = new ObservableCollection<Spell>();
 
         public SpellAllViewModel(SpellDatabase database)

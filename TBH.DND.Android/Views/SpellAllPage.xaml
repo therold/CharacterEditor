@@ -18,11 +18,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Padding="0,0,5,0" Text="Class" FontAttributes="Bold" VerticalOptions="Center" />
             <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" Title="Select class" VerticalOptions="Center" />
             <Label Grid.Row="1" Grid.Column="0" Padding="0,0,5,0" Text="Source" FontAttributes="Bold" VerticalOptions="Center" />
             <Picker Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" VerticalOptions="Center" />
+            <Entry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding SearchText}" Placeholder="Search spells..." />
         </Grid>
         <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" Grid.Row="1">
             <CollectionView.ItemTemplate>
