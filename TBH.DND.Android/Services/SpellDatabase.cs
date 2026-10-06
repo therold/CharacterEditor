@@ -185,6 +185,7 @@ namespace TBH.DND.Android.Services
         private void Seed()
         {
             DB.Spells.PHB.Seed();
+            DB.Spells.TCE.Seed();
         }
     }
 }
