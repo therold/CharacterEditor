@@ -47,13 +47,6 @@ namespace TBH.DND.Android.Services.DB.Abilities
                     cmd.Parameters.AddWithValue("@Active", 0);
                     cmd.ExecuteNonQuery();
 
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@Name", "_Name");
-                    cmd.Parameters.AddWithValue("@Source", "TCE");
-                    cmd.Parameters.AddWithValue("@Description", "_Description");
-                    cmd.Parameters.AddWithValue("@Active", 0);
-                    cmd.ExecuteNonQuery();
-
                     transaction.Commit();
                 }
             }
