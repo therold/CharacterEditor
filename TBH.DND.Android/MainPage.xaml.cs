@@ -103,78 +103,61 @@ namespace TBH.DND.Android
             }
             
         }
-
-        private async void OnHeaderMenuClicked(object? sender, EventArgs e)
+        private async void OnSpellsAllMenuClicked(object? sender, EventArgs e)
         {
-            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Spell", "Edit Spells", "Expand All", "Collapse All");
-            if (action == "Add Spell")
+            await Shell.Current.GoToAsync("SpellAllPage");
+        }
+        private async void OnSpellsCollapseMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
             {
-                await Shell.Current.GoToAsync("SpellEditorPage");
-            }
-            else if (action == "Edit Spells")
-            {
-                await Shell.Current.GoToAsync("SpellAllPage");
-            }
-            else if (action == "Expand All")
-            {
-                if (vm != null)
+                foreach (var spell in vm.Spells)
                 {
-                    foreach (var spell in vm.Spells)
-                    {
-                        spell.IsExpanded = true;
-                    }
-                    var spellsView = this.FindByName<CollectionView>("SpellsView");
-                    var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
-                    foreach (var view in webViews)
-                        await webViewVisible(view);
-                }
-            }
-            else if (action == "Collapse All")
-            {
-                if (vm != null)
-                {
-                    foreach (var spell in vm.Spells)
-                    {
-                        spell.IsExpanded = false;
-                    }
+                    spell.IsExpanded = false;
                 }
             }
         }
-
-        private async void OnFeatHeaderMenuClicked(object? sender, EventArgs e)
+        private async void OnSpellsExpandMenuClicked(object? sender, EventArgs e)
         {
-            var action = await DisplayActionSheetAsync("Menu", "Cancel", null, "Add Feat", "Edit Feats", "Expand All", "Collapse All");
-            if (action == "Add Feat")
+            if (vm != null)
             {
-                await Shell.Current.GoToAsync("FeatEditorPage");
-            }
-            else if (action == "Edit Feats")
-            {
-                await Shell.Current.GoToAsync("FeatAllPage");
-            }
-            else if (action == "Expand All")
-            {
-                if (vm != null)
+                foreach (var spell in vm.Spells)
                 {
-                    foreach (var feat in vm.Feats)
-                    {
-                        feat.IsExpanded = true;
-                    }
-                    var featsView = this.FindByName<CollectionView>("FeatsView");
-                    var webViews = featsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Feat).ToList();
-                    foreach (var view in webViews)
-                        await webViewVisible(view);
+                    spell.IsExpanded = true;
+                }
+                var spellsView = this.FindByName<CollectionView>("SpellsView");
+                var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
+                foreach (var view in webViews)
+                    await webViewVisible(view);
+            }
+        }
+
+        private async void OnFeatsAllMenuClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("FeatAllPage");
+        }
+        private async void OnFeatsCollapseMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                foreach (var feat in vm.Feats)
+                {
+                    feat.IsExpanded = false;
                 }
             }
-            else if (action == "Collapse All")
+        }
+        private async void OnFeatsExpandMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
             {
-                if (vm != null)
+                foreach (var feat in vm.Feats)
                 {
-                    foreach (var feat in vm.Feats)
-                    {
-                        feat.IsExpanded = false;
-                    }
+                    feat.IsExpanded = true;
                 }
+                var featsView = this.FindByName<CollectionView>("FeatsView");
+                var webViews = featsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Feat).ToList();
+                foreach (var view in webViews)
+                    await webViewVisible(view);
             }
         }
 
@@ -200,11 +183,6 @@ namespace TBH.DND.Android
                     webView.HeightRequest = Math.Max(webView.HeightRequest, 100);
                 }
             }
-        }
-
-        private void Grid_Loaded(object sender, EventArgs e)
-        {
-
         }
     }
 }
