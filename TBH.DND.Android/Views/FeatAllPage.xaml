@@ -4,6 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TBH.DND.Android.Views.FeatAllPage"
     Title="Edit Feats">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"  Order="Secondary" Clicked="OnAddClicked" />
+        <ToolbarItem Text="Enable All" Order="Secondary" Clicked="OnEnableClicked" />
+        <ToolbarItem Text="Disable All" Order="Secondary" Clicked="OnDisableClicked" />
+    </ContentPage.ToolbarItems>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,28 +38,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </Grid>
-
-    <!--<VerticalStackLayout Padding="12" Spacing="8">
-        <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Padding="8" Margin="4">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" />
-                            <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" />
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>-->
 </ContentPage>
