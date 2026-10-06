@@ -32,5 +32,10 @@ namespace TBH.DND.Android.ViewModels
         {
             await db.SaveFeatAsync(f);
         }
+        public async Task DeleteFeatAsync(Feat f)
+        {
+            await db.DeleteFeatAsync(f.Id);
+            Feats.Remove(f);
+        }
     }
 }

@@ -62,4 +62,34 @@ public partial class FeatAllPage : ContentPage
             vm.LoadAsync();
         }
     }
+    private async void OnEditSwipeItemInvoked(object? sender, EventArgs e)
+    {
+        if (sender is SwipeItem si)
+        {
+            if (si.CommandParameter is Feat f)
+            {
+                await Shell.Current.GoToAsync($"FeatEditorPage?id={f.Id}");
+                // Persist the change
+                if (vm != null)
+                {
+                    await vm.SaveFeatAsync(f);
+                }
+            }
+        }
+    }
+
+    private async void OnDeleteSwipeItemInvoked(object? sender, EventArgs e)
+    {
+        var si = sender as SwipeItem;
+        if (si != null)
+        {
+            if (si.CommandParameter is Feat f && vm != null)
+            {
+                var ok = await DisplayAlertAsync("Delete", $"Delete '{f.Name}'?", "Delete", "Cancel");
+                if (!ok)
+                    return;
+                await vm.DeleteFeatAsync(f);
+            }
+        }
+    }
 }
