@@ -4,6 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TBH.DND.Android.Views.SpellAllPage"
     Title="Edit Spells">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding SortOrder}" Clicked="OnSortClicked"/>
+        <ToolbarItem Text="Add"  Order="Secondary" Clicked="OnAddClicked" />
+        <ToolbarItem Text="Enable All" Order="Secondary" Clicked="OnEnableClicked" />
+        <ToolbarItem Text="Disable All" Order="Secondary" Clicked="OnDisableClicked" />
+    </ContentPage.ToolbarItems>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -52,7 +58,7 @@
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" />
-                                <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
+                                <Switch Grid.Row="0" Grid.Column="2" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled"/>
                                 <WebView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}"  VerticalOptions="Start" Margin="0,0,10,0">
                                     <WebView.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />

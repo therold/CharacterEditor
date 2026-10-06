@@ -29,7 +29,7 @@ namespace TBH.DND.Android.Views
                 // Persist the change
                 if (vm != null)
                 {
-                    await vm.SaveSpellAsync(spell);
+                    await vm.SaveSpellAsync(spell, false);
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace TBH.DND.Android.Views
                     // Persist the change
                     if (vm != null)
                     {
-                        await vm.SaveSpellAsync(s);
+                        await vm.SaveSpellAsync(s, true);
                     }
                 }
             }
@@ -103,6 +103,50 @@ namespace TBH.DND.Android.Views
                         return;
                     await vm.DeleteSpellAsync(s);
                 }
+            }
+        }
+        private async void OnAddClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("SpellEditorPage");
+        }
+        private async void OnEnableClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                var spells = vm.Spells.ToList();
+                foreach (var s in spells)
+                {
+                    s.Active = true;
+                    await vm.SaveSpellAsync(s, false);
+                }
+                vm.LoadAsync();
+            }
+        }
+        private async void OnDisableClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                var spells = vm.Spells.ToList();
+                foreach (var s in spells)
+                {
+                    s.Active = false;
+                    await vm.SaveSpellAsync(s, false);
+                }
+                vm.LoadAsync();
+            }
+        }
+        private async void OnSortClicked(object? sender, EventArgs e)
+        {
+            var action = await DisplayActionSheetAsync("Sort", "Cancel", null, "Level", "Name");
+            if (action == "Level")
+            {
+                //await Shell.Current.GoToAsync("SpellEditorPage");
+                vm.SortOrder = "Level";
+            }
+            else if (action == "Name")
+            {
+                //await Shell.Current.GoToAsync("SpellEditorPage");
+                vm.SortOrder = "Name";
             }
         }
     }

@@ -89,6 +89,17 @@ namespace TBH.DND.Android.ViewModels
                 OnPropertyChanged(nameof(SearchText));
             }
         }
+        private string sortOrder = "Level";
+        public string SortOrder { 
+            get => sortOrder;
+            set
+            {
+                if (sortOrder == value) return;
+                sortOrder = value;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SortOrder));
+            }
+        }
         public ObservableCollection<Spell> Spells { get; } = new ObservableCollection<Spell>();
 
         public SpellAllViewModel(SpellDatabase database)
@@ -111,10 +122,11 @@ namespace TBH.DND.Android.ViewModels
             ApplyFilters();
         }
 
-        public async Task SaveSpellAsync(Spell s)
+        public async Task SaveSpellAsync(Spell s, bool load)
         {
             await db.SaveSpellAsync(s);
-            await LoadAsync();
+            if (load)
+                await LoadAsync();
         }
 
         public async Task DeleteSpellAsync(Spell s)
@@ -127,7 +139,12 @@ namespace TBH.DND.Android.ViewModels
         private void ApplyFilters()
         {
             Spells.Clear();
-            foreach (var spell in _allSpells)
+            // Default to sorting by level if no sort order is specified
+            var spells = _allSpells.OrderBy(s => s.Level);
+            if (SortOrder == "Name")
+                spells = _allSpells.OrderBy(s => s.Name);
+
+            foreach (var spell in spells)
             {
                 bool include = true;
                 foreach (var predicate in _filterPredicates)
