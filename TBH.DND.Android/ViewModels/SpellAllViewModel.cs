@@ -96,7 +96,6 @@ namespace TBH.DND.Android.ViewModels
             db = database;
             this.SelectedClass = "All";
             this.SelectedSource = "All";
-            this.LoadAsync();
         }
 
         public async Task LoadAsync()
@@ -108,28 +107,21 @@ namespace TBH.DND.Android.ViewModels
             {
                 _allSpells.Add(s);
                 Spells.Add(s);
-
             }
-            //foreach (var s in items)
-            //{
-            //    if (SelectedClass == "All")
-            //    {
-            //        Spells.Add(s);
-            //    }
-            //    else
-            //    {
-            //        var selectedClassEnum = (Spell.SpellClass)Enum.Parse(typeof(Spell.SpellClass), SelectedClass);
-            //        if ((s.Class & (int)selectedClassEnum) != 0)
-            //        {
-            //            Spells.Add(s);
-            //        }
-            //    }
-            //}
+            ApplyFilters();
         }
 
         public async Task SaveSpellAsync(Spell s)
         {
             await db.SaveSpellAsync(s);
+            await LoadAsync();
+        }
+
+        public async Task DeleteSpellAsync(Spell s)
+        {
+            await db.DeleteSpellAsync(s.Id);
+            _allSpells.Remove(s);
+            Spells.Remove(s);
         }
 
         private void ApplyFilters()
