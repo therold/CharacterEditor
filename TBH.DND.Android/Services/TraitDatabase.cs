@@ -147,7 +147,7 @@ namespace TBH.DND.Android.Services
         {
             DB.Traits.PHB.Seed();
             //DB.Traits.TCE.Seed();
-            //DB.Traits.XGE.Seed();
+            DB.Traits.XGE.Seed();
         }
     }
 }
