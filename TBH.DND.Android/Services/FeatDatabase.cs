@@ -28,12 +28,6 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            //cmd.CommandText = @"INSERT INTO Feats (Name, Description, Active) VALUES
-            //                    ('Alert', 'You gain a +5 bonus to initiative, you can’t be surprised while you are conscious, and other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.', 1),
-            //                    ('Athlete', 'You have a +1 bonus to Strength or Dexterity (your choice), and you can climb faster and jump farther.', 1),
-            //                    ('Actor', 'You gain a +1 bonus to Charisma, and you have advantage on Deception and Performance checks when trying to pass yourself off as a different person.', 1);";
-            //cmd.ExecuteNonQuery();
-
             Seed();
         }
 
@@ -153,6 +147,7 @@ namespace TBH.DND.Android.Services
         {
             DB.Feats.PHB.Seed();
             DB.Feats.TCE.Seed();
+            DB.Feats.XGE.Seed();
         }
     }
 }
