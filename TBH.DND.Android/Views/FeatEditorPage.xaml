@@ -4,6 +4,43 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TBH.DND.Android.Views.FeatEditorPage"
     Title="Feat Editor">
+
+    <ScrollView>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,18,0" Text="Name" />
+            <Entry Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Name}" />
+
+            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Source" />
+            <Picker Grid.Row="1" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
+
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Margin="0,0,8,0" Text="Description" />
+            <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.Description}" />
+
+            <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Spacing="12">
+                <Label Text="Active" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding Current.Active}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Spacing="12">
+                <Button Text="Save" Command="{Binding SaveCommand}"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </ScrollView>
+    <!--
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
             <Label Text="Name" />
@@ -23,4 +60,5 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
+    -->
 </ContentPage>

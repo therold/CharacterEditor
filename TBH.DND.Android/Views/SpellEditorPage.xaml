@@ -4,85 +4,123 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TBH.DND.Android.Views.SpellEditorPage"
     Title="Spell Editor">
-
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="12">
-            <Label Text="Name" />
-            <Entry Text="{Binding Current.Name}" />
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Text="Level" />
-            <!--<Entry Keyboard="Numeric" Text="{Binding Current.Level}" />-->
-            <Picker ItemsSource="{Binding Levels}" SelectedItem="{Binding SelectedLevel}" Title="Select level" />
-            
-            <Label Text="Class" />
-            <!--<Entry Text="{Binding Current.Class}" />-->
-            <HorizontalStackLayout>
-                <CheckBox IsChecked="{Binding ClassArtificer}"/>
-                <Label Text="Artificer" VerticalOptions="Center" />
+            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Name" />
+            <Entry Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Name}" />
 
-                <CheckBox IsChecked="{Binding ClassBard}"/>
-                <Label Text="Bard" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Level" />
+            <Picker Grid.Row="1" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Levels}" SelectedItem="{Binding SelectedLevel}" Title="Select level" />
 
-                <CheckBox IsChecked="{Binding ClassCleric}"/>
-                <Label Text="Cleric" VerticalOptions="Center" />
+            <Grid Grid.Row="2" Grid.ColumnSpan="100" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <CheckBox IsChecked="{Binding ClassDruid}"/>
-                <Label Text="Druid" VerticalOptions="Center" />
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Class" FontSize="11" FontAttributes="Italic" Margin="30,15,0,0"/>
 
-                <CheckBox IsChecked="{Binding ClassMonk}"/>
-                <Label Text="Monk" VerticalOptions="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding ClassArtificer}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Artificer" />
 
-                <CheckBox IsChecked="{Binding ClassPaladin}"/>
-                <Label Text="Paladin" VerticalOptions="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding ClassBard}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Bard" />
 
-                <CheckBox IsChecked="{Binding ClassRanger}"/>
-                <Label Text="Ranger" VerticalOptions="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassCleric}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Arcana" />
 
-                <CheckBox IsChecked="{Binding ClassSorcerer}"/>
-                <Label Text="Sorcerer" VerticalOptions="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassDruid}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Athletics" />
 
-            </HorizontalStackLayout>
-            
-            <HorizontalStackLayout>
-                <CheckBox IsChecked="{Binding ClassWarlock}"/>
-                <Label Text="Warlock" VerticalOptions="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassMonk}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Deception" />
 
-                <CheckBox IsChecked="{Binding ClassWizard}"/>
-                <Label Text="Wizard" VerticalOptions="Center" />
-                
-            </HorizontalStackLayout>
 
-            <Label Text="School" />
-            <Picker ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" Title="Select school" />
 
-            <Label Text="Casting Time" />
-            <Entry Text="{Binding Current.CastingTime}" />
+                <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding ClassPaladin}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="History" />
 
-            <Label Text="Range" />
-            <Entry Text="{Binding Current.Range}" />
+                <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding ClassRanger}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Insight" />
 
-            <Label Text="Components" />
-            <Entry Text="{Binding Current.Components}" />
+                <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassSorcerer}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Intimidation" />
 
-            <Label Text="Duration" />
-            <Entry Text="{Binding Current.Duration}" />
+                <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassWarlock}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Investigation" />
 
-            <Label Text="Source" />
-            <Picker ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
+                <CheckBox Grid.Row="2" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassWizard}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Medicine" />
+            </Grid>
 
-            <Label Text="Description" />
-            <Editor HeightRequest="150" Text="{Binding Current.Description}" />
+            <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="School" />
+            <Picker Grid.Row="3" Grid.Column="1" VerticalOptions="Center"  ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" Title="Select school" />
 
-            <HorizontalStackLayout Spacing="12">
+            <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Casting Time" />
+            <Entry Grid.Row="4" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.CastingTime}" />
+
+            <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Range" />
+            <Entry Grid.Row="5" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Range}" />
+
+            <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Components" />
+            <Entry Grid.Row="6" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Components}" />
+
+            <Label Grid.Row="7" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Duration" />
+            <Entry Grid.Row="7" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Duration}" />
+
+            <Label Grid.Row="8" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Source" />
+            <Picker Grid.Row="8" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
+
+            <Label Grid.Row="9" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Description" />
+            <Editor Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.Description}" />
+
+            <HorizontalStackLayout Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Spacing="12">
                 <Label Text="Active" VerticalOptions="Center" />
                 <Switch IsToggled="{Binding Current.Active}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="12">
+            <HorizontalStackLayout Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Spacing="12">
                 <Button Text="Save" Command="{Binding SaveCommand}"/>
                 <Button Text="Cancel" Command="{Binding CancelCommand}"/>
             </HorizontalStackLayout>
-        </VerticalStackLayout>
+
+
+        </Grid>
     </ScrollView>
 
 </ContentPage>
