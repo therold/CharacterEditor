@@ -114,50 +114,18 @@ namespace TBH.DND.Android
                 if (ve.BindingContext is Spell s)
                 {
                     s.IsExpanded = !s.IsExpanded;
-                    if (s.IsExpanded)
-                    {
-                        var webView = ve.FindByName<WebView>("webView");
-                        if (webView != null)
-                        {
-                            await webViewVisible(webView);
-                        }
-                    }
                 }
                 else if (ve.BindingContext is Ability a)
                 {
                     a.IsExpanded = !a.IsExpanded;
-                    if (a.IsExpanded)
-                    {
-                        var webView = ve.FindByName<WebView>("webView");
-                        if (webView != null)
-                        {
-                            await webViewVisible(webView);
-                        }
-                    }
                 }
                 else if (ve.BindingContext is Feat f)
                 {
                     f.IsExpanded = !f.IsExpanded;
-                    if (f.IsExpanded)
-                    {
-                        var webView = ve.FindByName<WebView>("webView");
-                        if (webView != null)
-                        {
-                            await webViewVisible(webView);
-                        }
-                    }
                 }
                 else if (ve.BindingContext is Trait t)
                 {
                     t.IsExpanded = !t.IsExpanded;
-                    if (t.IsExpanded)
-                    {
-                        var webView = ve.FindByName<WebView>("webView");
-                        if (webView != null)
-                        {
-                            await webViewVisible(webView);
-                        }
-                    }
                 }
             }
         }
@@ -453,9 +421,6 @@ namespace TBH.DND.Android
                     spell.IsExpanded = true;
                 }
                 var spellsView = this.FindByName<CollectionView>("SpellsView");
-                var webViews = spellsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Spell).ToList();
-                foreach (var view in webViews)
-                    await webViewVisible(view);
             }
         }
 
@@ -482,9 +447,6 @@ namespace TBH.DND.Android
                     ability.IsExpanded = true;
                 }
                 var abilitiesView = this.FindByName<CollectionView>("AbilitiesView");
-                var webViews = abilitiesView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Ability).ToList();
-                foreach (var view in webViews)
-                    await webViewVisible(view);
             }
         }
 
@@ -511,9 +473,6 @@ namespace TBH.DND.Android
                     feat.IsExpanded = true;
                 }
                 var featsView = this.FindByName<CollectionView>("FeatsView");
-                var webViews = featsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Feat).ToList();
-                foreach (var view in webViews)
-                    await webViewVisible(view);
             }
         }
 
@@ -540,34 +499,8 @@ namespace TBH.DND.Android
                     trait.IsExpanded = true;
                 }
                 var traitsView = this.FindByName<CollectionView>("TraitsView");
-                var webViews = traitsView.GetVisualTreeDescendants().OfType<WebView>().Where(x => x.BindingContext is Trait).ToList();
-                foreach (var view in webViews)
-                    await webViewVisible(view);
             }
         }
 
-        private async Task webViewVisible(WebView webView)
-        {
-            if (webView != null)
-            {
-                Thread.Sleep(50);
-                webView.HeightRequest = 1;
-                Thread.Sleep(50);
-                var height = await webView.EvaluateJavaScriptAsync("document.documentElement.scrollHeight");
-                // Query the document for its full height (cover several properties for reliability)
-                var js = "Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight).toString();";
-                var result = await webView.EvaluateJavaScriptAsync(js);
-
-                if (!string.IsNullOrWhiteSpace(result))
-                {
-                    webView.HeightRequest = Convert.ToDouble(result);
-                }
-                else
-                {
-                    // As a fallback, leave the current HeightRequest or set a reasonable default
-                    webView.HeightRequest = Math.Max(webView.HeightRequest, 100);
-                }
-            }
-        }
     }
 }

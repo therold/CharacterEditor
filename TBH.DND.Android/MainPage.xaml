@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+    xmlns:html="clr-namespace:LiteHtmlMaui.Controls;assembly=LiteHtmlMaui"
     x:Class="TBH.DND.Android.MainPage"
     x:Name="Page"
     Title="Character">
@@ -800,11 +801,11 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="160" />
                                         </Grid.ColumnDefinitions>
-                                        <WebView x:Name="webView" Grid.Column="0" Source="{Binding DescriptionHtml}" VerticalOptions="Start" HeightRequest="10" Margin="0,0,10,0">
-                                            <WebView.GestureRecognizers>
+                                        <html:LiteHtml Grid.Column="0" Html="{Binding Description}" VerticalOptions="Start" HeightRequest="10" Margin="0,0,10,0">
+                                            <html:LiteHtml.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                                            </WebView.GestureRecognizers>
-                                        </WebView>
+                                            </html:LiteHtml.GestureRecognizers>
+                                        </html:LiteHtml>
                                         <Grid Grid.Column="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
@@ -867,11 +868,11 @@
                                 </Border.GestureRecognizers>
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                    <WebView x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
-                                        <WebView.GestureRecognizers>
+                                    <html:LiteHtml Html="{Binding Description}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
+                                        <html:LiteHtml.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                                        </WebView.GestureRecognizers>
-                                    </WebView>
+                                        </html:LiteHtml.GestureRecognizers>
+                                    </html:LiteHtml>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>
@@ -904,11 +905,11 @@
                                 </Border.GestureRecognizers>
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                    <WebView x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
-                                        <WebView.GestureRecognizers>
+                                    <html:LiteHtml Html="{Binding Description}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
+                                        <html:LiteHtml.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                                        </WebView.GestureRecognizers>
-                                    </WebView>
+                                        </html:LiteHtml.GestureRecognizers>
+                                    </html:LiteHtml>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>
@@ -941,11 +942,11 @@
                                 </Border.GestureRecognizers>
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                    <WebView x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
-                                        <WebView.GestureRecognizers>
+                                    <html:LiteHtml Html="{Binding Description}" IsVisible="{Binding IsExpanded}" VerticalOptions="Start" Margin="0,0,10,0">
+                                        <html:LiteHtml.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                                        </WebView.GestureRecognizers>
-                                    </WebView>
+                                        </html:LiteHtml.GestureRecognizers>
+                                    </html:LiteHtml>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>

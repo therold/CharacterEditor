@@ -2,6 +2,7 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:html="clr-namespace:LiteHtmlMaui.Controls;assembly=LiteHtmlMaui"
     x:Class="TBH.DND.Android.Views.AbilityAllPage"
     Title="Edit Abilities">
     <ContentPage.ToolbarItems>
@@ -42,11 +43,11 @@
                                 <!--<Label Grid.Row="0" Grid.Column="0" Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />-->
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" />
                                 <Switch Grid.Row="0" Grid.Column="1" HeightRequest="10" IsToggled="{Binding Active}" Toggled="OnActiveToggled" />
-                                <WebView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="webView" Source="{Binding DescriptionHtml}" IsVisible="{Binding IsExpanded}"  VerticalOptions="Start" Margin="0,0,10,0">
-                                    <WebView.GestureRecognizers>
+                                <html:LiteHtml Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Html="{Binding Description}" IsVisible="{Binding IsExpanded}"  VerticalOptions="Start" Margin="0,0,10,0">
+                                    <html:LiteHtml.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
-                                    </WebView.GestureRecognizers>
-                                </WebView>
+                                    </html:LiteHtml.GestureRecognizers>
+                                </html:LiteHtml>
                             </Grid>
                         </Border>
                     </SwipeView>

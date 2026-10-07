@@ -41,37 +41,6 @@ namespace TBH.DND.Android.Views
                 if (ve.BindingContext is Spell s)
                 {
                     s.IsExpanded = !s.IsExpanded;
-                    if (s.IsExpanded)
-                    {
-                        var webView = ve.FindByName<WebView>("webView");
-                        if (webView != null)
-                        {
-                            await webViewVisible(webView);
-                        }
-                    }
-                }
-            }
-        }
-        private async Task webViewVisible(WebView webView)
-        {
-            if (webView != null)
-            {
-                Thread.Sleep(50);
-                webView.HeightRequest = 1;
-                Thread.Sleep(50);
-                var height = await webView.EvaluateJavaScriptAsync("document.documentElement.scrollHeight");
-                // Query the document for its full height (cover several properties for reliability)
-                var js = "Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight).toString();";
-                var result = await webView.EvaluateJavaScriptAsync(js);
-
-                if (!string.IsNullOrWhiteSpace(result))
-                {
-                    webView.HeightRequest = Convert.ToDouble(result);
-                }
-                else
-                {
-                    // As a fallback, leave the current HeightRequest or set a reasonable default
-                    webView.HeightRequest = Math.Max(webView.HeightRequest, 100);
                 }
             }
         }

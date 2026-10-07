@@ -22,10 +22,6 @@ namespace TBH.DND.Android.Models
             get => description;
             set => SetProperty(ref description, value);
         }
-        public HtmlWebViewSource DescriptionHtml => new HtmlWebViewSource
-        {
-            Html = $"<html><body style=\"color:#FFFFFF;font-size:16px;\">{Description}</body></html>"
-        };
 
         private string source = string.Empty;
         public string Source
