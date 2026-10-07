@@ -22,7 +22,8 @@ namespace TBH.DND.Android.ViewModels
         {
             Abilities.Clear();
             var items = await db.GetAllAbilitiesAsync();
-            foreach (var a in items)
+            var abilities = items.OrderBy(x => x.Name);
+            foreach (var a in abilities)
             {
                 Abilities.Add(a);
             }

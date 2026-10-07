@@ -22,7 +22,8 @@ namespace TBH.DND.Android.ViewModels
         {
             Feats.Clear();
             var items = await db.GetAllFeatsAsync();
-            foreach (var f in items)
+            var feats = items.OrderBy(x => x.Name);
+            foreach (var f in feats)
             {
                 Feats.Add(f);
             }
