@@ -16,6 +16,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding SearchText}" Placeholder="Search abilities..." />
+        </Grid>
         <CollectionView ItemsSource="{Binding Abilities}" SelectionMode="None" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
