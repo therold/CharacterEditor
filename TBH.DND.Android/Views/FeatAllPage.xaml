@@ -39,6 +39,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <!--<Label Grid.Row="0" Grid.Column="0" Text="{Binding LevelDisplay}" FontAttributes="Bold" WidthRequest="55" />-->
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" />
@@ -48,6 +49,10 @@
                                         <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
                                     </html:LiteHtml.GestureRecognizers>
                                 </html:LiteHtml>
+                                <HorizontalStackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsExpanded}" Margin="8,4,0,0">
+                                    <Label Text="Source: " FontAttributes="Italic" FontSize="12" />
+                                    <Label Text="{Binding Source}" FontAttributes="Italic" FontSize="12"/>
+                                </HorizontalStackLayout>
                             </Grid>
                         </Border>
                     </SwipeView>
