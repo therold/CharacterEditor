@@ -770,11 +770,11 @@
             
             <BoxView Margin="0,10,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
             
-            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8,8,8,13">
                 <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-                <Button Text="━" Clicked="OnSpellsCollapseMenuClicked"  />
-                <Button Text="✚" Clicked="OnSpellsExpandMenuClicked" />
-                <Button Text="..."  Clicked="OnSpellsAllMenuClicked" />
+                <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnSpellsCollapseMenuClicked"  />
+                <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnSpellsExpandMenuClicked" />
+                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnSpellsAllMenuClicked" />
             </FlexLayout>
             
             <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" x:Name="SpellsView">
@@ -845,11 +845,11 @@
 
             <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
-            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8,8,8,13">
                 <Label Text="Abilities" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-                <Button Text="━" Clicked="OnAbilitiesCollapseMenuClicked"  />
-                <Button Text="✚" Clicked="OnAbilitiesExpandMenuClicked" />
-                <Button Text="..."  Clicked="OnAbilitiesAllMenuClicked" />
+                <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnAbilitiesCollapseMenuClicked"  />
+                <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnAbilitiesExpandMenuClicked" />
+                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnAbilitiesAllMenuClicked" />
             </FlexLayout>
 
             <CollectionView ItemsSource="{Binding Abilities}" SelectionMode="None" x:Name="AbilitiesView">
@@ -873,6 +873,10 @@
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
                                         </html:LiteHtml.GestureRecognizers>
                                     </html:LiteHtml>
+                                    <HorizontalStackLayout IsVisible="{Binding IsExpanded}" Margin="8,4,0,0">
+                                        <Label Text="Source: " FontAttributes="Italic" FontSize="12" />
+                                        <Label Text="{Binding Source}" FontAttributes="Italic" FontSize="12"/>
+                                    </HorizontalStackLayout>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>
@@ -882,11 +886,11 @@
 
             <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
-            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8,8,8,13">
                 <Label Text="Feats" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-                <Button Text="━" Clicked="OnFeatsCollapseMenuClicked"  />
-                <Button Text="✚" Clicked="OnFeatsExpandMenuClicked" />
-                <Button Text="..."  Clicked="OnFeatsAllMenuClicked" />
+                <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnFeatsCollapseMenuClicked"  />
+                <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnFeatsExpandMenuClicked" />
+                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnFeatsAllMenuClicked" />
             </FlexLayout>
             
             <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None" x:Name="FeatsView">
@@ -910,6 +914,10 @@
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
                                         </html:LiteHtml.GestureRecognizers>
                                     </html:LiteHtml>
+                                    <HorizontalStackLayout IsVisible="{Binding IsExpanded}" Margin="8,4,0,0">
+                                        <Label Text="Source: " FontAttributes="Italic" FontSize="12" />
+                                        <Label Text="{Binding Source}" FontAttributes="Italic" FontSize="12"/>
+                                    </HorizontalStackLayout>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>
@@ -919,11 +927,11 @@
 
             <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
-            <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
+            <FlexLayout Direction="Row" AlignItems="Center" Margin="8,8,8,13">
                 <Label Text="Traits" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
-                <Button Text="━" Clicked="OnTraitsCollapseMenuClicked"  />
-                <Button Text="✚" Clicked="OnTraitsExpandMenuClicked" />
-                <Button Text="..."  Clicked="OnTraitsAllMenuClicked" />
+                <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnTraitsCollapseMenuClicked"  />
+                <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnTraitsExpandMenuClicked" />
+                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnTraitsAllMenuClicked" />
             </FlexLayout>
 
             <CollectionView ItemsSource="{Binding Traits}" SelectionMode="None" x:Name="TraitsView">
@@ -947,6 +955,10 @@
                                             <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
                                         </html:LiteHtml.GestureRecognizers>
                                     </html:LiteHtml>
+                                    <HorizontalStackLayout IsVisible="{Binding IsExpanded}" Margin="8,4,0,0">
+                                        <Label Text="Source: " FontAttributes="Italic" FontSize="12" />
+                                        <Label Text="{Binding Source}" FontAttributes="Italic" FontSize="12"/>
+                                    </HorizontalStackLayout>
                                 </VerticalStackLayout>
                             </Border>
                         </SwipeView>
