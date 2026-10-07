@@ -26,6 +26,73 @@ namespace TBH.DND.Android
             featDb = App.Services?.GetService(typeof(FeatDatabase)) as FeatDatabase;
             traitDb = App.Services?.GetService(typeof(TraitDatabase)) as TraitDatabase;
             BindingContext = vm;
+            Shell.SetNavBarIsVisible(this, false);
+            if (vm != null)
+            {
+                FixSpellSlotVisibility(1, vm.Character.SpellSlotsFirstLevel);
+                FixSpellSlotVisibility(2, vm.Character.SpellSlotsSecondLevel);
+                FixSpellSlotVisibility(3, vm.Character.SpellSlotsThirdLevel);
+                FixSpellSlotVisibility(4, vm.Character.SpellSlotsFourthLevel);
+                FixSpellSlotVisibility(5, vm.Character.SpellSlotsFifthLevel);
+                FixSpellSlotVisibility(6, vm.Character.SpellSlotsSixthLevel);
+                FixSpellSlotVisibility(7, vm.Character.SpellSlotsSeventhLevel);
+                FixSpellSlotVisibility(8, vm.Character.SpellSlotsEighthLevel);
+            }
+        }
+
+        private void FixSpellSlotVisibility(int level, int amount)
+        {
+            if (amount < 1)
+            {
+                for (int i = 5; i > 0; i--)
+                {
+                    var checkBox = this.FindByName<CheckBox>($"checkBoxSpellSlots{level}Level{i}");
+                    if (checkBox != null)
+                        checkBox.IsVisible = false;
+                }
+                var label = this.FindByName<Label>($"labelSpellSlot{level}Level");
+                if (label != null)
+                    label.IsVisible = false;
+                var buttonRemove = this.FindByName<Button>($"buttonRemoveSpellSlot{level}Level");
+                if (buttonRemove != null)
+                    buttonRemove.IsVisible = false;
+                var buttonAdd = this.FindByName<Button>($"buttonAddSpellSlot{level}Level");
+                if (buttonAdd != null)
+                    buttonAdd.IsVisible = false;
+            }
+            else
+            {
+                for (int i = 5; i > 0; i--)
+                {
+                    if (i > amount)
+                    {
+                        var checkBox = this.FindByName<CheckBox>($"checkBoxSpellSlots{level}Level{i}");
+                        if (checkBox != null)
+                            checkBox.IsVisible = false;
+                    }
+                }
+            }
+        }
+
+        private void FixSpellSlotChecked(int level, int amount, int max)
+        {
+            for (int i = max; i > 0; i--)
+            {
+                var checkBox = this.FindByName<CheckBox>($"checkBoxSpellSlots{level}Level{i}");
+                if (checkBox != null)
+                {
+                    if (i > amount)
+                    {
+                        checkBox.IsChecked = false;
+                        checkBox.IsEnabled = false;
+                    }
+                    else
+                    {
+                        checkBox.IsChecked = true;
+                        checkBox.IsEnabled = true;
+                    }
+                }
+            }
         }
 
         protected override async void OnAppearing()
@@ -35,7 +102,11 @@ namespace TBH.DND.Android
                 await vm.LoadAsync();
         }
 
-         private async void OnItemTapped(object? sender, EventArgs e)
+        private async void OnNullTapped(object? sender, EventArgs e)
+        {
+            // do nothing
+        }
+        private async void OnItemTapped(object? sender, EventArgs e)
         {
             var ve = sender as VisualElement;
             if (ve != null)
@@ -157,6 +228,212 @@ namespace TBH.DND.Android
         {
             await Shell.Current.GoToAsync("SpellAllPage");
         }
+
+        private async void OnSpellSlotRemoveClicked(object? sender, EventArgs e)
+        {
+            if (sender is Button button && button.CommandParameter is string levelParam)
+            {
+                if (int.TryParse(levelParam, out int level) && vm != null)
+                {
+                    switch (level)
+                    {
+                        case 1:
+                            if (vm.Character.SpellSlotsFirstLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsFirstLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFirstLevelCurrent, vm.Character.SpellSlotsFirstLevel);
+                            }
+                            break;
+                        case 2:
+                            if (vm.Character.SpellSlotsSecondLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsSecondLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSecondLevelCurrent, vm.Character.SpellSlotsSecondLevel);
+                            }
+                            break;
+                        case 3:
+                            if (vm.Character.SpellSlotsThirdLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsThirdLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsThirdLevelCurrent, vm.Character.SpellSlotsThirdLevel);
+                            }
+                            break;
+                        case 4:
+                            if (vm.Character.SpellSlotsFourthLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsFourthLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFourthLevelCurrent, vm.Character.SpellSlotsFourthLevel);
+                            }
+                            break;
+                        case 5:
+                            if (vm.Character.SpellSlotsFifthLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsFifthLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFifthLevelCurrent, vm.Character.SpellSlotsFifthLevel);
+                            }
+                            break;
+                        case 6:
+                            if (vm.Character.SpellSlotsSixthLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsSixthLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSixthLevelCurrent, vm.Character.SpellSlotsSixthLevel);
+                            }
+                            break;
+                        case 7:
+                            if (vm.Character.SpellSlotsSeventhLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsSeventhLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSeventhLevelCurrent, vm.Character.SpellSlotsSeventhLevel);
+                            }
+                            break;
+                        case 8:
+                            if (vm.Character.SpellSlotsEighthLevelCurrent > 0)
+                            {
+                                vm.Character.SpellSlotsEighthLevelCurrent--;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsEighthLevelCurrent, vm.Character.SpellSlotsEighthLevel);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+        private async void OnSpellSlotAddClicked(object? sender, EventArgs e)
+        {
+            if (sender is Button button && button.CommandParameter is string levelParam)
+            {
+                if (int.TryParse(levelParam, out int level) && vm != null)
+                {
+                    switch (level)
+                    {
+                        case 1:
+                            if (vm.Character.SpellSlotsFirstLevelCurrent < vm.Character.SpellSlotsFirstLevel)
+                            {
+                                vm.Character.SpellSlotsFirstLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFirstLevelCurrent, vm.Character.SpellSlotsFirstLevel);
+                            }
+                            break;
+                        case 2:
+                            if (vm.Character.SpellSlotsSecondLevelCurrent < vm.Character.SpellSlotsSecondLevel)
+                            {
+                                vm.Character.SpellSlotsSecondLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSecondLevelCurrent, vm.Character.SpellSlotsSecondLevel);
+                            }
+                            break;
+                        case 3:
+                            if (vm.Character.SpellSlotsThirdLevelCurrent < vm.Character.SpellSlotsThirdLevel)
+                            {
+                                vm.Character.SpellSlotsThirdLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsThirdLevelCurrent, vm.Character.SpellSlotsThirdLevel);
+                            }
+                            break;
+                        case 4:
+                            if (vm.Character.SpellSlotsFourthLevelCurrent < vm.Character.SpellSlotsFourthLevel)
+                            {
+                                vm.Character.SpellSlotsFourthLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFourthLevelCurrent, vm.Character.SpellSlotsFourthLevel);
+                            }
+                            break;
+                        case 5:
+                            if (vm.Character.SpellSlotsFifthLevelCurrent < vm.Character.SpellSlotsFifthLevel)
+                            {
+                                vm.Character.SpellSlotsFifthLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsFifthLevelCurrent, vm.Character.SpellSlotsFifthLevel);
+                            }
+                            break;
+                        case 6:
+                            if (vm.Character.SpellSlotsSixthLevelCurrent < vm.Character.SpellSlotsSixthLevel)
+                            {
+                                vm.Character.SpellSlotsSixthLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSixthLevelCurrent, vm.Character.SpellSlotsSixthLevel);
+                            }
+                            break;
+                        case 7:
+                            if (vm.Character.SpellSlotsSeventhLevelCurrent < vm.Character.SpellSlotsSeventhLevel)
+                            {
+                                vm.Character.SpellSlotsSeventhLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsSeventhLevelCurrent, vm.Character.SpellSlotsSeventhLevel);
+                            }
+                            break;
+                        case 8:
+                            if (vm.Character.SpellSlotsEighthLevelCurrent < vm.Character.SpellSlotsEighthLevel)
+                            {
+                                vm.Character.SpellSlotsEighthLevelCurrent++;
+                                FixSpellSlotChecked(level, vm.Character.SpellSlotsEighthLevelCurrent, vm.Character.SpellSlotsEighthLevel);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+        private async void OnTempMaxHPClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                string? initialValue = vm.Character.TempMaxHP != 0 ? vm.Character.TempMaxHP.ToString() : null;
+                string result = await DisplayPromptAsync(null, "Enter temporary max HP:", initialValue: initialValue, keyboard: Keyboard.Numeric);
+                if (int.TryParse(result, out int tempMaxHP))
+                {
+                    vm.Character.TempMaxHP = tempMaxHP;
+                    if (vm.Character.CurrentHP > vm.Character.TotalMaxHP)
+                        vm.Character.CurrentHP = vm.Character.TotalMaxHP;
+                }
+            }
+        }
+        private async void OnTempCurrentHPClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                string? initialValue = vm.Character.TempCurrentHP > 0 ? vm.Character.TempCurrentHP.ToString() : null;
+                string result = await DisplayPromptAsync(null, "Enter temporary HP:", initialValue: initialValue, keyboard: Keyboard.Numeric);
+                if (int.TryParse(result, out int tempCurrentHP))
+                {
+                    if (tempCurrentHP < 0)
+                        tempCurrentHP = 0;
+                    vm.Character.TempCurrentHP = tempCurrentHP;
+                }
+            }
+        }
+        private async void OnCurrentHPRemoveClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                string result = await DisplayPromptAsync(null, "Enter HP loss:", keyboard: Keyboard.Numeric);
+                if (int.TryParse(result, out int hp))
+                {
+                    if (hp < 0)
+                        hp = 0;
+                    if (hp > vm.Character.TempCurrentHP)
+                    {
+                        var remainingHP = hp - vm.Character.TempCurrentHP;
+                        vm.Character.TempCurrentHP = 0;
+                        vm.Character.CurrentHP = Math.Max(0, vm.Character.CurrentHP - remainingHP);
+                    }
+                    else
+                    {
+                        vm.Character.TempCurrentHP -= hp;
+                    }
+                }
+            }
+        }
+        private async void OnCurrentHPAddClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                string result = await DisplayPromptAsync(null, "Enter HP gain:", keyboard: Keyboard.Numeric);
+                if (int.TryParse(result, out int hp))
+                {
+                    if (hp < 0)
+                        hp = 0;
+                    if (vm.Character.CurrentHP + hp > vm.Character.TotalMaxHP)
+                        vm.Character.CurrentHP = vm.Character.TotalMaxHP;
+                    else
+                        vm.Character.CurrentHP += hp;
+                }
+            }
+        }
+
         private async void OnSpellsCollapseMenuClicked(object? sender, EventArgs e)
         {
             if (vm != null)

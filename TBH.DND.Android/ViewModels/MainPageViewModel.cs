@@ -18,7 +18,7 @@ namespace TBH.DND.Android.ViewModels
         public ObservableCollection<Feat> Feats { get; } = new ObservableCollection<Feat>();
         public ObservableCollection<Ability> Abilities { get; } = new ObservableCollection<Ability>();
         public ObservableCollection<Trait> Traits { get; } = new ObservableCollection<Trait>();
-
+        public Character Character { get; set; } = new Character();
         public ICommand RefreshCommand { get; }
         public ICommand ToggleExpandCommand { get; }
         public ICommand OpenEditorCommand { get; }

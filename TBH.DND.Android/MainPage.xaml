@@ -7,9 +7,767 @@
     x:Name="Page"
     Title="Character">
     <ScrollView>
-        <VerticalStackLayout Padding="12" Spacing="8">
+        <VerticalStackLayout Padding="12">
+            <Grid Margin="0,0,8,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="{Binding Character.Name}" FontSize="28" FontAttributes="Bold" />
+                <Button Grid.Column="1" Text="..." MinimumHeightRequest="40" MinimumWidthRequest="40" HorizontalOptions="End"/>
+            </Grid>
+            <Label Text="{Binding Character.Tagline}" FontSize="11" FontAttributes="Italic" Margin="0,0,0,20"/>
+
+            <Grid ColumnDefinitions="*,*" Margin="0,0,0,15">
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Current HP" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="0" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.CurrentHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.TempCurrentHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Button Grid.Row="0" Grid.Column="3" Text="✚TEMP" TextColor="Green" Clicked="OnTempCurrentHPClicked" HeightRequest="10" MinimumHeightRequest="40" Margin="5,0,0,0"/>
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="3">
+                        <Button Grid.Row="2" Grid.Column="3" Text="━" TextColor="Red" Clicked="OnCurrentHPRemoveClicked" HeightRequest="10" WidthRequest="10"  Margin="5,0,0,0"  MinimumHeightRequest="40" />
+                        <Button Grid.Row="2" Grid.Column="4" Text="✚" TextColor="Green" Clicked="OnCurrentHPAddClicked" HeightRequest="10" WidthRequest="10"  MinimumHeightRequest="40" />
+                    </HorizontalStackLayout>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Total" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="1" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.TotalCurrentHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="6" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Max HP" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="0" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.MaxHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.TempMaxHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="3">
+                        <Button Grid.Row="0" Grid.Column="3" Text="✚TEMP" TextColor="Green" Clicked="OnTempMaxHPClicked" HeightRequest="10"  MinimumHeightRequest="40" Margin="5,0,0,0" />
+                    </HorizontalStackLayout>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Total" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="1" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.TotalMaxHP}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    
+                </Grid>
+            </Grid>
+            <Grid ColumnDefinitions="*, *, *" Margin="0,0,0,15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Spell Slots" FontSize="11" FontAttributes="Italic" />
+
+                    <Label x:Name="labelSpellSlot1Level" Grid.Row="1" Grid.Column="0" Text="Level 1" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots1Level1" Grid.Row="1" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots1Level2" Grid.Row="1" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots1Level3" Grid.Row="1" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots1Level4" Grid.Row="1" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots1Level5" Grid.Row="1" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot1Level" Grid.Row="1" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="1" />
+                    <Button x:Name="buttonAddSpellSlot1Level" Grid.Row="1" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="1" />
+
+                    <Label x:Name="labelSpellSlot2Level" Grid.Row="2" Grid.Column="0" Text="Level 2" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots2Level1" Grid.Row="2" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots2Level2" Grid.Row="2" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots2Level3" Grid.Row="2" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots2Level4" Grid.Row="2" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots2Level5" Grid.Row="2" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot2Level" Grid.Row="2" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="2" />
+                    <Button x:Name="buttonAddSpellSlot2Level" Grid.Row="2" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="2" />
+
+                    <Label x:Name="labelSpellSlot3Level" Grid.Row="3" Grid.Column="0" Text="Level 3" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots3Level1" Grid.Row="3" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots3Level2" Grid.Row="3" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots3Level3" Grid.Row="3" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots3Level4" Grid.Row="3" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots3Level5" Grid.Row="3" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot3Level" Grid.Row="3" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="3" />
+                    <Button x:Name="buttonAddSpellSlot3Level" Grid.Row="3" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="3" />
+
+                    <Label x:Name="labelSpellSlot4Level" Grid.Row="4" Grid.Column="0" Text="Level 4" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots4Level1" Grid.Row="4" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots4Level2" Grid.Row="4" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots4Level3" Grid.Row="4" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots4Level4" Grid.Row="4" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots4Level5" Grid.Row="4" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot4Level" Grid.Row="4" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="4" />
+                    <Button x:Name="buttonAddSpellSlot4Level" Grid.Row="4" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="4" />
+
+                    <Label x:Name="labelSpellSlot5Level" Grid.Row="5" Grid.Column="0" Text="Level 5" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots5Level1" Grid.Row="5" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots5Level2" Grid.Row="5" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots5Level3" Grid.Row="5" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots5Level4" Grid.Row="5" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots5Level5" Grid.Row="5" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot5Level" Grid.Row="5" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="5" />
+                    <Button x:Name="buttonAddSpellSlot5Level" Grid.Row="5" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="5" />
+
+                    <Label x:Name="labelSpellSlot6Level" Grid.Row="6" Grid.Column="0" Text="Level 6" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots6Level1" Grid.Row="6" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots6Level2" Grid.Row="6" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots6Level3" Grid.Row="6" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots6Level4" Grid.Row="6" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots6Level5" Grid.Row="6" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot6Level" Grid.Row="6" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="6" />
+                    <Button x:Name="buttonAddSpellSlot6Level" Grid.Row="6" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="6" />
+
+                    <Label x:Name="labelSpellSlot7Level" Grid.Row="7" Grid.Column="0" Text="Level 7" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots7Level1" Grid.Row="7" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots7Level2" Grid.Row="7" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots7Level3" Grid.Row="7" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots7Level4" Grid.Row="7" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots7Level5" Grid.Row="7" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot7Level" Grid.Row="7" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="7" />
+                    <Button x:Name="buttonAddSpellSlot7Level" Grid.Row="7" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="7" />
+
+                    <Label x:Name="labelSpellSlot8Level" Grid.Row="8" Grid.Column="0" Text="Level 8" VerticalOptions="Center" />
+                    <CheckBox x:Name="checkBoxSpellSlots8Level1" Grid.Row="8" Grid.Column="1" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots8Level2" Grid.Row="8" Grid.Column="2" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots8Level3" Grid.Row="8" Grid.Column="3" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots8Level4" Grid.Row="8" Grid.Column="4" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <CheckBox x:Name="checkBoxSpellSlots8Level5" Grid.Row="8" Grid.Column="5" IsChecked="True">
+                        <CheckBox.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </CheckBox.GestureRecognizers>
+                    </CheckBox>
+                    <Button x:Name="buttonRemoveSpellSlot8Level" Grid.Row="8" Grid.Column="6" Text="━" TextColor="Red" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotRemoveClicked" CommandParameter="8" />
+                    <Button x:Name="buttonAddSpellSlot8Level" Grid.Row="8" Grid.Column="7" Text="✚" TextColor="Green" HeightRequest="10" WidthRequest="10" Clicked="OnSpellSlotAddClicked" CommandParameter="8" />
+                </Grid>
+
+                <Grid Grid.Column="0" Grid.Row="0" Margin="0,0,0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="21" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Armor Class" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="0" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.ArmorClass}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Initiative" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="1" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Initiative}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Speed" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="2" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Speed}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Strength" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="4" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Strength}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.StrengthModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Dexterity" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="5" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Dexterity}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.DexterityModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="6" Grid.Column="0" Text="Constitution" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="6" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Constitution}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.ConstitutionModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="7" Grid.Column="0" Text="Intelligence" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="7" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Intelligence}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.IntelligenceModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="8" Grid.Column="0" Text="Wisdom" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="8" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Wisdom}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.WisdomModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="9" Grid.Column="0" Text="Charisma" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Border Grid.Row="9" Grid.Column="1" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Charisma}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Border Grid.Row="9" Grid.Column="2" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.CharismaModifier}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    
+                </Grid>
+
+
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="21"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Saving Throws" FontSize="11" FontAttributes="Italic" />
+
+                    <RadioButton Grid.Row="1" Grid.Column="0" IsChecked="{Binding Character.StrengthSavingThrowProficient}" GroupName="StrengthSavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="1" Grid.Column="1" Text="Strength" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="1" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.StrengthSavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="2" Grid.Column="0" IsChecked="{Binding Character.DexteritySavingThrowProficient}" GroupName="DexteritySavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="2" Grid.Column="1" Text="Dexterity" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="2" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.DexteritySavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="3" Grid.Column="0" IsChecked="{Binding Character.ConstitutionSavingThrowProficient}" GroupName="ConstitutionSavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="3" Grid.Column="1" Text="Constitution" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="3" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.ConstitutionSavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="4" Grid.Column="0" IsChecked="{Binding Character.IntelligenceSavingThrowProficient}" GroupName="IntelligenceSavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="4" Grid.Column="1" Text="Intelligence" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="4" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.IntelligenceSavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="5" Grid.Column="0" IsChecked="{Binding Character.WisdomSavingThrowProficient}" GroupName="WisdomSavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="5" Grid.Column="1" Text="Wisdom" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="5" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.WisdomSavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="6" Grid.Column="0" IsChecked="{Binding Character.CharismaSavingThrowProficient}" GroupName="CharismaSavingThrowProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="6" Grid.Column="1" Text="Charisma" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="6" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.CharismaSavingThrow}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="Passive Perception" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="8" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.PassivePerception}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Proficiency Bonus" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="9" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.ProficiencyBonus}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Spell DC" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Border Grid.Row="10" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.SpellSaveDC}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+
+
+                <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <RadioButton Grid.Row="0" Grid.Column="0" IsChecked="{Binding Character.AcrobaticsProficient}" GroupName="AcrobaticsProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="0" Grid.Column="1" Text="Acrobatics" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="DEX" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Acrobatics}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+
+                    <RadioButton Grid.Row="1" Grid.Column="0" IsChecked="{Binding Character.AnimalHandlingProficient}" GroupName="AnimalHandlingProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="1" Grid.Column="1" Text="Animal Handling" FontAttributes="Bold" VerticalOptions="Center" Margin="0,0,10,0" />
+                    <Label Grid.Row="1" Grid.Column="2" Text="WIS" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End"  Margin="0,0,10,0" VerticalOptions="Center"/>
+                    <Border Grid.Row="1" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.AnimalHandling}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="2" Grid.Column="0" IsChecked="{Binding Character.ArcanaProficient}" GroupName="ArcanaProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="2" Grid.Column="1" Text="Arcana" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="INT" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Arcana}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="3" Grid.Column="0" IsChecked="{Binding Character.AthleticsProficient}" GroupName="AthleticsProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="3" Grid.Column="1" Text="Athletics" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="3" Grid.Column="2" Text="STR" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="3" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Athletics}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="4" Grid.Column="0" IsChecked="{Binding Character.DeceptionProficient}" GroupName="DeceptionProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="4" Grid.Column="1" Text="Deception" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="4" Grid.Column="2" Text="CHA" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="4" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Deception}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="5" Grid.Column="0" IsChecked="{Binding Character.HistoryProficient}" GroupName="HistoryProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="5" Grid.Column="1" Text="History" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="5" Grid.Column="2" Text="INT" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="5" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.History}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="6" Grid.Column="0" IsChecked="{Binding Character.InsightProficient}" GroupName="InsightProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="6" Grid.Column="1" Text="Insight" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="6" Grid.Column="2" Text="WIS" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="6" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Insight}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="7" Grid.Column="0" IsChecked="{Binding Character.IntimidationProficient}" GroupName="IntimidationProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="7" Grid.Column="1" Text="Intimidation" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="7" Grid.Column="2" Text="CHA" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="7" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Intimidation}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="8" Grid.Column="0" IsChecked="{Binding Character.InvestigationProficient}" GroupName="InvestigationProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="8" Grid.Column="1" Text="Investigation" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="8" Grid.Column="2" Text="INT" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="8" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Investigation}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="9" Grid.Column="0" IsChecked="{Binding Character.MedicineProficient}" GroupName="MedicineProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="9" Grid.Column="1" Text="Medicine" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="9" Grid.Column="2" Text="WIS" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="9" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Medicine}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="10" Grid.Column="0" IsChecked="{Binding Character.NatureProficient}" GroupName="NatureProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="10" Grid.Column="1" Text="Nature" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="10" Grid.Column="2" Text="INT" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="10" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Nature}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="11" Grid.Column="0" IsChecked="{Binding Character.PerceptionProficient}" GroupName="PerceptionProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="11" Grid.Column="1" Text="Perception" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="11" Grid.Column="2" Text="WIS" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="11" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Perception}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="12" Grid.Column="0" IsChecked="{Binding Character.PerformanceProficient}" GroupName="PerformanceProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="12" Grid.Column="1" Text="Performance" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="12" Grid.Column="2" Text="CHA" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="12" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Performance}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="13" Grid.Column="0" IsChecked="{Binding Character.PersuasionProficient}" GroupName="PersuasionProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="13" Grid.Column="1" Text="Persuasion" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="13" Grid.Column="2" Text="CHA" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="13" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Persuasion}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="14" Grid.Column="0" IsChecked="{Binding Character.ReligionProficient}" GroupName="ReligionProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="14" Grid.Column="1" Text="Religion" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="14" Grid.Column="2" Text="INT" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="14" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Religion}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="15" Grid.Column="0" IsChecked="{Binding Character.SleightOfHandProficient}" GroupName="SleightOfHandProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="15" Grid.Column="1" Text="Slight of Hand" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="15" Grid.Column="2" Text="DEX" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="15" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.SleightOfHand}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="16" Grid.Column="0" IsChecked="{Binding Character.StealthProficient}" GroupName="StealthProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="16" Grid.Column="1" Text="Stealth" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="16" Grid.Column="2" Text="DEX" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="16" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Stealth}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                    <RadioButton Grid.Row="17" Grid.Column="0" IsChecked="{Binding Character.SurvivalProficient}" GroupName="SurvivalProficient" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="32" HeightRequest="32" Margin="0" Padding="0" MinimumHeightRequest="20" MinimumWidthRequest="20">
+                        <RadioButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNullTapped" />
+                        </RadioButton.GestureRecognizers>
+                    </RadioButton>
+                    <Label Grid.Row="17" Grid.Column="1" Text="Survival" FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,30,0" />
+                    <Label Grid.Row="17" Grid.Column="2" Text="WIS" FontAttributes="Italic" FontSize="11"  HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="17" Grid.Column="3" Stroke="White" StrokeThickness="1" WidthRequest="40" HeightRequest="40">
+                        <Label Text="{Binding Character.Survival}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+
+                </Grid>
+            </Grid>
             
-            <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+            <BoxView Margin="0,10,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
             
             <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
                 <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
@@ -84,7 +842,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+            <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
             <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
                 <Label Text="Abilities" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
@@ -121,7 +879,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+            <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
             <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
                 <Label Text="Feats" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
@@ -158,7 +916,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <BoxView Margin="0,10,0,10"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+            <BoxView Margin="0,15,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
 
             <FlexLayout Direction="Row" AlignItems="Center" Margin="8">
                 <Label Text="Traits" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
