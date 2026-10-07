@@ -17,10 +17,6 @@ namespace TBH.DND.Android.Services
 
         void Initialize()
         {
-            //if (File.Exists(DbPath))
-            //{
-            //    File.Delete(DbPath);
-            //}
             using var conn = new SqliteConnection($"Data Source={DbPath}");
             conn.Open();
             using var cmd = conn.CreateCommand();
@@ -39,7 +35,8 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            //Seed();
+            if (SeedRequired)
+                Seed();
         }
 
         public async Task<List<Spell>> GetActiveSpellsAsync()

@@ -28,7 +28,8 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            //Seed();
+            if (base.SeedRequired)
+                Seed();
         }
 
         public async Task<List<Feat>> GetActiveFeatsAsync()
