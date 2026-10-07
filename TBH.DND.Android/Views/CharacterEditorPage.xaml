@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TBH.DND.Android.Views.CharacterEditorPage"
+    Title="Character Editor">
+    <ScrollView>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Name" Margin="0,0,8,0" />
+            <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" VerticalOptions="Center" Text="{Binding Current.Name}" />
+
+            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Race" Margin="0,0,8,0" />
+            <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalOptions="Center" Text="{Binding Current.Race}" />
+
+            <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Class" Margin="0,0,8,0" />
+            <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" VerticalOptions="Center" Text="{Binding Current.Class}" />
+
+            <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Level" Margin="0,0,8,0" />
+            <Entry Grid.Row="3" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Level}" Keyboard="Numeric" />
+
+            <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Max HP" Margin="0,0,8,0" />
+            <Entry Grid.Row="4" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.MaxHP}" Keyboard="Numeric" />
+
+            <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Armor Class" Margin="0,0,8,0" />
+            <Entry Grid.Row="5" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.ArmorClass}" Keyboard="Numeric" />
+
+            <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="Initiative" Margin="0,0,8,0" />
+            <Entry Grid.Row="6" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Initiative}" Keyboard="Numeric" />
+
+            <Label Grid.Row="7" Grid.Column="0" VerticalOptions="Center" Text="Speed" Margin="0,0,8,0" />
+            <Entry Grid.Row="7" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Speed}" Keyboard="Numeric" />
+
+            <Label Grid.Row="3" Grid.Column="3" VerticalOptions="Center" Text="Strength" Margin="0,0,8,0" />
+            <Entry Grid.Row="3" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Strength}" Keyboard="Numeric" />
+
+            <Label Grid.Row="4" Grid.Column="3" VerticalOptions="Center" Text="Dexterity" Margin="0,0,8,0" />
+            <Entry Grid.Row="4" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Dexterity}" Keyboard="Numeric" />
+
+            <Label Grid.Row="5" Grid.Column="3" VerticalOptions="Center" Text="Constitution" Margin="0,0,8,0" />
+            <Entry Grid.Row="5" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Constitution}" Keyboard="Numeric" />
+
+            <Label Grid.Row="6" Grid.Column="3" VerticalOptions="Center" Text="Intelligence" Margin="0,0,8,0" />
+            <Entry Grid.Row="6" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Intelligence}" Keyboard="Numeric" />
+
+            <Label Grid.Row="7" Grid.Column="3" VerticalOptions="Center" Text="Wisdom" Margin="0,0,8,0" />
+            <Entry Grid.Row="7" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Wisdom}" Keyboard="Numeric" />
+
+            <Label Grid.Row="8" Grid.Column="3" VerticalOptions="Center" Text="Charisma" Margin="0,0,8,0" />
+            <Entry Grid.Row="8" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.Charisma}" Keyboard="Numeric" />
+
+            <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Spell Slots" FontSize="11" FontAttributes="Italic" Margin="30,20,0,0"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Level 1" Margin="0,0,8,0" />
+                <Entry Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.SpellSlotsFirstLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Level 2" Margin="0,0,8,0" />
+                <Entry Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.SpellSlotsSecondLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Level 3" Margin="0,0,8,0" />
+                <Entry Grid.Row="3" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.SpellSlotsThirdLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Level 4" Margin="0,0,8,0" />
+                <Entry Grid.Row="4" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.SpellSlotsFourthLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Level 5" Margin="0,0,8,0" />
+                <Entry Grid.Row="5" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.SpellSlotsFifthLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Level 6" Margin="0,0,8,0" />
+                <Entry Grid.Row="1" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.SpellSlotsSixthLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Level 7" Margin="0,0,8,0" />
+                <Entry Grid.Row="2" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.SpellSlotsSeventhLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="3" Grid.Column="3" VerticalOptions="Center" Text="Level 8" Margin="0,0,8,0" />
+                <Entry Grid.Row="3" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.SpellSlotsEighthLevel}" Keyboard="Numeric" />
+
+                <Label Grid.Row="4" Grid.Column="3" VerticalOptions="Center" Text="Level 9" Margin="0,0,8,0" />
+                <Entry Grid.Row="4" Grid.Column="4" VerticalOptions="Center" Text="{Binding Current.SpellSlotsNinthLevel}" Keyboard="Numeric" />
+                
+            </Grid>
+            
+            <Grid Grid.Row="11" Grid.ColumnSpan="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Saving Throw Proficiency" FontSize="11" FontAttributes="Italic" Margin="30,20,0,0"/>
+
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.StrengthSavingThrowProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Strength" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding Current.DexteritySavingThrowProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Dexterity" />
+
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding Current.ConstitutionSavingThrowProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Constitution" />
+
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding Current.IntelligenceSavingThrowProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Intelligence" />
+
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding Current.WisdomSavingThrowProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Wisdom" />
+
+                <CheckBox Grid.Row="1" Grid.Column="10" VerticalOptions="Center" IsChecked="{Binding Current.CharismaSavingThrowProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="11" VerticalOptions="Center" Text="Charisma" />
+            </Grid>
+
+            <Grid Grid.Row="15" Grid.ColumnSpan="100" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Skill Proficiency" FontSize="11" FontAttributes="Italic" Margin="30,15,0,0"/>
+
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.AcrobaticsProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Acrobatics" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding Current.AnimalHandlingProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Animal Handling" />
+
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding Current.ArcanaProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Arcana" />
+
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding Current.AthleticsProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Athletics" />
+
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding Current.DeceptionProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Deception" />
+
+
+
+                <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.HistoryProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="History" />
+
+                <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding Current.InsightProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Insight" />
+
+                <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding Current.IntimidationProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Intimidation" />
+
+                <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding Current.InvestigationProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Investigation" />
+
+                <CheckBox Grid.Row="2" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding Current.MedicineProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Medicine" />
+
+
+
+                <CheckBox Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.NatureProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center" Text="Nature" />
+
+                <CheckBox Grid.Row="3" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding Current.PerceptionProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="3" Grid.Column="3" VerticalOptions="Center" Text="Perception" />
+
+                <CheckBox Grid.Row="3" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding Current.PerformanceProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="3" Grid.Column="5" VerticalOptions="Center" Text="Performance" />
+
+                <CheckBox Grid.Row="3" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding Current.PersuasionProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="3" Grid.Column="7" VerticalOptions="Center" Text="Persuasion" />
+
+                <CheckBox Grid.Row="3" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding Current.ReligionProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="3" Grid.Column="9" VerticalOptions="Center" Text="Religion" />
+
+
+
+                <CheckBox Grid.Row="4" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.SleightOfHandProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="4" Grid.Column="1" VerticalOptions="Center" Text="Sleight Of Hand" />
+
+                <CheckBox Grid.Row="4" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding Current.StealthProficient}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="4" Grid.Column="3" VerticalOptions="Center" Text="Stealth" />
+
+                <CheckBox Grid.Row="4" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding Current.SurvivalProficient}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="4" Grid.Column="5" VerticalOptions="Center" Text="Survival" />
+            </Grid>
+
+            <!--
+            
+
+
+
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+
+            <CheckBox Grid.Row="14" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding Current.}" />
+            <Label Grid.Row="14" Grid.Column="1" VerticalOptions="Center" Text="Charisma" />
+            -->
+
+            <!--
+            
+                Character.AcrobaticsProficient = c.;
+Character.AnimalHandlingProficient = c.;
+Character.ArcanaProficient = c.;
+Character.AthleticsProficient = c.;
+Character.DeceptionProficient = c.;
+Character.HistoryProficient = c.;
+Character.InsightProficient = c.;
+Character.IntimidationProficient = c.;
+Character.InvestigationProficient = c.;
+Character.MedicineProficient = c.;
+Character.NatureProficient = c.;
+Character.PerceptionProficient = c.;
+Character.PerformanceProficient = c.;
+Character.PersuasionProficient = c.;
+Character.ReligionProficient = c.;
+Character.SleightOfHandProficient = c.;
+Character.StealthProficient = c.;
+Character.SurvivalProficient = c.;
+            
+            -->
+            
+            <HorizontalStackLayout Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="2" Spacing="12">
+                <Button Text="Save" Command="{Binding SaveCommand}"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -28,7 +28,7 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            Seed();
+            //Seed();
         }
 
         public async Task<List<Trait>> GetActiveTraitsAsync()

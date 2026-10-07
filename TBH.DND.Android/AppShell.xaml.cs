@@ -15,6 +15,7 @@ namespace TBH.DND.Android
             Routing.RegisterRoute("SpellEditorPage", typeof(SpellEditorPage));
             Routing.RegisterRoute("TraitAllPage", typeof(TraitAllPage));
             Routing.RegisterRoute("TraitEditorPage", typeof(TraitEditorPage));
+            Routing.RegisterRoute("CharacterEditorPage", typeof(CharacterEditorPage));
         }
     }
 }

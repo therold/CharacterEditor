@@ -12,6 +12,7 @@ namespace TBH.DND.Android
     public partial class MainPage : ContentPage
     {
         private MainPageViewModel? vm;
+        private CharacterDatabase? characterDb;
         private SpellDatabase? db;
         private AbilityDatabase? abilityDb;
         private FeatDatabase? featDb;
@@ -25,19 +26,9 @@ namespace TBH.DND.Android
             abilityDb = App.Services?.GetService(typeof(AbilityDatabase)) as AbilityDatabase;
             featDb = App.Services?.GetService(typeof(FeatDatabase)) as FeatDatabase;
             traitDb = App.Services?.GetService(typeof(TraitDatabase)) as TraitDatabase;
+            characterDb = App.Services?.GetService(typeof(CharacterDatabase)) as CharacterDatabase;
             BindingContext = vm;
             Shell.SetNavBarIsVisible(this, false);
-            if (vm != null)
-            {
-                FixSpellSlotVisibility(1, vm.Character.SpellSlotsFirstLevel);
-                FixSpellSlotVisibility(2, vm.Character.SpellSlotsSecondLevel);
-                FixSpellSlotVisibility(3, vm.Character.SpellSlotsThirdLevel);
-                FixSpellSlotVisibility(4, vm.Character.SpellSlotsFourthLevel);
-                FixSpellSlotVisibility(5, vm.Character.SpellSlotsFifthLevel);
-                FixSpellSlotVisibility(6, vm.Character.SpellSlotsSixthLevel);
-                FixSpellSlotVisibility(7, vm.Character.SpellSlotsSeventhLevel);
-                FixSpellSlotVisibility(8, vm.Character.SpellSlotsEighthLevel);
-            }
         }
 
         private void FixSpellSlotVisibility(int level, int amount)
@@ -62,13 +53,24 @@ namespace TBH.DND.Android
             }
             else
             {
+                var label = this.FindByName<Label>($"labelSpellSlot{level}Level");
+                if (label != null)
+                    label.IsVisible = true;
+                var buttonRemove = this.FindByName<Button>($"buttonRemoveSpellSlot{level}Level");
+                if (buttonRemove != null)
+                    buttonRemove.IsVisible = true;
+                var buttonAdd = this.FindByName<Button>($"buttonAddSpellSlot{level}Level");
+                if (buttonAdd != null)
+                    buttonAdd.IsVisible = true;
                 for (int i = 5; i > 0; i--)
                 {
-                    if (i > amount)
+                    var checkBox = this.FindByName<CheckBox>($"checkBoxSpellSlots{level}Level{i}");
+                    if (checkBox != null)
                     {
-                        var checkBox = this.FindByName<CheckBox>($"checkBoxSpellSlots{level}Level{i}");
-                        if (checkBox != null)
+                        if (i > amount)
                             checkBox.IsVisible = false;
+                        else
+                            checkBox.IsVisible = true;
                     }
                 }
             }
@@ -99,7 +101,29 @@ namespace TBH.DND.Android
         {
             base.OnAppearing();
             if (vm != null)
+            {
                 await vm.LoadAsync();
+                FixSpellSlotVisibility(1, vm.Character.SpellSlotsFirstLevel);
+                FixSpellSlotVisibility(2, vm.Character.SpellSlotsSecondLevel);
+                FixSpellSlotVisibility(3, vm.Character.SpellSlotsThirdLevel);
+                FixSpellSlotVisibility(4, vm.Character.SpellSlotsFourthLevel);
+                FixSpellSlotVisibility(5, vm.Character.SpellSlotsFifthLevel);
+                FixSpellSlotVisibility(6, vm.Character.SpellSlotsSixthLevel);
+                FixSpellSlotVisibility(7, vm.Character.SpellSlotsSeventhLevel);
+                FixSpellSlotVisibility(8, vm.Character.SpellSlotsEighthLevel);
+                FixSpellSlotVisibility(9, vm.Character.SpellSlotsNinthLevel);
+
+                FixSpellSlotChecked(1, vm.Character.SpellSlotsFirstLevelCurrent, vm.Character.SpellSlotsFirstLevel);
+                FixSpellSlotChecked(2, vm.Character.SpellSlotsSecondLevelCurrent, vm.Character.SpellSlotsSecondLevel);
+                FixSpellSlotChecked(3, vm.Character.SpellSlotsThirdLevelCurrent, vm.Character.SpellSlotsThirdLevel);
+                FixSpellSlotChecked(4, vm.Character.SpellSlotsFourthLevelCurrent, vm.Character.SpellSlotsFourthLevel);
+                FixSpellSlotChecked(5, vm.Character.SpellSlotsFifthLevelCurrent, vm.Character.SpellSlotsFifthLevel);
+                FixSpellSlotChecked(6, vm.Character.SpellSlotsSixthLevelCurrent, vm.Character.SpellSlotsSixthLevel);
+                FixSpellSlotChecked(7, vm.Character.SpellSlotsSeventhLevelCurrent, vm.Character.SpellSlotsSeventhLevel);
+                FixSpellSlotChecked(8, vm.Character.SpellSlotsEighthLevelCurrent, vm.Character.SpellSlotsEighthLevel);
+                FixSpellSlotChecked(9, vm.Character.SpellSlotsNinthLevelCurrent, vm.Character.SpellSlotsNinthLevel);
+                //characterDb.SaveCharacterAsync(vm.Character);
+            }
         }
 
         private async void OnNullTapped(object? sender, EventArgs e)
@@ -192,6 +216,11 @@ namespace TBH.DND.Android
             }
             
         }
+        
+        private async void OnEditCharacterlicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"CharacterEditorPage?id={vm.Character.Id}");
+        }
         private async void OnSpellsAllMenuClicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("SpellAllPage");
@@ -262,6 +291,8 @@ namespace TBH.DND.Android
                             }
                             break;
                     }
+                    if (characterDb != null && vm != null)
+                        await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }
@@ -331,6 +362,8 @@ namespace TBH.DND.Android
                             }
                             break;
                     }
+                    if (characterDb != null && vm != null)
+                        await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }
@@ -346,6 +379,7 @@ namespace TBH.DND.Android
                     vm.Character.TempMaxHP = tempMaxHP;
                     if (vm.Character.CurrentHP > vm.Character.TotalMaxHP)
                         vm.Character.CurrentHP = vm.Character.TotalMaxHP;
+                    await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }
@@ -360,6 +394,7 @@ namespace TBH.DND.Android
                     if (tempCurrentHP < 0)
                         tempCurrentHP = 0;
                     vm.Character.TempCurrentHP = tempCurrentHP;
+                    await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }
@@ -382,6 +417,7 @@ namespace TBH.DND.Android
                     {
                         vm.Character.TempCurrentHP -= hp;
                     }
+                    await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }
@@ -398,6 +434,7 @@ namespace TBH.DND.Android
                         vm.Character.CurrentHP = vm.Character.TotalMaxHP;
                     else
                         vm.Character.CurrentHP += hp;
+                    await characterDb.SaveCharacterAsync(vm.Character);
                 }
             }
         }

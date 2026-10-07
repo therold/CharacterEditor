@@ -8,49 +8,49 @@ namespace TBH.DND.Android.Models
     {
         public Character()
         {
-            Id = 0;
-            Name = "Thorin";
-            Race = "Hill Dwarf";
-            Class = "Forge Cleric";
+            //Id = 0;
+            //Name = "Thorin";
+            //Race = "Hill Dwarf";
+            //Class = "Forge Cleric";
 
-            Level = 7;
-            MaxHP = 81;
-            TempMaxHP = 0;
-            CurrentHP = 81;
-            TempCurrentHP = 0;
-            ArmorClass = 19;
-            Initiative = 1;
-            Speed = 25;
+            //Level = 7;
+            //MaxHP = 81;
+            //TempMaxHP = 0;
+            //CurrentHP = 81;
+            //TempCurrentHP = 0;
+            //ArmorClass = 19;
+            //Initiative = 1;
+            //Speed = 25;
 
-            Strength = 10;
-            Dexterity = 12;
-            Constitution = 18;
-            Intelligence = 11;
-            Wisdom = 16;
-            Charisma = 8;
+            //Strength = 10;
+            //Dexterity = 12;
+            //Constitution = 18;
+            //Intelligence = 11;
+            //Wisdom = 16;
+            //Charisma = 8;
 
-            ConstitutionSavingThrowProficient = true;
-            WisdomSavingThrowProficient = true;
-            CharismaSavingThrowProficient = true;
+            //ConstitutionSavingThrowProficient = true;
+            //WisdomSavingThrowProficient = true;
+            //CharismaSavingThrowProficient = true;
 
-            HistoryProficient = true;
-            InsightProficient = true;
-            MedicineProficient = true;
-            ReligionProficient = true;
+            //HistoryProficient = true;
+            //InsightProficient = true;
+            //MedicineProficient = true;
+            //ReligionProficient = true;
 
-            SpellSlotsFirstLevel = 4;
-            SpellSlotsSecondLevel = 3;
-            SpellSlotsThirdLevel = 3;
-            SpellSlotsFourthLevel = 1;
+            //SpellSlotsFirstLevel = 4;
+            //SpellSlotsSecondLevel = 3;
+            //SpellSlotsThirdLevel = 3;
+            //SpellSlotsFourthLevel = 1;
             
-            SpellSlotsFirstLevelCurrent = SpellSlotsFirstLevel;
-            SpellSlotsSecondLevelCurrent = SpellSlotsSecondLevel;
-            SpellSlotsThirdLevelCurrent = SpellSlotsThirdLevel;
-            SpellSlotsFourthLevelCurrent = SpellSlotsFourthLevel;
-            SpellSlotsFifthLevelCurrent = SpellSlotsFifthLevel;
-            SpellSlotsSixthLevelCurrent = SpellSlotsSixthLevel;
-            SpellSlotsSeventhLevelCurrent = SpellSlotsSeventhLevel;
-            SpellSlotsEighthLevelCurrent = SpellSlotsEighthLevel;
+            //SpellSlotsFirstLevelCurrent = SpellSlotsFirstLevel;
+            //SpellSlotsSecondLevelCurrent = SpellSlotsSecondLevel;
+            //SpellSlotsThirdLevelCurrent = SpellSlotsThirdLevel;
+            //SpellSlotsFourthLevelCurrent = SpellSlotsFourthLevel;
+            //SpellSlotsFifthLevelCurrent = SpellSlotsFifthLevel;
+            //SpellSlotsSixthLevelCurrent = SpellSlotsSixthLevel;
+            //SpellSlotsSeventhLevelCurrent = SpellSlotsSeventhLevel;
+            //SpellSlotsEighthLevelCurrent = SpellSlotsEighthLevel;
         }
         public int Id { get; set; }
         private string name = string.Empty;
@@ -166,6 +166,8 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref strength, value);
                 OnPropertyChanged(nameof(StrengthModifier));
+                OnPropertyChanged(nameof(StrengthSavingThrow));
+                OnPropertyChanged(nameof(Athletics));
             }
         }
         private int dexterity;
@@ -176,6 +178,10 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref dexterity, value);
                 OnPropertyChanged(nameof(DexterityModifier));
+                OnPropertyChanged(nameof(DexteritySavingThrow));
+                OnPropertyChanged(nameof(Acrobatics));
+                OnPropertyChanged(nameof(SleightOfHand));
+                OnPropertyChanged(nameof(Stealth));
             }
         }
         private int constitution;
@@ -186,6 +192,7 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref constitution, value);
                 OnPropertyChanged(nameof(ConstitutionModifier));
+                OnPropertyChanged(nameof(ConstitutionSavingThrow));
             }
         }
         private int intelligence;
@@ -196,6 +203,12 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref intelligence, value);
                 OnPropertyChanged(nameof(IntelligenceModifier));
+                OnPropertyChanged(nameof(IntelligenceSavingThrow));
+                OnPropertyChanged(nameof(Arcana));
+                OnPropertyChanged(nameof(History));
+                OnPropertyChanged(nameof(Investigation));
+                OnPropertyChanged(nameof(Nature));
+                OnPropertyChanged(nameof(Religion));
             }
         }
         private int wisdom;
@@ -206,7 +219,14 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref wisdom, value);
                 OnPropertyChanged(nameof(WisdomModifier));
+                OnPropertyChanged(nameof(WisdomSavingThrow));
                 OnPropertyChanged(nameof(PassivePerception));
+                OnPropertyChanged(nameof(AnimalHandling));
+                OnPropertyChanged(nameof(Insight));
+                OnPropertyChanged(nameof(Medicine));
+                OnPropertyChanged(nameof(Perception));
+                OnPropertyChanged(nameof(Survival));
+                OnPropertyChanged(nameof(SpellSaveDC));
             }
         }
         private int charisma;
@@ -217,6 +237,11 @@ namespace TBH.DND.Android.Models
             { 
                 SetProperty(ref charisma, value);
                 OnPropertyChanged(nameof(CharismaModifier));
+                OnPropertyChanged(nameof(CharismaSavingThrow));
+                OnPropertyChanged(nameof(Deception));
+                OnPropertyChanged(nameof(Intimidation));
+                OnPropertyChanged(nameof(Performance));
+                OnPropertyChanged(nameof(Persuasion));
             }
         }
 
@@ -434,49 +459,91 @@ namespace TBH.DND.Android.Models
         public int SpellSlotsFirstLevel 
         { 
             get => spellSlotsFirstLevel;
-            set => SetProperty(ref spellSlotsFirstLevel, value);
+            set
+            {
+                SetProperty(ref spellSlotsFirstLevel, value);
+                SetProperty(ref spellSlotsFirstLevelCurrent, value);
+            }
         }
         private int spellSlotsSecondLevel;
         public int SpellSlotsSecondLevel 
         { 
             get => spellSlotsSecondLevel;
-            set => SetProperty(ref spellSlotsSecondLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsSecondLevel, value);
+                SetProperty(ref spellSlotsSecondLevelCurrent, value);
+            }
         }
         private int spellSlotsThirdLevel;
         public int SpellSlotsThirdLevel 
         { 
             get => spellSlotsThirdLevel;
-            set => SetProperty(ref spellSlotsThirdLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsThirdLevel, value);
+                SetProperty(ref spellSlotsThirdLevelCurrent, value);
+            }
         }
         private int spellSlotsFourthLevel;
         public int SpellSlotsFourthLevel 
         { 
             get => spellSlotsFourthLevel;
-            set => SetProperty(ref spellSlotsFourthLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsFourthLevel, value);
+                SetProperty(ref spellSlotsFourthLevelCurrent, value);
+            }
         }
         private int spellSlotsFifthLevel;
         public int SpellSlotsFifthLevel 
         { 
             get => spellSlotsFifthLevel;
-            set => SetProperty(ref spellSlotsFifthLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsFifthLevel, value);
+                SetProperty(ref spellSlotsFifthLevelCurrent, value);
+            }
         }
         private int spellSlotsSixthLevel;
         public int SpellSlotsSixthLevel 
         { 
             get => spellSlotsSixthLevel;
-            set => SetProperty(ref spellSlotsSixthLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsSixthLevel, value);
+                SetProperty(ref spellSlotsSixthLevelCurrent, value);
+            }
         }
         private int spellSlotsSeventhLevel;
         public int SpellSlotsSeventhLevel 
         { 
             get => spellSlotsSeventhLevel;
-            set => SetProperty(ref spellSlotsSeventhLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsSeventhLevel, value);
+                SetProperty(ref spellSlotsSeventhLevelCurrent, value);
+            }
         }
         private int spellSlotsEighthLevel;
-        public int SpellSlotsEighthLevel 
-        { 
+        public int SpellSlotsEighthLevel
+        {
             get => spellSlotsEighthLevel;
-            set => SetProperty(ref spellSlotsEighthLevel, value);
+            set 
+            { 
+                SetProperty(ref spellSlotsEighthLevel, value);
+                SetProperty(ref spellSlotsEighthLevelCurrent, value);
+            }
+        }
+        private int spellSlotsNinthLevel;
+        public int SpellSlotsNinthLevel
+        {
+            get => spellSlotsNinthLevel;
+            set 
+            { 
+                SetProperty(ref spellSlotsNinthLevel, value);
+                SetProperty(ref spellSlotsNinthLevelCurrent, value);
+            }
         }
 
         private int spellSlotsFirstLevelCurrent;
@@ -522,10 +589,16 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref spellSlotsSeventhLevelCurrent, value);
         }
         private int spellSlotsEighthLevelCurrent;
-        public int SpellSlotsEighthLevelCurrent 
-        { 
+        public int SpellSlotsEighthLevelCurrent
+        {
             get => spellSlotsEighthLevelCurrent;
             set => SetProperty(ref spellSlotsEighthLevelCurrent, value);
+        }
+        private int spellSlotsNinthLevelCurrent;
+        public int SpellSlotsNinthLevelCurrent
+        {
+            get => spellSlotsNinthLevelCurrent;
+            set => SetProperty(ref spellSlotsNinthLevelCurrent, value);
         }
 
 

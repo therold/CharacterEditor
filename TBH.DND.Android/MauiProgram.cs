@@ -28,6 +28,7 @@ namespace TBH.DND.Android
             builder.Services.AddSingleton<SpellDatabase>();
             builder.Services.AddSingleton<FeatDatabase>();
             builder.Services.AddSingleton<TraitDatabase>();
+            builder.Services.AddSingleton<CharacterDatabase>();
             builder.Services.AddSingleton<AbilityDatabase>();
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddSingleton<SpellAllViewModel>();
@@ -38,8 +39,10 @@ namespace TBH.DND.Android
             builder.Services.AddTransient<FeatEditorViewModel>();
             builder.Services.AddTransient<AbilityEditorViewModel>();
             builder.Services.AddTransient<TraitEditorViewModel>();
+            builder.Services.AddTransient<CharacterEditorViewModel>();
 
             // Pages can resolve viewmodels from DI when needed
+            builder.Services.AddTransient<CharacterEditorPage>();
             builder.Services.AddTransient<FeatAllPage>();
             builder.Services.AddTransient<FeatEditorPage>();
             builder.Services.AddTransient<TraitAllPage>();

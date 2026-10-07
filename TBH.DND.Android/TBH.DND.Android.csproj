@@ -85,6 +85,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\CharacterEditorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AbilityAllPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
