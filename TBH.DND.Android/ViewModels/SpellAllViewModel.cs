@@ -81,7 +81,7 @@ namespace TBH.DND.Android.ViewModels
                     }
                     else
                     {
-                        return s.Name.Contains(value);
+                        return s.Name.ToUpper().Contains(value.ToUpper());
                     }
                 });
                 _filterPredicates["Search"] = pred;
