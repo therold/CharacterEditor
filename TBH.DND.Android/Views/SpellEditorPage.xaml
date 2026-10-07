@@ -62,30 +62,30 @@
                 <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Bard" />
 
                 <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassCleric}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Arcana" />
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Cleric" />
 
                 <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassDruid}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Athletics" />
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Druid" />
 
                 <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassMonk}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Deception" />
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Monk" />
 
 
 
                 <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding ClassPaladin}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
-                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="History" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="Paladin" />
 
                 <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding ClassRanger}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Insight" />
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Ranger" />
 
                 <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassSorcerer}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Intimidation" />
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Sorcerer" />
 
                 <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassWarlock}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Investigation" />
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Warlock" />
 
                 <CheckBox Grid.Row="2" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassWizard}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
-                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Medicine" />
+                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Wizard" />
             </Grid>
 
             <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="School" />
