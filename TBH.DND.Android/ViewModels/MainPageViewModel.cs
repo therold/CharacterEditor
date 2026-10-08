@@ -126,7 +126,7 @@ namespace TBH.DND.Android.ViewModels
                 Character.SpellSlotsEighthLevelCurrent = c.SpellSlotsEighthLevelCurrent;
                 Character.SpellSlotsNinthLevelCurrent = c.SpellSlotsNinthLevelCurrent;
 
-
+                Character.IsExpanded = c.IsExpanded;
             }
         }
     }

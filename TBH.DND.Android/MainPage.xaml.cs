@@ -216,7 +216,26 @@ namespace TBH.DND.Android
             }
             
         }
-        
+
+        private async void OnCharacterCollapseMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                vm.Character.IsExpanded = false;
+                if (characterDb != null)
+                    await characterDb.SaveCharacterAsync(vm.Character);
+            }
+        }
+        private async void OnCharacterExpandMenuClicked(object? sender, EventArgs e)
+        {
+            if (vm != null)
+            {
+                vm.Character.IsExpanded = true;
+                if (characterDb != null)
+                    await characterDb.SaveCharacterAsync(vm.Character);
+            }
+        }
+
         private async void OnEditCharacterlicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync($"CharacterEditorPage?id={vm.Character.Id}");
@@ -509,7 +528,6 @@ namespace TBH.DND.Android
                 {
                     feat.IsExpanded = true;
                 }
-                var featsView = this.FindByName<CollectionView>("FeatsView");
             }
         }
 

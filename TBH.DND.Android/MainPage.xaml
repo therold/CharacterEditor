@@ -14,12 +14,16 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Text="{Binding Character.Name}" FontSize="28" FontAttributes="Bold" />
-                <Button Grid.Column="1" Text="..." MinimumHeightRequest="40" MinimumWidthRequest="40" HorizontalOptions="End" Clicked="OnEditCharacterlicked"/>
+                <FlexLayout Direction="Row" AlignItems="Center" Margin="0,8,0,8">
+                    <Label Text="{Binding Character.Name}" FontSize="28" FontAttributes="Bold" VerticalOptions="Center" FlexLayout.Grow="1" />
+                    <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnCharacterCollapseMenuClicked"  />
+                    <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnCharacterExpandMenuClicked" />
+                    <Button Grid.Column="1" Text="..." MinimumHeightRequest="40" MinimumWidthRequest="40" HorizontalOptions="End" Clicked="OnEditCharacterlicked"/>
+                </FlexLayout>
             </Grid>
             <Label Text="{Binding Character.Tagline}" FontSize="11" FontAttributes="Italic" Margin="0,0,0,20"/>
 
-            <Grid ColumnDefinitions="*,*" Margin="0,0,0,15">
+            <Grid ColumnDefinitions="*,*" Margin="0,0,0,15" IsVisible="{Binding Character.IsExpanded}">
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -80,7 +84,7 @@
                     
                 </Grid>
             </Grid>
-            <Grid ColumnDefinitions="*, *, *" Margin="0,0,0,15">
+            <Grid ColumnDefinitions="*, *, *" Margin="0,0,0,15" IsVisible="{Binding Character.IsExpanded}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
@@ -767,8 +771,8 @@
 
                 </Grid>
             </Grid>
-            
-            <BoxView Margin="0,10,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" />
+
+            <BoxView Margin="0,10,0,15"  HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="Fill" IsVisible="{Binding Character.IsExpanded}" />
             
             <FlexLayout Direction="Row" AlignItems="Center" Margin="8,8,8,13">
                 <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
