@@ -28,7 +28,10 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            if (base.SeedRequired)
+
+            cmd.CommandText = "SELECT COUNT(Id) FROM Feats;";
+            int? count = cmd.ExecuteScalar() as int?;
+            if (count == null || count < 1)
                 Seed();
         }
 

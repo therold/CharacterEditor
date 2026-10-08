@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.Maui.Storage;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
-using Microsoft.Maui.Storage;
 using TBH.DND.Android.Models;
 
 namespace TBH.DND.Android.Services
@@ -28,7 +29,10 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            if (base.SeedRequired)
+
+            cmd.CommandText = "SELECT COUNT(Id) FROM Abilities;";
+            int? count = cmd.ExecuteScalar() as int?;
+            if (count == null || count < 1)
                 Seed();
         }
 

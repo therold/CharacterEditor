@@ -35,7 +35,10 @@ namespace TBH.DND.Android.Services
                                     Active INTEGER
                                 );";
             cmd.ExecuteNonQuery();
-            if (SeedRequired)
+
+            cmd.CommandText = "SELECT COUNT(Id) FROM Spells;";
+            int? count = cmd.ExecuteScalar() as int?;
+            if (count == null || count < 1)
                 Seed();
         }
 
