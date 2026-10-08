@@ -169,7 +169,7 @@ namespace TBH.DND.Android.Services
         private void Seed()
         {
             DB.Traits.PHB.Seed();
-            //DB.Traits.TCE.Seed();
+            DB.Traits.TCE.Seed();
             DB.Traits.XGE.Seed();
         }
     }

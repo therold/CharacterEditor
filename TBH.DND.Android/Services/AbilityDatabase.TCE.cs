@@ -37,22 +37,22 @@ namespace TBH.DND.Android.Services.DB.Abilities
                     cmd.ExecuteNonQuery();
 
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@Name", "Cantrip Versatility");
-                    cmd.Parameters.AddWithValue("@Class", "4");
-                    cmd.Parameters.AddWithValue("@Race", "0");
-                    cmd.Parameters.AddWithValue("@Background", "0");
-                    cmd.Parameters.AddWithValue("@Source", "TCE");
-                    cmd.Parameters.AddWithValue("@Description", "<i>4th-level cleric feature</i><br><br>Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the cleric spell list.");
-                    cmd.Parameters.AddWithValue("@Active", 0);
-                    cmd.ExecuteNonQuery();
-
-                    cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Blessed Strikes");
                     cmd.Parameters.AddWithValue("@Class", "4");
                     cmd.Parameters.AddWithValue("@Race", "0");
                     cmd.Parameters.AddWithValue("@Background", "0");
                     cmd.Parameters.AddWithValue("@Source", "TCE");
                     cmd.Parameters.AddWithValue("@Description", "<i>8th-level cleric feature, which replaces the Divine Strike or Potent Spellcasting feature</i><br><br>You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal ld8 radiant damage to that creature. Once you deal this damage, you can't use this feature again until the start of your next turn.");
+                    cmd.Parameters.AddWithValue("@Active", 0);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Name", "Pact of the Talisman");
+                    cmd.Parameters.AddWithValue("@Class", "256");
+                    cmd.Parameters.AddWithValue("@Race", "0");
+                    cmd.Parameters.AddWithValue("@Background", "0");
+                    cmd.Parameters.AddWithValue("@Source", "TCE");
+                    cmd.Parameters.AddWithValue("@Description", "Your patron gives you an amulet, a talisman that can aid the wearer when the need is great. When the wearer fails an ability check, they can add a d4 to the roll, potentially turning the roll into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest. <br><br>If you lose the talisman, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous amulet. The talisman turns to ash when you die. ");
                     cmd.Parameters.AddWithValue("@Active", 0);
                     cmd.ExecuteNonQuery();
 
