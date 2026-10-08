@@ -778,7 +778,7 @@
                 <Label Text="Spells" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
                 <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnSpellsCollapseMenuClicked"  />
                 <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnSpellsExpandMenuClicked" />
-                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnSpellsAllMenuClicked" />
+                <Button Text="..." FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnSpellsAllMenuClicked" />
             </FlexLayout>
             
             <CollectionView ItemsSource="{Binding Spells}" SelectionMode="None" x:Name="SpellsView">
@@ -853,7 +853,7 @@
                 <Label Text="Abilities" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
                 <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnAbilitiesCollapseMenuClicked"  />
                 <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnAbilitiesExpandMenuClicked" />
-                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnAbilitiesAllMenuClicked" />
+                <Button Text="..." FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnAbilitiesAllMenuClicked" />
             </FlexLayout>
 
             <CollectionView ItemsSource="{Binding Abilities}" SelectionMode="None" x:Name="AbilitiesView">
@@ -894,7 +894,7 @@
                 <Label Text="Feats" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
                 <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnFeatsCollapseMenuClicked"  />
                 <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnFeatsExpandMenuClicked" />
-                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnFeatsAllMenuClicked" />
+                <Button Text="..." FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnFeatsAllMenuClicked" />
             </FlexLayout>
             
             <CollectionView ItemsSource="{Binding Feats}" SelectionMode="None" x:Name="FeatsView">
@@ -935,7 +935,7 @@
                 <Label Text="Traits" FontSize="20" VerticalOptions="Center" FlexLayout.Grow="1" />
                 <Button Text="▲" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnTraitsCollapseMenuClicked"  />
                 <Button Text="▼" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0" Clicked="OnTraitsExpandMenuClicked" />
-                <Button Text="✚" FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnTraitsAllMenuClicked" />
+                <Button Text="..." FontSize="18" MinimumHeightRequest="10" HeightRequest="40" VerticalOptions="Center" Padding="0"  Clicked="OnTraitsAllMenuClicked" />
             </FlexLayout>
 
             <CollectionView ItemsSource="{Binding Traits}" SelectionMode="None" x:Name="TraitsView">

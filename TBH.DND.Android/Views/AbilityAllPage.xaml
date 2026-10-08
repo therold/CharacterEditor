@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:html="clr-namespace:LiteHtmlMaui.Controls;assembly=LiteHtmlMaui"
     x:Class="TBH.DND.Android.Views.AbilityAllPage"
-    Title="Edit Abilities">
+    Title="Abilities">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"  Order="Secondary" Clicked="OnAddClicked" />
         <ToolbarItem Text="Enable All" Order="Secondary" Clicked="OnEnableClicked" />

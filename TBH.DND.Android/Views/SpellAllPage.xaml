@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:html="clr-namespace:LiteHtmlMaui.Controls;assembly=LiteHtmlMaui"
     x:Class="TBH.DND.Android.Views.SpellAllPage"
-    Title="Edit Spells">
+    Title="Spells">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{Binding SortOrder}" Clicked="OnSortClicked"/>
         <ToolbarItem Text="Add"  Order="Secondary" Clicked="OnAddClicked" />
