@@ -787,7 +787,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
-                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Remove" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
                                     <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
@@ -862,7 +862,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
-                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Remove" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
                                     <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
@@ -903,7 +903,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
-                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Remove" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
                                     <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
@@ -944,7 +944,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
-                                    <SwipeItem Text="Delete" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
+                                    <SwipeItem Text="Remove" Invoked="OnDeleteSwipeItemInvoked" CommandParameter="{Binding .}" BackgroundColor="LightCoral" />
                                     <SwipeItem Text="Edit" Invoked="OnEditSwipeItemInvoked" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.RightItems>

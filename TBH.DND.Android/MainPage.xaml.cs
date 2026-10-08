@@ -184,31 +184,39 @@ namespace TBH.DND.Android
             {
                 if (si.CommandParameter is Spell s && db != null)
                 {
-                    var ok = await DisplayAlertAsync("Delete", $"Delete '{s.Name}'?", "Delete", "Cancel");
+                    var ok = await DisplayAlertAsync("Remove", $"Remove '{s.Name}'?", "Remove", "Cancel");
                     if (!ok)
                         return;
-                    await db.DeleteSpellAsync(s.Id);
+                    s.Active = false;
+                    if (db != null)
+                        await db.SaveSpellAsync(s);
                 }
                 else if (si.CommandParameter is Ability a && abilityDb != null)
                 {
-                    var ok = await DisplayAlertAsync("Delete", $"Delete '{a.Name}'?", "Delete", "Cancel");
+                    var ok = await DisplayAlertAsync("Remove", $"Remove '{a.Name}'?", "Remove", "Cancel");
                     if (!ok)
                         return;
-                    await abilityDb.DeleteAbilityAsync(a.Id);
+                    a.Active = false;
+                    if (abilityDb != null)
+                        await abilityDb.SaveAbilityAsync(a);
                 }
                 else if (si.CommandParameter is Feat f && featDb != null)
                 {
-                    var ok = await DisplayAlertAsync("Delete", $"Delete '{f.Name}'?", "Delete", "Cancel");
+                    var ok = await DisplayAlertAsync("Remove", $"Remove '{f.Name}'?", "Remove", "Cancel");
                     if (!ok)
                         return;
-                    await featDb.DeleteFeatAsync(f.Id);
+                    f.Active = false;
+                    if (featDb != null)
+                        await featDb.SaveFeatAsync(f);
                 }
                 else if (si.CommandParameter is Trait t && traitDb != null)
                 {
-                    var ok = await DisplayAlertAsync("Delete", $"Delete '{t.Name}'?", "Delete", "Cancel");
+                    var ok = await DisplayAlertAsync("Remove", $"Remove '{t.Name}'?", "Remove", "Cancel");
                     if (!ok)
                         return;
-                    await traitDb.DeleteTraitAsync(t.Id);
+                    t.Active = false;
+                    if (traitDb != null)
+                        await traitDb.SaveTraitAsync(t);
                 }
 
                 if (vm != null)
