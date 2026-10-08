@@ -23,6 +23,12 @@ namespace TBH.DND.Android.Models
             set => SetProperty(ref description, value);
         }
 
+        public string DescriptionDisplay
+        {
+            get => description.Replace("<br>", Environment.NewLine);
+            set => SetProperty(ref description, value.Replace(Environment.NewLine, "<br>"));
+        }
+
         private string source = string.Empty;
         public string Source
         {

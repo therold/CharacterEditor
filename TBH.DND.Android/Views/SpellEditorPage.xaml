@@ -107,7 +107,7 @@
             <Picker Grid.Row="8" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
 
             <Label Grid.Row="9" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Description" />
-            <Editor Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.Description}" />
+            <Editor Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.DescriptionDisplay}" />
 
             <HorizontalStackLayout Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Spacing="12">
                 <Label Text="Active" VerticalOptions="Center" />
