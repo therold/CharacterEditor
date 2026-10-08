@@ -7,9 +7,9 @@ namespace TBH.DND.Android.ViewModels
     public class FeatEditorViewModel : BindableObject
     {
         readonly FeatDatabase db;
-        public Array Sources { get; } = Enum.GetValues(typeof(Spell.SpellSource));
-        private Spell.SpellSource selectedSource;
-        public Spell.SpellSource SelectedSource
+        public Array Sources { get; } = Enum.GetValues(typeof(FilterLists.Source));
+        private FilterLists.Source selectedSource;
+        public FilterLists.Source SelectedSource
         {
             get => selectedSource;
             set
@@ -42,8 +42,8 @@ namespace TBH.DND.Android.ViewModels
                 if (f != null)
                 {
                     Current = f;
-                    if (!Enum.TryParse<Spell.SpellSource>(Current.Source, out var parsedSource))
-                        parsedSource = (Spell.SpellSource)Sources.GetValue(0);
+                    if (!Enum.TryParse<FilterLists.Source>(Current.Source, out var parsedSource))
+                        parsedSource = (FilterLists.Source)Sources.GetValue(0);
                     selectedSource = parsedSource;
                     OnPropertyChanged(nameof(Current));
                     OnPropertyChanged(nameof(SelectedSource));
@@ -52,7 +52,7 @@ namespace TBH.DND.Android.ViewModels
             else
             {
                 Current = new Feat();
-                selectedSource = (Spell.SpellSource)Sources.GetValue(0);
+                selectedSource = (FilterLists.Source)Sources.GetValue(0);
                 OnPropertyChanged(nameof(Current));
                 OnPropertyChanged(nameof(SelectedSource));
             }

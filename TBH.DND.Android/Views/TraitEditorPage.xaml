@@ -14,6 +14,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -23,42 +26,194 @@
             <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,18,0" Text="Name" />
             <Entry Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding Current.Name}" />
 
-            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Source" />
-            <Picker Grid.Row="1" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
+            <Grid Grid.Row="1" Grid.ColumnSpan="100" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Margin="0,0,8,0" Text="Description" />
-            <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.Description}" />
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Class" FontSize="11" FontAttributes="Italic" Margin="30,15,0,0"/>
 
-            <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Spacing="12">
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding ClassArtificer}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Artificer" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding ClassBard}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Bard" />
+
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassCleric}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Cleric" />
+
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassDruid}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Druid" />
+
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassMonk}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Monk" />
+
+
+
+                <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding ClassPaladin}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="Paladin" />
+
+                <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding ClassRanger}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Ranger" />
+
+                <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding ClassSorcerer}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Sorcerer" />
+
+                <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding ClassWarlock}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Warlock" />
+
+                <CheckBox Grid.Row="2" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding ClassWizard}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Wizard" />
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="100" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Race" FontSize="11" FontAttributes="Italic" Margin="30,15,0,0"/>
+
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding RaceDwarf}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Dwarf" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding RaceElf}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Elf" />
+
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding RaceHalfling}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Halfling" />
+
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding RaceHuman}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Human" />
+
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding RaceDragonborn}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="Dragonborn" />
+
+
+
+                <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding RaceGnome}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="Gnome" />
+
+                <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding RaceHalfElf}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Half Elf" />
+
+                <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding RaceHalfOrc}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Half Orc" />
+
+                <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding RaceTiefling}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Tiefling" />
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.ColumnSpan="100" Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Text="Background" FontSize="11" FontAttributes="Italic" Margin="30,15,0,0"/>
+
+                <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding BackgroundAcolyte}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Acolyte" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding BackgroundCharlatan}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="3" VerticalOptions="Center" Text="Charlatan" />
+
+                <CheckBox Grid.Row="1" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding BackgroundCriminal}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="5" VerticalOptions="Center" Text="Criminal" />
+
+                <CheckBox Grid.Row="1" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding BackgroundEntertainer}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="7" VerticalOptions="Center" Text="Entertainer" />
+
+                <CheckBox Grid.Row="1" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding BackgroundGuildArtisan}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="1" Grid.Column="9" VerticalOptions="Center" Text="GuildArtisan" />
+
+
+
+                <CheckBox Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding BackgroundHermit}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Text="Hermit" />
+
+                <CheckBox Grid.Row="2" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding BackgroundNoble}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="3" VerticalOptions="Center" Text="Noble" />
+
+                <CheckBox Grid.Row="2" Grid.Column="4" VerticalOptions="Center" IsChecked="{Binding BackgroundOutlander}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="5" VerticalOptions="Center" Text="Outlander" />
+
+                <CheckBox Grid.Row="2" Grid.Column="6" VerticalOptions="Center" IsChecked="{Binding BackgroundSage}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="7" VerticalOptions="Center" Text="Sage" />
+
+                <CheckBox Grid.Row="2" Grid.Column="8" VerticalOptions="Center" IsChecked="{Binding BackgroundSailor}" MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="2" Grid.Column="9" VerticalOptions="Center" Text="Sailor" />
+
+
+
+                <CheckBox Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding BackgroundSoldier}" MinimumWidthRequest="1" WidthRequest="20" Margin="10,0,5,0" />
+                <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center" Text="Soldier" />
+
+                <CheckBox Grid.Row="3" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding BackgroundUrchin}"  MinimumWidthRequest="1" WidthRequest="20" Margin="40,0,5,0"/>
+                <Label Grid.Row="3" Grid.Column="3" VerticalOptions="Center" Text="Urchin" />
+            </Grid>
+
+            <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Margin="0,0,8,0" Text="Source" />
+            <Picker Grid.Row="4" Grid.Column="1" VerticalOptions="Center" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" />
+
+            <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Margin="0,0,8,0" Text="Description" />
+            <Editor Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HeightRequest="150" Text="{Binding Current.Description}" />
+
+            <HorizontalStackLayout Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" Spacing="12">
                 <Label Text="Active" VerticalOptions="Center" />
                 <Switch IsToggled="{Binding Current.Active}" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Spacing="12">
+            <HorizontalStackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Spacing="12">
                 <Button Text="Save" Command="{Binding SaveCommand}"/>
                 <Button Text="Cancel" Command="{Binding CancelCommand}"/>
             </HorizontalStackLayout>
         </Grid>
     </ScrollView>
-    <!--
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="12">
-            <Label Text="Name" />
-            <Entry Text="{Binding Current.Name}" />
-
-            <Label Text="Description" />
-            <Editor HeightRequest="150" Text="{Binding Current.Description}" />
-
-            <HorizontalStackLayout Spacing="12">
-                <Label Text="Active" VerticalOptions="Center" />
-                <Switch IsToggled="{Binding Current.Active}" />
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout Spacing="12">
-                <Button Text="Save" Command="{Binding SaveCommand}"/>
-                <Button Text="Cancel" Command="{Binding CancelCommand}"/>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
-    -->
 </ContentPage>

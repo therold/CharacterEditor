@@ -112,33 +112,6 @@ namespace TBH.DND.Android.Models
             Ninth = 9
         }
 
-        public enum SpellClass
-        {
-            Artificer = 1,
-            Bard = 2,
-            Cleric = 4,
-            Druid = 8,
-            Monk = 16,
-            Paladin = 32,
-            Ranger = 64,
-            Sorcerer = 128,
-            Warlock = 256,
-            Wizard = 512,
-        }
 
-        public enum SpellSource
-        {
-            PHB,
-            XGE,
-            TCE,
-            //SCAG,
-            //Eberron,
-            //AcquisitionsIncorporated,
-            //RimeOfTheFrostmaiden,
-            //MythicOdysseysOfTheros,
-            //Strixhaven,
-            //ExplorerSGuideToWildemount,
-            //VanRichtensGuideToRavenloft
-        }
     }
 }

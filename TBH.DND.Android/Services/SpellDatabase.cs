@@ -37,9 +37,13 @@ namespace TBH.DND.Android.Services
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "SELECT COUNT(Id) FROM Spells;";
-            int? count = cmd.ExecuteScalar() as int?;
-            if (count == null || count < 1)
-                Seed();
+            try
+            {
+                var count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count < 1)
+                    Seed();
+            }
+            catch { }
         }
 
         public async Task<List<Spell>> GetActiveSpellsAsync()

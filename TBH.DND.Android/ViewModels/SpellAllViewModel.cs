@@ -12,8 +12,8 @@ namespace TBH.DND.Android.ViewModels
         readonly SpellDatabase db;
         private Dictionary<string, Func<Spell, bool>> _filterPredicates = new Dictionary<string, Func<Spell, bool>>();
 
-        public Array Classes { get; } = Enum.GetNames(typeof(Spell.SpellClass)).Prepend("All").ToArray();
-        public Array Sources { get; } = Enum.GetNames(typeof(Spell.SpellSource)).Prepend("All").ToArray();
+        public Array Classes { get; } = Enum.GetNames(typeof(FilterLists.DndClass)).Prepend("All").ToArray();
+        public Array Sources { get; } = Enum.GetNames(typeof(FilterLists.Source)).Prepend("All").ToArray();
 
         private string selectedClass;
         public string SelectedClass
@@ -31,7 +31,7 @@ namespace TBH.DND.Android.ViewModels
                     }
                     else
                     {
-                        var selectedClassEnum = (Spell.SpellClass)Enum.Parse(typeof(Spell.SpellClass), SelectedClass);
+                        var selectedClassEnum = (FilterLists.DndClass)Enum.Parse(typeof(FilterLists.DndClass), SelectedClass);
                         return (s.Class & (int)selectedClassEnum) != 0;
                     }
                 });
@@ -56,7 +56,7 @@ namespace TBH.DND.Android.ViewModels
                     }
                     else
                     {
-                        var selectedSourceEnum = (Spell.SpellSource)Enum.Parse(typeof(Spell.SpellSource), value);
+                        var selectedSourceEnum = (FilterLists.Source)Enum.Parse(typeof(FilterLists.Source), value);
                         return s.Source == selectedSourceEnum.ToString();
                     }
                 });

@@ -26,7 +26,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Abi-Dalzim's Horrid Wilting");
                     cmd.Parameters.AddWithValue("@Level", 8);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "150 feet");
@@ -40,7 +40,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Absorb Elements");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Ranger | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Reaction which you take when you take acid, cold, fire, lightning, or thunder damage");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -54,7 +54,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Aganazzar's Scorcher");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -68,7 +68,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Beast Bond");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Ranger);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger);
                     cmd.Parameters.AddWithValue("@School", "Divination");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -82,7 +82,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Bones of the Earth");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -96,7 +96,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Catapult");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -110,7 +110,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Catnap");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -124,7 +124,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Cause Fear");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -138,7 +138,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Ceremony");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric | Spell.SpellClass.Paladin);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric | FilterLists.DndClass.Paladin);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 hour or Ritual");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -152,7 +152,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Chaos Bolt");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -166,7 +166,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Charm Monster");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -180,7 +180,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Control Flames");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -194,7 +194,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Control Winds");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "300 feet");
@@ -208,7 +208,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Create Bonfire");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -222,7 +222,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Create Homunculus");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 hour");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -236,7 +236,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Crown of Stars");
                     cmd.Parameters.AddWithValue("@Level", 7);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -250,7 +250,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Danse Macabre");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -264,7 +264,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Dawn");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -278,7 +278,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Dragon's Breath");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -292,7 +292,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Druid Grove");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "10 minute");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -306,7 +306,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Dust Devil");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -320,7 +320,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Earth Tremor");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "10 feet");
@@ -334,7 +334,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Earthbind");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "300 feet");
@@ -348,7 +348,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Elemental Bane");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -362,7 +362,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Enemies Abound");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -376,7 +376,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Enervation");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -390,7 +390,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Erupting Earth");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -404,7 +404,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Far Step");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -418,7 +418,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Find Greater Steed");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Paladin);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Paladin);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "10 minute");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -432,7 +432,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Flame Arrows");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Ranger | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -446,7 +446,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Frostbite");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -460,7 +460,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Guardian of Nature");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Ranger);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -474,7 +474,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Gust");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -488,7 +488,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Healing Spirit");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Ranger);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -502,7 +502,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Holy Weapon");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric | Spell.SpellClass.Paladin);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric | FilterLists.DndClass.Paladin);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -516,7 +516,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Ice Knife");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -530,7 +530,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Illusory Dragon");
                     cmd.Parameters.AddWithValue("@Level", 8);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Illusion");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -544,7 +544,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Immolation");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -558,7 +558,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Infernal Calling");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 minute");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -572,7 +572,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Infestation");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -586,7 +586,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Investiture of Flame");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -600,7 +600,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Investiture of Ice");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -614,7 +614,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Investiture of Stone");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -628,7 +628,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Investiture of Wind");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -642,7 +642,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Invulnerability");
                     cmd.Parameters.AddWithValue("@Level", 9);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -656,7 +656,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Life Transference");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -670,7 +670,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Maddening Darkness");
                     cmd.Parameters.AddWithValue("@Level", 8);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "150 feet");
@@ -684,7 +684,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Maelstrom");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -698,7 +698,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Magic Stone");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Warlock);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Warlock);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -712,7 +712,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Mass Polymorph");
                     cmd.Parameters.AddWithValue("@Level", 9);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -726,7 +726,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Maximilian's Earthen Grasp");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -740,7 +740,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Melf's Minute Meteors");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -754,7 +754,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Mental Prison");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Illusion");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -768,7 +768,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Mighty Fortress");
                     cmd.Parameters.AddWithValue("@Level", 8);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 minute");
                     cmd.Parameters.AddWithValue("@Range", "1 mile");
@@ -782,7 +782,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Mind Spike");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Divination");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -796,7 +796,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Mold Earth");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -810,7 +810,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Negative Energy Flood");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -824,7 +824,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Power Word Pain");
                     cmd.Parameters.AddWithValue("@Level", 7);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -838,7 +838,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Primal Savagery");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -852,7 +852,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Primordial Ward");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -866,7 +866,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Psychic Scream");
                     cmd.Parameters.AddWithValue("@Level", 9);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -880,7 +880,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Pyrotechnics");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -894,7 +894,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Scatter");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -908,7 +908,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Shadow Blade");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Illusion");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -922,7 +922,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Shadow of Moil");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -936,7 +936,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Shape Water");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -950,7 +950,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Sickening Radiance");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -964,7 +964,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Skill Empowerment");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -978,7 +978,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Skywrite");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Bard | Spell.SpellClass.Druid | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Bard | FilterLists.DndClass.Druid | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action or Ritual");
                     cmd.Parameters.AddWithValue("@Range", "Sight");
@@ -992,7 +992,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Snare");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Ranger | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Abjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 minute");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -1006,7 +1006,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Snilloc's Snowball Swarm");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -1020,7 +1020,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Soul Cage");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Reaction which you take when a humanoid you can see within 60 feet of you dies");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -1034,7 +1034,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Steel Wind Strike");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Ranger | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Ranger | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "30 feet");
@@ -1048,7 +1048,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Storm Sphere");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "150 feet");
@@ -1062,7 +1062,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Summon Greater Demon");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -1076,7 +1076,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Summon Lesser Demons");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -1090,7 +1090,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Synaptic Static");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Enchantment");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1104,7 +1104,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Temple of the Gods");
                     cmd.Parameters.AddWithValue("@Level", 7);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 hour");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1118,7 +1118,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Tenser's Transformation");
                     cmd.Parameters.AddWithValue("@Level", 6);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -1132,7 +1132,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Thunder Step");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -1146,7 +1146,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Thunderclap");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Bard | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Bard | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "5 feet");
@@ -1160,7 +1160,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Tidal Wave");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1174,7 +1174,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Tiny Servant");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "1 minute");
                     cmd.Parameters.AddWithValue("@Range", "Touch");
@@ -1188,7 +1188,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Toll the Dead");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric);
                     cmd.Parameters.AddWithValue("@School", "Necromancy");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -1202,7 +1202,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Transmute Rock");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Artificer | Spell.SpellClass.Druid | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Artificer | FilterLists.DndClass.Druid | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1216,7 +1216,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Vitriolic Sphere");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "150 feet");
@@ -1230,7 +1230,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Wall of Light");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Sorcerer | Spell.SpellClass.Warlock | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Warlock | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1244,7 +1244,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Wall of Sand");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -1258,7 +1258,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Wall of Water");
                     cmd.Parameters.AddWithValue("@Level", 3);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "60 feet");
@@ -1272,7 +1272,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Warding Wind");
                     cmd.Parameters.AddWithValue("@Level", 2);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Bard | Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Bard | FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "Self");
@@ -1286,7 +1286,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Watery Sphere");
                     cmd.Parameters.AddWithValue("@Level", 4);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Conjuration");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "90 feet");
@@ -1300,7 +1300,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Whirlwind");
                     cmd.Parameters.AddWithValue("@Level", 7);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Sorcerer | Spell.SpellClass.Wizard);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Sorcerer | FilterLists.DndClass.Wizard);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "300 feet");
@@ -1314,7 +1314,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Word of Radiance");
                     cmd.Parameters.AddWithValue("@Level", 0);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Cleric);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Cleric);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "5 feet");
@@ -1328,7 +1328,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Wrath of Nature");
                     cmd.Parameters.AddWithValue("@Level", 5);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Druid | Spell.SpellClass.Ranger);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Druid | FilterLists.DndClass.Ranger);
                     cmd.Parameters.AddWithValue("@School", "Evocation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Action");
                     cmd.Parameters.AddWithValue("@Range", "120 feet");
@@ -1342,7 +1342,7 @@ namespace TBH.DND.Android.Services.DB.Spells
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Name", "Zephyr Strike");
                     cmd.Parameters.AddWithValue("@Level", 1);
-                    cmd.Parameters.AddWithValue("@Class", Spell.SpellClass.Ranger);
+                    cmd.Parameters.AddWithValue("@Class", FilterLists.DndClass.Ranger);
                     cmd.Parameters.AddWithValue("@School", "Transmutation");
                     cmd.Parameters.AddWithValue("@CastingTime", "Bonus action");
                     cmd.Parameters.AddWithValue("@Range", "Self");

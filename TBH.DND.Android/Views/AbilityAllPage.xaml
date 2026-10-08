@@ -23,8 +23,20 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding SearchText}" Placeholder="Search abilities..." />
+            <Label Grid.Row="0" Grid.Column="0" Padding="0,0,5,0" Text="Class" FontAttributes="Bold" VerticalOptions="Center" />
+            <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" Title="Select class" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="0" Padding="0,0,5,0" Text="Race" FontAttributes="Bold" VerticalOptions="Center" />
+            <Picker Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}" Title="Select race" VerticalOptions="Center" />
+            <Label Grid.Row="2" Grid.Column="0" Padding="0,0,5,0" Text="Background" FontAttributes="Bold" VerticalOptions="Center" />
+            <Picker Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Backgrounds}" SelectedItem="{Binding SelectedBackground}" Title="Select background" VerticalOptions="Center" />
+            <Label Grid.Row="3" Grid.Column="0" Padding="0,0,5,0" Text="Source" FontAttributes="Bold" VerticalOptions="Center" />
+            <Picker Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Sources}" SelectedItem="{Binding SelectedSource}" Title="Select source" VerticalOptions="Center" />
+            <Entry Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding SearchText}" Placeholder="Search abilities..." />
         </Grid>
         <CollectionView ItemsSource="{Binding Abilities}" SelectionMode="None" Grid.Row="1">
             <CollectionView.ItemTemplate>

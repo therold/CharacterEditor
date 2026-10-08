@@ -15,6 +15,24 @@ namespace TBH.DND.Android.Models
             get => name;
             set => SetProperty(ref name, value);
         }
+        private int @class;
+        public int Class
+        {
+            get => @class;
+            set => SetProperty(ref @class, value);
+        }
+        private int race;
+        public int Race
+        {
+            get => race;
+            set => SetProperty(ref race, value);
+        }
+        private int background;
+        public int Background
+        {
+            get => background;
+            set => SetProperty(ref background, value);
+        }
 
         private string description = string.Empty;
         public string Description

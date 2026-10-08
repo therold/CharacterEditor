@@ -11,8 +11,59 @@ namespace TBH.DND.Android.ViewModels
     {
         private readonly ObservableCollection<Trait> _allTraits = new ObservableCollection<Trait>();
         readonly TraitDatabase db;
-        private Dictionary<string, Func<Trait, bool>> _filterPredicates = new Dictionary<string, Func<Trait, bool>>();
 
+        public Array Classes { get; } = Enum.GetNames(typeof(FilterLists.DndClass)).Prepend("All").ToArray();
+        public Array Races { get; } = Enum.GetNames(typeof(FilterLists.Race)).Prepend("All").ToArray();
+        public Array Backgrounds { get; } = Enum.GetNames(typeof(FilterLists.Background)).Prepend("All").ToArray();
+        public Array Sources { get; } = Enum.GetNames(typeof(FilterLists.Source)).Prepend("All").ToArray();
+        private string selectedClass;
+        public string SelectedClass
+        {
+            get => selectedClass;
+            set
+            {
+                if (selectedClass == value) return;
+                selectedClass = value;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SelectedClass));
+            }
+        }
+        private string selectedRace;
+        public string SelectedRace
+        {
+            get => selectedRace;
+            set
+            {
+                if (selectedRace == value) return;
+                selectedRace = value;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SelectedRace));
+            }
+        }
+        private string selectedBackground;
+        public string SelectedBackground
+        {
+            get => selectedBackground;
+            set
+            {
+                if (selectedBackground == value) return;
+                selectedBackground = value;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SelectedBackground));
+            }
+        }
+        private string selectedSource;
+        public string SelectedSource
+        {
+            get => selectedSource;
+            set
+            {
+                if (selectedSource == value) return;
+                selectedSource = value;
+                ApplyFilters();
+                OnPropertyChanged(nameof(SelectedSource));
+            }
+        }
         public ObservableCollection<Trait> Traits { get; } = new ObservableCollection<Trait>();
 
         public TraitAllViewModel(TraitDatabase database)
@@ -27,18 +78,6 @@ namespace TBH.DND.Android.ViewModels
             {
                 if (searchText == value) return;
                 searchText = value;
-                var pred = new Func<Trait, bool>(s =>
-                {
-                    if (string.IsNullOrEmpty(value))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return s.Name.ToUpper().Contains(value.ToUpper());
-                    }
-                });
-                _filterPredicates["Search"] = pred;
                 ApplyFilters();
                 OnPropertyChanged(nameof(SearchText));
             }
@@ -50,22 +89,13 @@ namespace TBH.DND.Android.ViewModels
             _allTraits.Clear();
             Traits.Clear();
             var items = await db.GetAllTraitsAsync();
-            var abilities = items.OrderBy(x => x.Name);
-            foreach (var s in items)
+            var traits = items.OrderBy(x => x.Name);
+            foreach (var t in traits)
             {
-                _allTraits.Add(s);
-                Traits.Add(s);
+                _allTraits.Add(t);
+                Traits.Add(t);
             }
             ApplyFilters();
-
-
-            //Traits.Clear();
-            //var items = await db.GetAllTraitsAsync();
-            //var traits = items.OrderBy(x => x.Name);
-            //foreach (var t in traits)
-            //{
-            //    Traits.Add(t);
-            //}
         }
 
         public async Task SaveTraitAsync(Trait t)
@@ -80,23 +110,58 @@ namespace TBH.DND.Android.ViewModels
         private void ApplyFilters()
         {
             Traits.Clear();
-            var abilities = _allTraits.OrderBy(s => s.Name);
+            var orderedTraits = _allTraits.OrderBy(s => s.Name).ToList();
 
-            foreach (var spell in abilities)
+            if ((string.IsNullOrEmpty(SelectedClass) || SelectedClass == "All") &&
+                    (string.IsNullOrEmpty(SelectedRace) || SelectedRace == "All") &&
+                    (string.IsNullOrEmpty(SelectedBackground) || SelectedBackground == "All") &&
+                    (string.IsNullOrEmpty(SelectedSource) || SelectedSource == "All") &&
+                    (string.IsNullOrEmpty(SearchText)))
             {
-                bool include = true;
-                foreach (var predicate in _filterPredicates)
+                // No filters
+                foreach (var t in orderedTraits)
+                    Traits.Add(t);
+            }
+            else
+            {
+                var result = new List<Trait>();
+                
+                // Filter behavior:
+                // (class || race || background) && source && search
+                if (!string.IsNullOrEmpty(SelectedClass) && SelectedClass != "All")
                 {
-                    if (!predicate.Value(spell))
-                    {
-                        include = false;
-                        break;
-                    }
+                    var selectedClassEnum = (FilterLists.DndClass)Enum.Parse(typeof(FilterLists.DndClass), SelectedClass);
+                    var traits = orderedTraits.Where(t => (t.Class & (int)selectedClassEnum) != 0).ToList();
+                    foreach (var t in traits)
+                        result.Add(t);
                 }
-                if (include)
+                if (!string.IsNullOrEmpty(SelectedRace) && SelectedRace != "All")
                 {
-                    Traits.Add(spell);
+                    var selectedRaceEnum = (FilterLists.Race)Enum.Parse(typeof(FilterLists.Race), SelectedRace);
+                    var traits = orderedTraits.Where(t => (t.Race & (int)selectedRaceEnum) != 0).ToList();
+                    foreach (var t in traits)
+                        result.Add(t);
                 }
+                if (!string.IsNullOrEmpty(SelectedBackground) && SelectedBackground != "All")
+                {
+                    var selectedBackgroundEnum = (FilterLists.Background)Enum.Parse(typeof(FilterLists.Background), SelectedBackground);
+                    var traits = orderedTraits.Where(t => (t.Background & (int)selectedBackgroundEnum) != 0).ToList();
+                    foreach (var t in traits)
+                        result.Add(t);
+                }
+
+                if (!string.IsNullOrEmpty(SelectedSource) && SelectedSource != "All")
+                {
+                    var selectedSourceEnum = (FilterLists.Source)Enum.Parse(typeof(FilterLists.Source), SelectedSource);
+                    result = result.Where(t => t.Source == selectedSourceEnum.ToString()).ToList();
+                }
+                if (!string.IsNullOrEmpty(SearchText))
+                {
+                    result = result.Where(t => t.Name.ToUpper().Contains(SearchText.ToUpper())).ToList();
+                }
+
+                foreach (var t in result)
+                    Traits.Add(t);
             }
         }
     }

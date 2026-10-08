@@ -11,7 +11,7 @@ namespace TBH.DND.Android.ViewModels
         readonly SpellDatabase db;
 
         public Array Schools { get; } = Enum.GetValues(typeof(Spell.SpellSchool));
-        public Array Sources { get; } = Enum.GetValues(typeof(Spell.SpellSource));
+        public Array Sources { get; } = Enum.GetValues(typeof(FilterLists.Source));
         public Array Levels { get; } = new string[] { "Cantrip", "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9" };
         public Spell Current { get; set; } = new Spell();
 
@@ -42,8 +42,8 @@ namespace TBH.DND.Android.ViewModels
             }
         }
 
-        private Spell.SpellSource selectedSource;
-        public Spell.SpellSource SelectedSource
+        private FilterLists.Source selectedSource;
+        public FilterLists.Source SelectedSource
         {
             get => selectedSource;
             set
@@ -58,122 +58,122 @@ namespace TBH.DND.Android.ViewModels
 
         public bool ClassArtificer
         {
-            get => (Current.Class & (int)Spell.SpellClass.Artificer) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Artificer) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Artificer;
+                    Current.Class |= (int)FilterLists.DndClass.Artificer;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Artificer;
+                    Current.Class &= ~(int)FilterLists.DndClass.Artificer;
                 OnPropertyChanged(nameof(ClassArtificer));
             }
         }
         public bool ClassBard
         {
-            get => (Current.Class & (int)Spell.SpellClass.Bard) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Bard) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Bard;
+                    Current.Class |= (int)FilterLists.DndClass.Bard;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Bard;
+                    Current.Class &= ~(int)FilterLists.DndClass.Bard;
                 OnPropertyChanged(nameof(ClassBard));
             }
         }
         public bool ClassCleric
         {
-            get => (Current.Class & (int)Spell.SpellClass.Cleric) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Cleric) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Cleric;
+                    Current.Class |= (int)FilterLists.DndClass.Cleric;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Cleric;
+                    Current.Class &= ~(int)FilterLists.DndClass.Cleric;
                 OnPropertyChanged(nameof(ClassCleric));
             }
         }
         public bool ClassDruid
         {
-            get => (Current.Class & (int)Spell.SpellClass.Druid) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Druid) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Druid;
+                    Current.Class |= (int)FilterLists.DndClass.Druid;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Druid;
+                    Current.Class &= ~(int)FilterLists.DndClass.Druid;
                 OnPropertyChanged(nameof(ClassDruid));
             }
         }
 
         public bool ClassMonk
         {
-            get => (Current.Class & (int)Spell.SpellClass.Monk) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Monk) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Monk;
+                    Current.Class |= (int)FilterLists.DndClass.Monk;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Monk;
+                    Current.Class &= ~(int)FilterLists.DndClass.Monk;
                 OnPropertyChanged(nameof(ClassMonk));
             }
         }
         public bool ClassPaladin
         {
-            get => (Current.Class & (int)Spell.SpellClass.Paladin) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Paladin) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Paladin;
+                    Current.Class |= (int)FilterLists.DndClass.Paladin;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Paladin;
+                    Current.Class &= ~(int)FilterLists.DndClass.Paladin;
                 OnPropertyChanged(nameof(ClassPaladin));
             }
         }
         public bool ClassRanger
         {
-            get => (Current.Class & (int)Spell.SpellClass.Ranger) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Ranger) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Ranger;
+                    Current.Class |= (int)FilterLists.DndClass.Ranger;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Ranger;
+                    Current.Class &= ~(int)FilterLists.DndClass.Ranger;
                 OnPropertyChanged(nameof(ClassRanger));
             }
         }
         public bool ClassSorcerer
         {
-            get => (Current.Class & (int)Spell.SpellClass.Sorcerer) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Sorcerer) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Sorcerer;
+                    Current.Class |= (int)FilterLists.DndClass.Sorcerer;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Sorcerer;
+                    Current.Class &= ~(int)FilterLists.DndClass.Sorcerer;
                 OnPropertyChanged(nameof(ClassSorcerer));
             }
         }
         public bool ClassWarlock
         {
-            get => (Current.Class & (int)Spell.SpellClass.Warlock) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Warlock) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Warlock;
+                    Current.Class |= (int)FilterLists.DndClass.Warlock;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Warlock;
+                    Current.Class &= ~(int)FilterLists.DndClass.Warlock;
                 OnPropertyChanged(nameof(ClassWarlock));
             }
         }
         public bool ClassWizard
         {
-            get => (Current.Class & (int)Spell.SpellClass.Wizard) != 0;
+            get => (Current.Class & (int)FilterLists.DndClass.Wizard) != 0;
             set
             {
                 if (value)
-                    Current.Class |= (int)Spell.SpellClass.Wizard;
+                    Current.Class |= (int)FilterLists.DndClass.Wizard;
                 else
-                    Current.Class &= ~(int)Spell.SpellClass.Wizard;
+                    Current.Class &= ~(int)FilterLists.DndClass.Wizard;
                 OnPropertyChanged(nameof(ClassWizard));
             }
         }
@@ -202,8 +202,8 @@ namespace TBH.DND.Android.ViewModels
                         parsed = (Spell.SpellSchool)Schools.GetValue(0);
                     selectedSchool = parsed;
                     // try parse existing string into enum, default to first value on failure
-                    if (!Enum.TryParse<Spell.SpellSource>(Current.Source, out var parsedSource))
-                        parsedSource = (Spell.SpellSource)Sources.GetValue(0);
+                    if (!Enum.TryParse<FilterLists.Source>(Current.Source, out var parsedSource))
+                        parsedSource = (FilterLists.Source)Sources.GetValue(0);
                     selectedSource = parsedSource;
                     OnPropertyChanged(nameof(Current));
                     OnPropertyChanged(nameof(SelectedSchool));
@@ -225,7 +225,7 @@ namespace TBH.DND.Android.ViewModels
             {
                 Current = new Spell();
                 selectedLevel = Levels.GetValue(0)?.ToString();
-                selectedSource = (Spell.SpellSource)Sources.GetValue(0);
+                selectedSource = (FilterLists.Source)Sources.GetValue(0);
                 selectedSchool = (Spell.SpellSchool)Schools.GetValue(0);
                 Current.School = selectedSchool.ToString();
                 Current.Source = selectedSource.ToString();
